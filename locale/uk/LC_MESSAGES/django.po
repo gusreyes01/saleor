@@ -1,8 +1,8 @@
 # Saleor
-# Copyright (C) 2017 Mirumee Software
+# Copyright (C) 2019 Bringall S.A de C.V
 # This file is distributed under the same license as the Saleor package.
 # Mirumee Software <hello@mirumee.com>, 2017.
-# 
+#
 # Translators:
 # Roman Starenkyi <rstar2808@gmail.com>, 2017
 # Patryk Zawadzki <patrys@room-303.com>, 2018
@@ -13,7 +13,7 @@
 # Andriy Kovalchuk <tulsluper@gmail.com>, 2019
 # Marysya Rudska <rudmari@gmail.com>, 2019
 # Roman Storozhuk <roman.storozhuk@gmail.com>, 2019
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
