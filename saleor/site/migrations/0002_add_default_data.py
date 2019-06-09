@@ -10,7 +10,7 @@ def create_default_site(apps, schema_editor):
     SiteSettings = apps.get_model('site', 'SiteSettings')
     settings_id = getattr(settings, 'SITE_SETTINGS_ID', None)
     SiteSettings.objects.get_or_create(pk=settings_id, defaults={
-        'name': 'Bringall Tienda en Línea',
+        'name': 'Bringall: Tienda en Línea',
         'header_text': 'Tu solución en sellos de seguridad',
         'domain': 'localhost:8000'})
 

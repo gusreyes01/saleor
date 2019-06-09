@@ -343,7 +343,7 @@ def test_products_query_with_filter(
 
     second_product = product
     second_product.id = None
-    second_product.name = 'Apple Juice1'
+    second_product.name = 'Pollux Lock'
     second_product.price = Money('6.00', 'USD')
     second_product.is_published = filter.get('isPublished', True)
     second_product.save()

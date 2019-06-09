@@ -123,7 +123,7 @@ export const product: (
       }
     }
   },
-  category: { __typename: "Category", id: "Q2F0ZWdvcnk6MQ==", name: "Apparel" },
+  category: { __typename: "Category", id: "Q2F0ZWdvcnk6MQ==", name: "Equipo" },
   chargeTaxes: true,
   collections: [
     {
@@ -407,7 +407,7 @@ export const products = (placeholderImage: string) => [
       }
     ],
     availability: { available: true },
-    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Apparel" },
+    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Equipo" },
     collections: {
       edges: [{ node: { id: "Q29sbGVjdGlvbjoy", name: "Winter sale" } }]
     },
@@ -568,7 +568,7 @@ export const products = (placeholderImage: string) => [
       }
     ],
     availability: { available: true },
-    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Apparel" },
+    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Equipo" },
     collections: {
       edges: [{ node: { id: "Q29sbGVjdGlvbjoy", name: "Winter sale" } }]
     },
@@ -765,7 +765,7 @@ export const products = (placeholderImage: string) => [
       }
     ],
     availability: { available: false },
-    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Apparel" },
+    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Equipo" },
     collections: {
       edges: [{ node: { id: "Q29sbGVjdGlvbjoy", name: "Winter sale" } }]
     },
@@ -973,7 +973,7 @@ export const products = (placeholderImage: string) => [
       }
     ],
     availability: { available: false },
-    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Apparel" },
+    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Equipo" },
     collections: {
       edges: [{ node: { id: "Q29sbGVjdGlvbjoy", name: "Winter sale" } }]
     },
@@ -1190,7 +1190,7 @@ export const products = (placeholderImage: string) => [
       }
     ],
     availability: { available: true },
-    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Apparel" },
+    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Equipo" },
     collections: {
       edges: [{ node: { id: "Q29sbGVjdGlvbjoy", name: "Winter sale" } }]
     },
@@ -1446,7 +1446,7 @@ export const products = (placeholderImage: string) => [
       }
     ],
     availability: { available: false },
-    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Apparel" },
+    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Equipo" },
     collections: {
       edges: [{ node: { id: "Q29sbGVjdGlvbjoy", name: "Winter sale" } }]
     },
@@ -1641,7 +1641,7 @@ export const products = (placeholderImage: string) => [
       }
     ],
     availability: { available: false },
-    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Apparel" },
+    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Equipo" },
     collections: {
       edges: [{ node: { id: "Q29sbGVjdGlvbjoy", name: "Winter sale" } }]
     },
@@ -1750,7 +1750,7 @@ export const products = (placeholderImage: string) => [
       }
     ],
     availability: { available: false },
-    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Apparel" },
+    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Equipo" },
     collections: {
       edges: [{ node: { id: "Q29sbGVjdGlvbjoy", name: "Winter sale" } }]
     },
@@ -1957,7 +1957,7 @@ export const products = (placeholderImage: string) => [
       }
     ],
     availability: { available: true },
-    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Apparel" },
+    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Equipo" },
     collections: {
       edges: [{ node: { id: "Q29sbGVjdGlvbjoy", name: "Winter sale" } }]
     },
@@ -2089,7 +2089,7 @@ export const products = (placeholderImage: string) => [
       }
     ],
     availability: { available: false },
-    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Apparel" },
+    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Equipo" },
     collections: {
       edges: [{ node: { id: "Q29sbGVjdGlvbjoy", name: "Winter sale" } }]
     },

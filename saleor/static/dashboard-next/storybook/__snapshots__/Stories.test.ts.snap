@@ -1974,7 +1974,7 @@ exports[`Storyshots Generics / MultiSelectField with value 1`] = `
             <span
               class="MuiChip-label-id"
             >
-              Apparel
+              Equipo
             </span>
           </div>
         </div>
@@ -2033,7 +2033,7 @@ exports[`Storyshots Generics / MultiSelectField with value, label and hint 1`] =
             <span
               class="MuiChip-label-id"
             >
-              Apparel
+              Equipo
             </span>
           </div>
         </div>
@@ -3891,7 +3891,7 @@ exports[`Storyshots Generics / SingleSelectField with value 1`] = `
         role="button"
         tabindex="0"
       >
-        Apparel
+        Equipo
       </div>
       <input
         type="hidden"
@@ -3936,7 +3936,7 @@ exports[`Storyshots Generics / SingleSelectField with value, label and hint 1`] 
         role="button"
         tabindex="0"
       >
-        Apparel
+        Equipo
       </div>
       <input
         type="hidden"
@@ -6032,7 +6032,7 @@ exports[`Storyshots Views / Authentication / Log in error 1`] = `
             <span
               class="MuiTypography-root-id MuiTypography-caption-id"
             >
-              Sorry, your username and/or password are incorrect. 
+              Sorry, your username and/or password are incorrect.
               <br />
               Please try again.
             </span>
@@ -6339,7 +6339,7 @@ exports[`Storyshots Views / Categories / Category list default 1`] = `
           <span
             class="MuiButton-label-id"
           >
-            Add category 
+            Add category
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root-id"
@@ -6788,7 +6788,7 @@ exports[`Storyshots Views / Categories / Category list empty 1`] = `
           <span
             class="MuiButton-label-id"
           >
-            Add category 
+            Add category
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root-id"
@@ -6965,7 +6965,7 @@ exports[`Storyshots Views / Categories / Category list loading 1`] = `
           <span
             class="MuiButton-label-id"
           >
-            Add category 
+            Add category
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root-id"
@@ -24215,7 +24215,7 @@ exports[`Storyshots Views / Customers / Customer list default 1`] = `
           <span
             class="MuiButton-label-id"
           >
-            Add customer 
+            Add customer
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root-id"
@@ -25511,7 +25511,7 @@ exports[`Storyshots Views / Customers / Customer list loading 1`] = `
           <span
             class="MuiButton-label-id"
           >
-            Add customer 
+            Add customer
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root-id"
@@ -25734,7 +25734,7 @@ exports[`Storyshots Views / Customers / Customer list no data 1`] = `
           <span
             class="MuiButton-label-id"
           >
-            Add customer 
+            Add customer
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root-id"
@@ -27462,7 +27462,7 @@ exports[`Storyshots Views / Discounts / Sale details default 1`] = `
                   <td
                     class="MuiTableCell-root-id MuiTableCell-body-id"
                   >
-                    Apparel
+                    Equipo
                   </td>
                   <td
                     class="MuiTableCell-root-id MuiTableCell-body-id DiscountCategories-textRight-id"
@@ -28013,7 +28013,7 @@ exports[`Storyshots Views / Discounts / Sale details form errors 1`] = `
                   <td
                     class="MuiTableCell-root-id MuiTableCell-body-id"
                   >
-                    Apparel
+                    Equipo
                   </td>
                   <td
                     class="MuiTableCell-root-id MuiTableCell-body-id DiscountCategories-textRight-id"
@@ -28386,7 +28386,7 @@ exports[`Storyshots Views / Discounts / Sale details loading 1`] = `
               <span
                 class="MuiTypography-root-id MuiTypography-headline-id CardTitle-title-id"
               >
-                Categories assigned to 
+                Categories assigned to
               </span>
               <div
                 class="CardTitle-toolbar-id"
@@ -29226,7 +29226,7 @@ exports[`Storyshots Views / Discounts / Sale details products 1`] = `
                   <td
                     class="MuiTableCell-root-id MuiTableCell-body-id DiscountProducts-colName-id"
                   >
-                    Carrot Juice
+                    Viper 380
                   </td>
                   <td
                     class="MuiTableCell-root-id MuiTableCell-body-id DiscountProducts-colType-id"
@@ -35269,7 +35269,7 @@ exports[`Storyshots Views / Orders / Draft order list default 1`] = `
           <span
             class="MuiButton-label-id"
           >
-            Create order 
+            Create order
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root-id"
@@ -36603,7 +36603,7 @@ exports[`Storyshots Views / Orders / Draft order list loading 1`] = `
           <span
             class="MuiButton-label-id"
           >
-            Create order 
+            Create order
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root-id"
@@ -36847,7 +36847,7 @@ exports[`Storyshots Views / Orders / Draft order list when no data 1`] = `
           <span
             class="MuiButton-label-id"
           >
-            Create order 
+            Create order
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root-id"
@@ -51666,7 +51666,7 @@ exports[`Storyshots Views / Orders / Order list default 1`] = `
           <span
             class="MuiButton-label-id"
           >
-            Create order 
+            Create order
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root-id"
@@ -53450,7 +53450,7 @@ exports[`Storyshots Views / Orders / Order list loading 1`] = `
           <span
             class="MuiButton-label-id"
           >
-            Create order 
+            Create order
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root-id"
@@ -53802,7 +53802,7 @@ exports[`Storyshots Views / Orders / Order list when no data 1`] = `
           <span
             class="MuiButton-label-id"
           >
-            Create order 
+            Create order
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root-id"
@@ -54076,7 +54076,7 @@ exports[`Storyshots Views / Orders / Order list with custom filters 1`] = `
           <span
             class="MuiButton-label-id"
           >
-            Create order 
+            Create order
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root-id"
@@ -60097,7 +60097,7 @@ exports[`Storyshots Views / Product types / Product types list default 1`] = `
           <span
             class="MuiButton-label-id"
           >
-            Add product type 
+            Add product type
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root-id"
@@ -60525,7 +60525,7 @@ exports[`Storyshots Views / Product types / Product types list loading 1`] = `
           <span
             class="MuiButton-label-id"
           >
-            Add product type 
+            Add product type
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root-id"
@@ -65688,7 +65688,7 @@ Ctrl + K"
                       autocomplete="off"
                       class="MuiInputBase-input-id MuiInput-input-id MuiInputBase-inputAdornedEnd-id"
                       type="text"
-                      value="Apparel"
+                      value="Equipo"
                     />
                     <svg
                       aria-hidden="true"
@@ -67913,7 +67913,7 @@ Ctrl + K"
                       autocomplete="off"
                       class="MuiInputBase-input-id MuiInput-input-id MuiInputBase-inputAdornedEnd-id"
                       type="text"
-                      value="Apparel"
+                      value="Equipo"
                     />
                     <svg
                       aria-hidden="true"
@@ -69231,7 +69231,7 @@ Ctrl + K"
                       autocomplete="off"
                       class="MuiInputBase-input-id MuiInput-input-id MuiInputBase-inputAdornedEnd-id"
                       type="text"
-                      value="Apparel"
+                      value="Equipo"
                     />
                     <svg
                       aria-hidden="true"
@@ -69848,7 +69848,7 @@ exports[`Storyshots Views / Products / Product list default 1`] = `
           <span
             class="MuiButton-label-id"
           >
-            Add product 
+            Add product
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root-id"
@@ -70783,7 +70783,7 @@ exports[`Storyshots Views / Products / Product list loading 1`] = `
           <span
             class="MuiButton-label-id"
           >
-            Add product 
+            Add product
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root-id"
@@ -71132,7 +71132,7 @@ exports[`Storyshots Views / Products / Product list no data 1`] = `
           <span
             class="MuiButton-label-id"
           >
-            Add product 
+            Add product
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root-id"
@@ -71397,7 +71397,7 @@ exports[`Storyshots Views / Products / Product list with custom filters 1`] = `
           <span
             class="MuiButton-label-id"
           >
-            Add product 
+            Add product
             <svg
               aria-hidden="true"
               class="MuiSvgIcon-root-id"

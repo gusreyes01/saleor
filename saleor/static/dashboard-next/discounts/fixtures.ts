@@ -104,7 +104,7 @@ export const sale: SaleDetails_sale = {
         node: {
           __typename: "Category",
           id: "U2FsZTo1=",
-          name: "Apparel",
+          name: "Equipo",
           products: {
             __typename: "ProductCountableConnection",
             totalCount: 18
@@ -176,7 +176,7 @@ export const sale: SaleDetails_sale = {
           __typename: "Product",
           id: "UHJvZHVjdDo3Mw==",
           isPublished: true,
-          name: "Carrot Juice",
+          name: "Viper 380",
           productType: {
             __typename: "ProductType",
             id: "UHJvZHVjdFR5cGU6OQ==",

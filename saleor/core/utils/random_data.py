@@ -459,32 +459,6 @@ def create_shipping_zone(
 
 
 def create_shipping_zones():
-    european_countries = [
-        'AX', 'AL', 'AD', 'AT', 'BY', 'BE', 'BA', 'BG', 'HR', 'CZ', 'DK', 'EE',
-        'FO', 'FI', 'FR', 'DE', 'GI', 'GR', 'GG', 'VA', 'HU', 'IS', 'IE', 'IM',
-        'IT', 'JE', 'LV', 'LI', 'LT', 'LU', 'MK', 'MT', 'MD', 'MC', 'ME', 'NL',
-        'NO', 'PL', 'PT', 'RO', 'RU', 'SM', 'RS', 'SK', 'SI', 'ES', 'SJ', 'SE',
-        'CH', 'UA', 'GB']
-    yield create_shipping_zone(
-        shipping_zone_name='Europe', countries=european_countries,
-        shipping_methods_names=[
-            'DHL', 'UPS', 'Registred priority', 'DB Schenker'])
-    oceanian_countries = [
-        'AS', 'AU', 'CX', 'CC', 'CK', 'FJ', 'PF', 'GU', 'HM', 'KI', 'MH', 'FM',
-        'NR', 'NC', 'NZ', 'NU', 'NF', 'MP', 'PW', 'PG', 'PN', 'WS', 'SB', 'TK',
-        'TO', 'TV', 'UM', 'VU', 'WF']
-    yield create_shipping_zone(
-        shipping_zone_name='Oceania', countries=oceanian_countries,
-        shipping_methods_names=['FBA', 'FedEx Express', 'Oceania Air Mail'])
-    asian_countries = [
-        'AF', 'AM', 'AZ', 'BH', 'BD', 'BT', 'BN', 'KH', 'CN', 'CY', 'GE', 'HK',
-        'IN', 'ID', 'IR', 'IQ', 'IL', 'JP', 'JO', 'KZ', 'KP', 'KR', 'KW', 'KG',
-        'LA', 'LB', 'MO', 'MY', 'MV', 'MN', 'MM', 'NP', 'OM', 'PK', 'PS', 'PH',
-        'QA', 'SA', 'SG', 'LK', 'SY', 'TW', 'TJ', 'TH', 'TL', 'TR', 'TM', 'AE',
-        'UZ', 'VN', 'YE']
-    yield create_shipping_zone(
-        shipping_zone_name='Asia', countries=asian_countries,
-        shipping_methods_names=['China Post', 'TNT', 'Aramex', 'EMS'])
     american_countries = [
         'AI', 'AG', 'AR', 'AW', 'BS', 'BB', 'BZ', 'BM', 'BO', 'BQ', 'BV', 'BR',
         'CA', 'KY', 'CL', 'CO', 'CR', 'CU', 'CW', 'DM', 'DO', 'EC', 'SV', 'FK',
@@ -494,16 +468,7 @@ def create_shipping_zones():
     yield create_shipping_zone(
         shipping_zone_name='Americas', countries=american_countries,
         shipping_methods_names=['DHL', 'UPS', 'FedEx', 'EMS'])
-    african_countries = [
-        'DZ', 'AO', 'BJ', 'BW', 'IO', 'BF', 'BI', 'CV', 'CM', 'CF', 'TD', 'KM',
-        'CG', 'CD', 'CI', 'DJ', 'EG', 'GQ', 'ER', 'SZ', 'ET', 'TF', 'GA', 'GM',
-        'GH', 'GN', 'GW', 'KE', 'LS', 'LR', 'LY', 'MG', 'MW', 'ML', 'MR', 'MU',
-        'YT', 'MA', 'MZ', 'NA', 'NE', 'NG', 'RE', 'RW', 'SH', 'ST', 'SN', 'SC',
-        'SL', 'SO', 'ZA', 'SS', 'SD', 'TZ', 'TG', 'TN', 'UG', 'EH', 'ZM', 'ZW']
-    yield create_shipping_zone(
-        shipping_zone_name='Africa', countries=african_countries,
-        shipping_methods_names=[
-            'Royale International', 'ACE', 'fastway couriers', 'Post Office'])
+
 
 
 def create_vouchers():
@@ -551,7 +516,7 @@ def create_page():
     content = """
     <h2>E-commerce for the PWA era</h2>
     <h3>A modular, high performance e-commerce storefront built with GraphQL, Django, and ReactJS.</h3>
-    <p>Saleor is a rapidly-growing open source e-commerce platform that has served high-volume companies from branches like publishing and apparel since 2012. Based on Python and Django, the latest major update introduces a modular front end with a GraphQL API and storefront and dashboard written in React to make Saleor a full-functionality open source e-commerce.</p>
+    <p>Saleor is a rapidly-growing open source e-commerce platform that has served high-volume companies from branches like publishing and equipo since 2012. Based on Python and Django, the latest major update introduces a modular front end with a GraphQL API and storefront and dashboard written in React to make Saleor a full-functionality open source e-commerce.</p>
     <p><a href="https://github.com/mirumee/saleor">Get Saleor today!</a></p>
     """
     content_json = {
@@ -589,7 +554,7 @@ def create_page():
              '',
              'data': {},
              'text':
-             'Saleor is a rapidly-growing open source e-commerce platform that has served high-volume companies from branches like publishing and apparel since 2012. Based on Python and Django, the latest major update introduces a modular front end with a GraphQL API and storefront and dashboard written in React to make Saleor a full-functionality open source e-commerce.',
+             'Saleor is a rapidly-growing open source e-commerce platform that has served high-volume companies from branches like publishing and equipo since 2012. Based on Python and Django, the latest major update introduces a modular front end with a GraphQL API and storefront and dashboard written in React to make Saleor a full-functionality open source e-commerce.',
              'type':
              'unstyled',
              'depth':

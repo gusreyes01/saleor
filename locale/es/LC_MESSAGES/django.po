@@ -5723,13 +5723,13 @@ msgstr "Comprar Ahora"
 
 #: templates/home.html:29
 msgctxt "Homepage title"
-msgid "Size & Colours"
-msgstr "Tamaño & Colores"
+msgid "Wholesale"
+msgstr "Ventas al mayoreo"
 
 #: templates/home.html:41
 msgctxt "Homepage title"
-msgid "Digital Downloads"
-msgstr "Descargas digitales"
+msgid "Upcoming products"
+msgstr "Próximos productos"
 
 #: templates/home.html:51
 msgctxt "Homepage title"

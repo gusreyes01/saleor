@@ -37,8 +37,8 @@
     "fields": {
       "seo_title": "",
       "seo_description": "",
-      "name": "Groceries",
-      "slug": "groceries",
+      "name": "Etiquetas",
+      "slug": "etiquetas",
       "description": "",
       "description_json": {
         "blocks": [
@@ -69,8 +69,8 @@
     "fields": {
       "seo_title": "",
       "seo_description": "",
-      "name": "Apparel",
-      "slug": "apparel",
+      "name": "Equipo",
+      "slug": "equipo",
       "description": "",
       "description_json": {
         "blocks": [
@@ -192,7 +192,7 @@
       "seo_title": "",
       "seo_description": "Tonight, my love, let us take fat brushes and paint the skies with the shades of nebula tides. Get the dark, moody shades of the ether.",
       "product_type": 7,
-      "name": "Nebula Night Sky Paint",
+      "name": "Protecto Lock",
       "description": "Tonight, my love, let us take fat brushes and paint the skies with the shades of nebula tides. Get the dark, moody shades of the ether.",
       "description_json": {
         "blocks": [
@@ -226,7 +226,7 @@
       "seo_title": "",
       "seo_description": "The rich, deep hue of space dust. Vacuum packed and airlocked for long-lasting freshness of color.",
       "product_type": 7,
-      "name": "Space Dust Navy Paint",
+      "name": "Protecto 30",
       "description": "The rich, deep hue of space dust. Vacuum packed and airlocked for long-lasting freshness of color.",
       "description_json": {
         "blocks": [
@@ -260,7 +260,7 @@
       "seo_title": "",
       "seo_description": "",
       "product_type": 7,
-      "name": "Red Dwarf Red Paint",
+      "name": "Protecto 40",
       "description": "We are all connected to the universe, because every cell in our bodies was cooked in the hearts of dying stars. Red Dwarf Paint: the color of Carl Sagan\u2019s dreams.",
       "description_json": {
         "blocks": [
@@ -294,7 +294,7 @@
       "seo_title": "",
       "seo_description": "There is life in outer space. This vibrant light speed yellow paint brings life to any surface. Goes on easy and dries at light speed.",
       "product_type": 7,
-      "name": "Light Speed Yellow Paint",
+      "name": "Connection Lock",
       "description": "There is life in outer space. This vibrant light speed yellow paint brings life to any surface. Goes on easy and dries at light speed.",
       "description_json": {
         "blocks": [
@@ -328,7 +328,7 @@
       "seo_title": "",
       "seo_description": "Turquoise is the new black. No more gloomy night skies, brighten up your evenings with hyperspace paint.",
       "product_type": 7,
-      "name": "Hyperspace Turquoise Paint",
+      "name": "Viper 45",
       "description": "Turquoise is the new black. No more gloomy night skies, brighten up your evenings with hyperspace paint.",
       "description_json": {
         "blocks": [
@@ -362,7 +362,7 @@
       "seo_title": "",
       "seo_description": "Fell from a tree straight into the bottle. No additives, no preservatives, just the refreshing taste of pure sun-kissed Californian oranges.",
       "product_type": 9,
-      "name": "Orange Juice",
+      "name": "D-Force",
       "description": "Fell from a tree straight into the bottle. No additives, no preservatives, just the refreshing taste of pure sun-kissed Californian oranges.",
       "description_json": {
         "blocks": [
@@ -396,7 +396,7 @@
       "seo_title": "",
       "seo_description": "Fell straight from the tree, on to Newton\u2019s head, then into the bottle. The autumn taste of English apples. Brought to you by gravity.",
       "product_type": 9,
-      "name": "Apple Juice",
+      "name": "Pollux Lock",
       "description": "Fell straight from the tree, on to Newton\u2019s head, then into the bottle. The autumn taste of English apples. Brought to you by gravity.",
       "description_json": {
         "blocks": [
@@ -428,16 +428,16 @@
       "publication_date": null,
       "is_published": true,
       "seo_title": "",
-      "seo_description": "Improve your eyesight the natural way with 100% pure, squeezed carrot juice. The sweet, orange nectar of Mother Earth.",
+      "seo_description": "Improve your eyesight the natural way with 100% pure, squeezed viper 380. The sweet, orange nectar of Mother Earth.",
       "product_type": 9,
-      "name": "Carrot Juice",
-      "description": "Improve your eyesight the natural way with 100% pure, squeezed carrot juice. The sweet, orange nectar of Mother Earth.",
+      "name": "Viper 380",
+      "description": "Improve your eyesight the natural way with 100% pure, squeezed viper 380. The sweet, orange nectar of Mother Earth.",
       "description_json": {
         "blocks": [
           {
             "key": "",
             "data": {},
-            "text": "Improve your eyesight the natural way with 100% pure, squeezed carrot juice. The sweet, orange nectar of Mother Earth.",
+            "text": "Improve your eyesight the natural way with 100% pure, squeezed viper 380. The sweet, orange nectar of Mother Earth.",
             "type": "unstyled",
             "depth": 0,
             "entityRanges": [],
@@ -464,7 +464,7 @@
       "seo_title": "",
       "seo_description": "Build your protein the natural way, with exotic banana juice made from ripe fruit and packed with all the goodness of the tropical sun.",
       "product_type": 9,
-      "name": "Banana Juice",
+      "name": "Crono Seal",
       "description": "Build your protein the natural way, with exotic banana juice made from ripe fruit and packed with all the goodness of the tropical sun.",
       "description_json": {
         "blocks": [
@@ -498,7 +498,7 @@
       "seo_title": "",
       "seo_description": "I can\u2019t stand pineapples, so this one is not for me. They have a weird, fluffy, tangy taste. But if it is your kind of thing, then knock yourself out.",
       "product_type": 9,
-      "name": "Pineapple Juice",
+      "name": "Bolt Seal",
       "description": "I can\u2019t stand pineapples, so this one is not for me. They have a weird, fluffy, tangy taste. But if it is your kind of thing, then knock yourself out.",
       "description_json": {
         "blocks": [
@@ -530,16 +530,16 @@
       "publication_date": null,
       "is_published": true,
       "seo_title": "",
-      "seo_description": "Did you know falling coconuts kill 150 people a year? But did you know that coconut juice is the new superfood? You win some, you lose some.",
+      "seo_description": "Did you know falling coconuts kill 150 people a year? But did you know that ultra seal is the new superfood? You win some, you lose some.",
       "product_type": 9,
-      "name": "Coconut Juice",
-      "description": "Did you know falling coconuts kill 150 people a year? But did you know that coconut juice is the new superfood? You win some, you lose some.",
+      "name": "Ultra seal",
+      "description": "Did you know falling coconuts kill 150 people a year? But did you know that  ultra seal is the new superfood? You win some, you lose some.",
       "description_json": {
         "blocks": [
           {
             "key": "",
             "data": {},
-            "text": "Did you know falling coconuts kill 150 people a year? But did you know that coconut juice is the new superfood? You win some, you lose some.",
+            "text": "Did you know falling coconuts kill 150 people a year? But did you know that ultra seal is the new superfood? You win some, you lose some.",
             "type": "unstyled",
             "depth": 0,
             "entityRanges": [],
@@ -566,7 +566,7 @@
       "seo_title": "",
       "seo_description": "Is it a bird? Is it a plane? No! It\u2019s some jacked dude who just sucked down a bottle of our brand new power juice! Look at him go!",
       "product_type": 9,
-      "name": "Power Juice",
+      "name": "Hexalock Code",
       "description": "Is it a bird? Is a plane? No! It\u2019s some jacked dude who just sucked down a bottle of our brand new power juice! Look at him go!",
       "description_json": {
         "blocks": [
@@ -600,7 +600,7 @@
       "seo_title": "",
       "seo_description": "Brussel sprouts, spinach, peas, kale, lettuce, cabbage, zucchini, more brussel sprouts. All the greens you\u2019ll ever need in one delicious juice.",
       "product_type": 9,
-      "name": "Green Juice",
+      "name": "Ball Seal",
       "description": "Brussel sprouts, spinach, peas, kale, lettuce, cabbage, zucchini, more brussel sprouts. All the greens you\u2019ll ever need in one delicious juice.",
       "description_json": {
         "blocks": [
@@ -634,7 +634,7 @@
       "seo_title": "",
       "seo_description": "Bean there, drunk that! The energy drink for the health-conscious. Brand new bean juice; from allotment to bottle in under 8 hours.",
       "product_type": 9,
-      "name": "Bean Juice",
+      "name": "Plain Seal",
       "description": "Bean there, drunk that! The energy drink for the health-conscious. Brand new bean juice; from allotment to bottle in under 8 hours.",
       "description_json": {
         "blocks": [
@@ -668,7 +668,7 @@
       "seo_title": "",
       "seo_description": "A fine, mature red with a hint of blackberry, an undertone of the alkaline Burgundy soil, a delicate aftertaste of burnt garlic, and a whole lot of grapes.",
       "product_type": 10,
-      "name": "Red Wine",
+      "name": "Trooper Seal",
       "description": "A fine, mature red with a hint of blackberry, an undertone of the alkaline Burgundy soil, a delicate aftertaste of burnt garlic, and a whole lot of grapes.",
       "description_json": {
         "blocks": [
@@ -702,7 +702,7 @@
       "seo_title": "",
       "seo_description": "Watch the slow setting sun of a wild summer evening sink into the horizon as you sip white wine that tastes like bittersweet memories of halcyon days.",
       "product_type": 10,
-      "name": "White Wine",
+      "name": "Star Seal 15",
       "description": "Watch the slow setting sun of a wild summer evening sink into the horizon as you sip white wine that tastes like bittersweet memories of halcyon days.",
       "description_json": {
         "blocks": [
@@ -736,7 +736,7 @@
       "seo_title": "",
       "seo_description": "Find your sea legs and then lose the power to use them with extra strong seaman\u2019s lager. Don\u2019t drink and sail, me hearties!",
       "product_type": 11,
-      "name": "Seaman Lager",
+      "name": "Star Seal 20",
       "description": "Find your sea legs and then lose the power to use them with extra strong seaman\u2019s lager. Don\u2019t drink and sail, me hearties!",
       "description_json": {
         "blocks": [
@@ -770,7 +770,7 @@
       "seo_title": "",
       "seo_description": "Best beer on the seven seas. A dark ale for when the dark clouds gather overhead. The nutty nautical taste that sailors love.",
       "product_type": 11,
-      "name": "Seaman Beer",
+      "name": "Cubre Tapón",
       "description": "Best beer on the seven seas. A dark ale for when the dark clouds gather overhead. The nutty nautical taste that sailors love.",
       "description_json": {
         "blocks": [
@@ -804,7 +804,7 @@
       "seo_title": "",
       "seo_description": "Add a little color to your life with a Saleor parrot cushion. Turns any old sofa into a rainbow of classy interior design.",
       "product_type": 12,
-      "name": "Colored Parrot Cushion",
+      "name": "Ferro Lock",
       "description": "Add a little color to your life with a Saleor parrot cushion. Turns any old sofa into a rainbow of classy interior design.",
       "description_json": {
         "blocks": [
@@ -838,7 +838,7 @@
       "seo_title": "",
       "seo_description": "Minimalist interiors need simple, sleek soft furnishings. Don\u2019t parrot what others do, set your own monochrome trends with Saleor designs.",
       "product_type": 12,
-      "name": "White Parrot Cushion",
+      "name": "Bolsa de Seguridad",
       "description": "Minimalist interiors need simple, sleek soft furnishings. Don\u2019t parrot what others do, set your own monochrome trends with Saleor designs.",
       "description_json": {
         "blocks": [
@@ -872,7 +872,7 @@
       "seo_title": "",
       "seo_description": "Mellow yellow. Step into summer with Saleor. Every time your head goes down, you see these beauties, and your mood bounces right back up.",
       "product_type": 13,
-      "name": "Yellow Plimsolls",
+      "name": "GH-88 Two Lock",
       "description": "Mellow yellow. Step into summer with Saleor. Every time your head goes down, you see these beauties, and your mood bounces right back up.",
       "description_json": {
         "blocks": [
@@ -906,7 +906,7 @@
       "seo_title": "",
       "seo_description": "PE at school wouldn\u2019t have been such a drag with these on your feet. Slip on the style and stride tall with Saleor branded plimsolls. PE now stands for pretty elegant.",
       "product_type": 13,
-      "name": "White Plimsolls",
+      "name": "Spin Seal",
       "description": "PE at school wouldn\u2019t have been such a drag with these on your feet. Slip on the style and stride tall with Saleor branded plimsolls. PE now stands for pretty elegant.",
       "description_json": {
         "blocks": [
@@ -938,16 +938,16 @@
       "publication_date": null,
       "is_published": true,
       "seo_title": "",
-      "seo_description": "Pay homage to the music and art of Joy Division and Peter Saville, but with a Mirumee twist. Perfect live transmission apparel for dead souls.",
+      "seo_description": "Pay homage to the music and art of Joy Division and Peter Saville, but with a Mirumee twist. Perfect live transmission equipo for dead souls.",
       "product_type": 14,
-      "name": "Code Division T-shirt",
-      "description": "Pay homage to the music and art of a Joy Division and Peter Saville, but with a Mirumee twist. Perfect live transmission apparel for dead souls.",
+      "name": "Trampa Protectora",
+      "description": "Pay homage to the music and art of a Joy Division and Peter Saville, but with a Mirumee twist. Perfect live transmission equipo for dead souls.",
       "description_json": {
         "blocks": [
           {
             "key": "",
             "data": {},
-            "text": "Pay homage to the music and art of a Joy Division and Peter Saville, but with a Mirumee twist. Perfect live transmission apparel for dead souls.",
+            "text": "Pay homage to the music and art of a Joy Division and Peter Saville, but with a Mirumee twist. Perfect live transmission equipo for dead souls.",
             "type": "unstyled",
             "depth": 0,
             "entityRanges": [],
@@ -974,7 +974,7 @@
       "seo_title": "",
       "seo_description": "Ever have those days where you feel a bit geometric? Can't quite shape yourself up right? Show your different sides with a Saleor styles.",
       "product_type": 14,
-      "name": "Polo Shirt",
+      "name": "GH-071",
       "description": "Ever have those days where you feel a bit geometric? Can't quite shape yourself up right? Show your different sides with a Saleor styles.",
       "description_json": {
         "blocks": [
@@ -1006,16 +1006,16 @@
       "publication_date": null,
       "is_published": true,
       "seo_title": "",
-      "seo_description": "Polo? Yolo\u2026 so don\u2019t waste time on the wrong apparel. Choose a polo shirt that looks as good as you feel.",
+      "seo_description": "Polo? Yolo\u2026 so don\u2019t waste time on the wrong equipo. Choose a polo shirt that looks as good as you feel.",
       "product_type": 14,
-      "name": "Polo Shirt",
-      "description": "Polo? Yolo\u2026 so don\u2019t waste time on the wrong apparel. Choose a polo shirt that looks as good as you feel.",
+      "name": "Etiqueta Alto Residuo",
+      "description": "Polo? Yolo\u2026 so don\u2019t waste time on the wrong equipo. Choose a polo shirt that looks as good as you feel.",
       "description_json": {
         "blocks": [
           {
             "key": "",
             "data": {},
-            "text": "Polo? Yolo\u2026 so don\u2019t waste time on the wrong apparel. Choose a polo shirt that looks as good as you feel.",
+            "text": "Polo? Yolo\u2026 so don\u2019t waste time on the wrong equipo. Choose a polo shirt that looks as good as you feel.",
             "type": "unstyled",
             "depth": 0,
             "entityRanges": [],
@@ -1042,7 +1042,7 @@
       "seo_title": "",
       "seo_description": "Wondering if this will look as good on you as it does on the screen? The answer is yes. A quality polo with smart styling.",
       "product_type": 14,
-      "name": "Polo Shirt",
+      "name": "Etiqueta No Residuo",
       "description": "Wondering if this will look as good on you as it does on the screen? The answer is yes. A quality polo with smart styling.",
       "description_json": {
         "blocks": [
@@ -1076,7 +1076,7 @@
       "seo_title": "",
       "seo_description": "They say polo is the sport of kings. Or was that stamp collecting? Either way, this shirt is fit for a king of Saturday night.",
       "product_type": 14,
-      "name": "Polo Shirt",
+      "name": "Holograma",
       "description": "They say polo is the sport of kings. Or was that stamp collecting? Either way, this shirt is fit for a king of Saturday night.",
       "description_json": {
         "blocks": [
@@ -3618,9 +3618,9 @@
     "pk": 1,
     "fields": {
       "sort_order": 6,
-      "name": "Pineapple",
+      "name": "Medida Cable",
       "value": "",
-      "slug": "pineapple",
+      "slug": "medida-cable",
       "attribute": 16
     }
   },
@@ -3629,9 +3629,9 @@
     "pk": 2,
     "fields": {
       "sort_order": 7,
-      "name": "Coconut",
+      "name": "Color",
       "value": "",
-      "slug": "coconut",
+      "slug": "color",
       "attribute": 16
     }
   },
@@ -3640,9 +3640,9 @@
     "pk": 3,
     "fields": {
       "sort_order": 8,
-      "name": "Apple",
+      "name": "Calificación",
       "value": "",
-      "slug": "apple",
+      "slug": "calificacion",
       "attribute": 16
     }
   },
