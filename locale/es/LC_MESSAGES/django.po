@@ -5713,8 +5713,8 @@ msgstr "Promociónes y Descuentos"
 
 #: templates/home.html:13
 msgctxt "Homepage title"
-msgid "from the Northpole"
-msgstr "desde el Polo Norte"
+msgid "we get to where you are"
+msgstr "llegamos a donde eestés"
 
 #: templates/home.html:15 templates/home.html:30 templates/home.html:42
 msgctxt "Homepage action"

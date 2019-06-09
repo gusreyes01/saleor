@@ -14,7 +14,7 @@ The resulting files are written to ``/saleor/static/assets/`` and should not be 
 During development it's very convenient to have webpack automatically track changes made locally.
 This will also enable *source maps* that are extremely helpful when debugging.
 
-To run webpack in *watch* mode run:
+To run webpack in *watch* mode run:yes
 
 .. code-block:: bash
 
