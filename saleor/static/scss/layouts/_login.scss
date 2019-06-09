@@ -26,6 +26,7 @@
     padding: $global-padding * 2;
     &-link {
       img {
+        height: 50%;
         margin: $global-margin / 2 auto $global-margin * 0.9;
         display: block;
         @include media-breakpoint-up(md) {
