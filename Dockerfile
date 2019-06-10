@@ -41,6 +41,7 @@ RUN groupadd -r saleor && useradd -r -g saleor saleor
 RUN apt-get update \
   && apt-get install -y \
     libxml2 \
+    gettext \
     libssl1.1 \
     libcairo2 \
     libpango-1.0-0 \

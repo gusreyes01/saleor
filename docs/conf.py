@@ -49,8 +49,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Saleor'
-copyright = u'2015-2018, Mirumee Software'
-author = u'Mirumee Software'
+copyright = u'2015-2018, BRINGALL S.A de C.V'
+author = u'BRINGALL S.A de C.V'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -225,7 +225,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
   (master_doc, 'saleor.tex', u'saleor Documentation',
-   u'Mirumee Software', 'manual'),
+   u'BRINGALL S.A de C.V', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of

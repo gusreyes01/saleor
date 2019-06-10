@@ -94,7 +94,7 @@ def checkout_with_voucher(checkout, product, voucher):
 def address(db):  # pylint: disable=W0613
     return Address.objects.create(
         first_name='John', last_name='Doe',
-        company_name='Mirumee Software',
+        company_name='BRINGALL S.A de C.V',
         street_address_1='Tęczowa 7',
         city='WROCŁAW',
         postal_code='53-601',
@@ -119,7 +119,7 @@ def graphql_address_data():
     return {
         'firstName': 'John Saleor',
         'lastName': 'Doe Mirumee',
-        'companyName': 'Mirumee Software',
+        'companyName': 'BRINGALL S.A de C.V',
         'streetAddress1': 'Tęczowa 7',
         'streetAddress2': '',
         'postalCode': '53-601',

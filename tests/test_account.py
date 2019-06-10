@@ -171,7 +171,7 @@ def test_address_as_data(address):
     assert data == {
         'first_name': 'John',
         'last_name': 'Doe',
-        'company_name': 'Mirumee Software',
+        'company_name': 'BRINGALL S.A de C.V',
         'street_address_1': 'Tęczowa 7',
         'street_address_2': '',
         'city': 'WROCŁAW',

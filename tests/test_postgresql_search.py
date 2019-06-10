@@ -112,7 +112,7 @@ def gen_address_for_user(first_name, last_name):
     return Address.objects.create(
         first_name=first_name,
         last_name=last_name,
-        company_name='Mirumee Software',
+        company_name='BRINGALL S.A de C.V',
         street_address_1='Tęczowa 7',
         city='Wrocław',
         postal_code='53-601',
