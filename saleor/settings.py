@@ -54,7 +54,6 @@ DATABASES = {
         default='postgres://saleor:saleor@localhost:5432/saleor',
         conn_max_age=600)}
 
-
 TIME_ZONE = 'America/Monterrey'
 LANGUAGE_CODE = 'es'
 LANGUAGES = [
@@ -215,7 +214,6 @@ INSTALLED_APPS = [
     'impersonate',
     'phonenumber_field',
     'captcha']
-
 
 ENABLE_DEBUG_TOOLBAR = get_bool_from_env('ENABLE_DEBUG_TOOLBAR', False)
 if ENABLE_DEBUG_TOOLBAR:
@@ -418,7 +416,6 @@ WEBPACK_LOADER = {
             r'.+\.hot-update\.js',
             r'.+\.map']}}
 
-
 LOGOUT_ON_PASSWORD_CHANGE = False
 
 # SEARCH CONFIGURATION
@@ -426,9 +423,9 @@ DB_SEARCH_ENABLED = True
 
 # support deployment-dependant elastic enviroment variable
 ES_URL = (
-    os.environ.get('ELASTICSEARCH_URL')
-    or os.environ.get('SEARCHBOX_URL')
-    or os.environ.get('BONSAI_URL'))
+        os.environ.get('ELASTICSEARCH_URL')
+        or os.environ.get('SEARCHBOX_URL')
+        or os.environ.get('BONSAI_URL'))
 
 ENABLE_SEARCH = bool(ES_URL) or DB_SEARCH_ENABLED  # global search disabling
 
@@ -482,7 +479,6 @@ IMPERSONATE = {
     'USE_HTTP_REFERER': True,
     'CUSTOM_ALLOW': 'saleor.account.impersonate.can_impersonate'}
 
-
 # Rich-text editor
 ALLOWED_TAGS = [
     'a',
@@ -505,7 +501,6 @@ ALLOWED_ATTRIBUTES = {
     'img': ['src']}
 ALLOWED_STYLES = ['text-align']
 
-
 # Slugs for menus precreated in Django migrations
 DEFAULT_MENUS = {
     'top_menu_name': 'navbar',
@@ -520,7 +515,6 @@ NOCAPTCHA = True
 RECAPTCHA_PUBLIC_KEY = os.environ.get('RECAPTCHA_PUBLIC_KEY')
 RECAPTCHA_PRIVATE_KEY = os.environ.get('RECAPTCHA_PRIVATE_KEY')
 
-
 #  Sentry
 SENTRY_DSN = os.environ.get('SENTRY_DSN')
 if SENTRY_DSN:
@@ -529,23 +523,31 @@ if SENTRY_DSN:
         'dsn': SENTRY_DSN,
         'release': __version__}
 
-
 SERIALIZATION_MODULES = {
     'json': 'saleor.core.utils.json_serializer'}
 
-
 DUMMY = 'dummy'
+OPENPAY = 'openpay'
 BRAINTREE = 'braintree'
 RAZORPAY = 'razorpay'
 STRIPE = 'stripe'
 
 CHECKOUT_PAYMENT_GATEWAYS = {
-    DUMMY: pgettext_lazy('Payment method name', 'Dummy gateway')}
+    DUMMY: pgettext_lazy('Payment method name', 'Dummy gateway'),
+    OPENPAY: pgettext_lazy('Credit card', 'Tarjeta de Crédito o Débito')}
 
 PAYMENT_GATEWAYS = {
     DUMMY: {
         'module': 'saleor.payment.gateways.dummy',
         'connection_params': {}},
+    OPENPAY: {
+        'module': 'saleor.payment.gateways.openpay',
+        'connection_params': {
+            'production_mode': get_bool_from_env('OPENPAY_SANDBOX_MODE', True),
+            'merchant_id': os.environ.get('OPENPAY_MERCHANT_ID'),
+            'api_key': os.environ.get('OPENPAY_API_KEY'),
+            'dashboard_path': os.environ.get('DASHBOARD_PATH')
+        }},
     BRAINTREE: {
         'module': 'saleor.payment.gateways.braintree',
         'connection_params': {

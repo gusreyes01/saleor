@@ -16501,7 +16501,7 @@ Ctrl + K"
                       />
                       <stop
                         offset="1"
-                        stop-color="#3EE7CD"
+                        stop-color="#ffc035"
                       />
                     </linearGradient>
                   </defs>
@@ -17079,7 +17079,7 @@ Ctrl + K"
                       />
                       <stop
                         offset="1"
-                        stop-color="#3EE7CD"
+                        stop-color="#ffc035"
                       />
                     </linearGradient>
                   </defs>
@@ -17271,7 +17271,7 @@ exports[`Storyshots Views / Configuration default 1`] = `
                   />
                   <stop
                     offset="1"
-                    stop-color="#3EE7CD"
+                    stop-color="#ffc035"
                   />
                 </linearGradient>
               </defs>
@@ -17327,7 +17327,7 @@ exports[`Storyshots Views / Configuration default 1`] = `
                   />
                   <stop
                     offset="1"
-                    stop-color="#3EE7CD"
+                    stop-color="#ffc035"
                   />
                 </linearGradient>
               </defs>
@@ -17383,7 +17383,7 @@ exports[`Storyshots Views / Configuration default 1`] = `
                   />
                   <stop
                     offset="1"
-                    stop-color="#3EE7CD"
+                    stop-color="#ffc035"
                   />
                 </linearGradient>
               </defs>
@@ -17439,7 +17439,7 @@ exports[`Storyshots Views / Configuration default 1`] = `
                   />
                   <stop
                     offset="1"
-                    stop-color="#3EE7CD"
+                    stop-color="#ffc035"
                   />
                 </linearGradient>
               </defs>
@@ -17501,7 +17501,7 @@ exports[`Storyshots Views / Configuration default 1`] = `
                   />
                   <stop
                     offset="1"
-                    stop-color="#3EE7CD"
+                    stop-color="#ffc035"
                   />
                 </linearGradient>
                 <linearGradient
@@ -17517,7 +17517,7 @@ exports[`Storyshots Views / Configuration default 1`] = `
                   />
                   <stop
                     offset="1"
-                    stop-color="#3EE7CD"
+                    stop-color="#ffc035"
                   />
                 </linearGradient>
               </defs>
@@ -17573,7 +17573,7 @@ exports[`Storyshots Views / Configuration default 1`] = `
                   />
                   <stop
                     offset="1"
-                    stop-color="#3EE7CD"
+                    stop-color="#ffc035"
                   />
                 </linearGradient>
               </defs>
@@ -17629,7 +17629,7 @@ exports[`Storyshots Views / Configuration default 1`] = `
                   />
                   <stop
                     offset="1"
-                    stop-color="#3EE7CD"
+                    stop-color="#ffc035"
                   />
                 </linearGradient>
               </defs>
@@ -17712,7 +17712,7 @@ exports[`Storyshots Views / Configuration partial access 1`] = `
                   />
                   <stop
                     offset="1"
-                    stop-color="#3EE7CD"
+                    stop-color="#ffc035"
                   />
                 </linearGradient>
               </defs>
@@ -17768,7 +17768,7 @@ exports[`Storyshots Views / Configuration partial access 1`] = `
                   />
                   <stop
                     offset="1"
-                    stop-color="#3EE7CD"
+                    stop-color="#ffc035"
                   />
                 </linearGradient>
               </defs>
@@ -17830,7 +17830,7 @@ exports[`Storyshots Views / Configuration partial access 1`] = `
                   />
                   <stop
                     offset="1"
-                    stop-color="#3EE7CD"
+                    stop-color="#ffc035"
                   />
                 </linearGradient>
                 <linearGradient
@@ -17846,7 +17846,7 @@ exports[`Storyshots Views / Configuration partial access 1`] = `
                   />
                   <stop
                     offset="1"
-                    stop-color="#3EE7CD"
+                    stop-color="#ffc035"
                   />
                 </linearGradient>
               </defs>
@@ -17902,7 +17902,7 @@ exports[`Storyshots Views / Configuration partial access 1`] = `
                   />
                   <stop
                     offset="1"
-                    stop-color="#3EE7CD"
+                    stop-color="#ffc035"
                   />
                 </linearGradient>
               </defs>
@@ -33803,7 +33803,7 @@ exports[`Storyshots Views / HomePage default 1`] = `
                       />
                       <stop
                         offset="1"
-                        stop-color="#3EE7CD"
+                        stop-color="#ffc035"
                       />
                     </linearGradient>
                   </defs>
@@ -33864,7 +33864,7 @@ exports[`Storyshots Views / HomePage default 1`] = `
                       />
                       <stop
                         offset="1"
-                        stop-color="#3EE7CD"
+                        stop-color="#ffc035"
                       />
                     </linearGradient>
                   </defs>
@@ -34509,7 +34509,7 @@ exports[`Storyshots Views / HomePage loading 1`] = `
                       />
                       <stop
                         offset="1"
-                        stop-color="#3EE7CD"
+                        stop-color="#ffc035"
                       />
                     </linearGradient>
                   </defs>
@@ -34575,7 +34575,7 @@ exports[`Storyshots Views / HomePage loading 1`] = `
                       />
                       <stop
                         offset="1"
-                        stop-color="#3EE7CD"
+                        stop-color="#ffc035"
                       />
                     </linearGradient>
                   </defs>
@@ -34912,7 +34912,7 @@ exports[`Storyshots Views / HomePage no data 1`] = `
                       />
                       <stop
                         offset="1"
-                        stop-color="#3EE7CD"
+                        stop-color="#ffc035"
                       />
                     </linearGradient>
                   </defs>
@@ -34973,7 +34973,7 @@ exports[`Storyshots Views / HomePage no data 1`] = `
                       />
                       <stop
                         offset="1"
-                        stop-color="#3EE7CD"
+                        stop-color="#ffc035"
                       />
                     </linearGradient>
                   </defs>
@@ -63378,7 +63378,7 @@ exports[`Storyshots Views / Products / Create product variant default 1`] = `
                             />
                             <stop
                               offset="1"
-                              stop-color="#3EE7CD"
+                              stop-color="#ffc035"
                             />
                           </linearGradient>
                         </defs>
@@ -63781,7 +63781,7 @@ exports[`Storyshots Views / Products / Create product variant when loading data 
                             />
                             <stop
                               offset="1"
-                              stop-color="#3EE7CD"
+                              stop-color="#ffc035"
                             />
                           </linearGradient>
                         </defs>
@@ -64156,7 +64156,7 @@ exports[`Storyshots Views / Products / Create product variant with errors 1`] = 
                             />
                             <stop
                               offset="1"
-                              stop-color="#3EE7CD"
+                              stop-color="#ffc035"
                             />
                           </linearGradient>
                         </defs>
@@ -65065,7 +65065,7 @@ Ctrl + K"
                         />
                         <stop
                           offset="1"
-                          stop-color="#3EE7CD"
+                          stop-color="#ffc035"
                         />
                       </linearGradient>
                     </defs>
@@ -67378,7 +67378,7 @@ Ctrl + K"
                         />
                         <stop
                           offset="1"
-                          stop-color="#3EE7CD"
+                          stop-color="#ffc035"
                         />
                       </linearGradient>
                     </defs>
@@ -68725,7 +68725,7 @@ Ctrl + K"
                         />
                         <stop
                           offset="1"
-                          stop-color="#3EE7CD"
+                          stop-color="#ffc035"
                         />
                       </linearGradient>
                     </defs>
