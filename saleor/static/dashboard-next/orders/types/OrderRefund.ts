@@ -2,7 +2,7 @@
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
 
-import { OrderEventsEmails, OrderEvents, FulfillmentStatus, PaymentChargeStatusEnum, OrderStatus, OrderAction } from "./../../types/globalTypes";
+import { OrderEventsEmailsEnum, OrderEventsEnum, FulfillmentStatus, PaymentChargeStatusEnum, OrderStatus, OrderAction } from "./../../types/globalTypes";
 
 // ====================================================
 // GraphQL mutation operation: OrderRefund
@@ -48,10 +48,10 @@ export interface OrderRefund_orderRefund_order_events {
   amount: number | null;
   date: any | null;
   email: string | null;
-  emailType: OrderEventsEmails | null;
+  emailType: OrderEventsEmailsEnum | null;
   message: string | null;
   quantity: number | null;
-  type: OrderEvents | null;
+  type: OrderEventsEnum | null;
   user: OrderRefund_orderRefund_order_events_user | null;
 }
 
@@ -73,6 +73,11 @@ export interface OrderRefund_orderRefund_order_fulfillments_lines_orderLine_unit
   net: OrderRefund_orderRefund_order_fulfillments_lines_orderLine_unitPrice_net;
 }
 
+export interface OrderRefund_orderRefund_order_fulfillments_lines_orderLine_thumbnail {
+  __typename: "Image";
+  url: string;
+}
+
 export interface OrderRefund_orderRefund_order_fulfillments_lines_orderLine {
   __typename: "OrderLine";
   id: string;
@@ -82,7 +87,7 @@ export interface OrderRefund_orderRefund_order_fulfillments_lines_orderLine {
   quantity: number;
   quantityFulfilled: number;
   unitPrice: OrderRefund_orderRefund_order_fulfillments_lines_orderLine_unitPrice | null;
-  thumbnailUrl: string | null;
+  thumbnail: OrderRefund_orderRefund_order_fulfillments_lines_orderLine_thumbnail | null;
 }
 
 export interface OrderRefund_orderRefund_order_fulfillments_lines {
@@ -119,6 +124,11 @@ export interface OrderRefund_orderRefund_order_lines_unitPrice {
   net: OrderRefund_orderRefund_order_lines_unitPrice_net;
 }
 
+export interface OrderRefund_orderRefund_order_lines_thumbnail {
+  __typename: "Image";
+  url: string;
+}
+
 export interface OrderRefund_orderRefund_order_lines {
   __typename: "OrderLine";
   id: string;
@@ -128,7 +138,7 @@ export interface OrderRefund_orderRefund_order_lines {
   quantity: number;
   quantityFulfilled: number;
   unitPrice: OrderRefund_orderRefund_order_lines_unitPrice | null;
-  thumbnailUrl: string | null;
+  thumbnail: OrderRefund_orderRefund_order_lines_thumbnail | null;
 }
 
 export interface OrderRefund_orderRefund_order_shippingAddress_country {

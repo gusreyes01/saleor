@@ -7,12 +7,12 @@ import {
 } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
-import * as React from "react";
+import React from "react";
 import SVG from "react-inlinesvg";
 
 import * as backgroundArt from "../../../../images/login-background.svg";
 import * as saleorDarkLogo from "../../../../images/logo-dark.svg";
-import * as saleorLightLogo from "../../../../images/logo-light.svg";
+import * as saleorLightLogo from "../../../../images/bringall-logo.jpg";
 import { ControlledCheckbox } from "../../../components/ControlledCheckbox";
 import Form from "../../../components/Form";
 import { FormSpacer } from "../../../components/FormSpacer";

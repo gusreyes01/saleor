@@ -16,11 +16,8 @@ def create_default_site(apps, schema_editor):
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('site', '0001_initial'),
-    ]
+    dependencies = [("site", "0001_initial")]
 
     operations = [
-        migrations.RunPython(create_default_site,
-                             lambda app, schema_editor: None)
+        migrations.RunPython(create_default_site, lambda app, schema_editor: None)
     ]

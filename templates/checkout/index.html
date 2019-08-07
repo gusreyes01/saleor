@@ -4,12 +4,12 @@
 {% load price from taxed_prices %}
 {% load static %}
 
-{% block title %}{% trans "Your checkout" context "Checkout page title" %} — {{ block.super }}{% endblock %}
+{% block title %}{% trans "Your cart" context "Checkout page title" %} — {{ block.super }}{% endblock %}
 
 {% block breadcrumb %}
   <ul class="breadcrumbs list-unstyled">
     <li><a href="{% url 'home' %}">{% trans "Home" context "Main navigation item" %}</a></li>
-    <li><a rel="nofollow" href="{% url 'checkout:index' %}">{% trans "Checkout" context "Checkout breadcrumb" %}</a></li>
+    <li><a rel="nofollow" href="{% url 'checkout:index' %}">{% trans "Cart" context "Checkout breadcrumb" %}</a></li>
   </ul>
 {% endblock breadcrumb %}
 
@@ -80,8 +80,8 @@
             <a href="{% url "checkout:login" %}" class="btn btn-primary float-right checkout-preview__submit">
             {% trans "Checkout" context "Checkout primary action" %}
           </a>
-            <button class="btn secondary float-right checkout__clear" data-action="{% url 'checkout:clear' %}">
-            {% trans "Clear checkout" context "checkout page: secondary action, empty the checkout" %}
+            <button class="btn secondary float-right checkout-preview__clear" data-action="{% url 'checkout:clear' %}">
+            {% trans "Clear cart" context "checkout page: secondary action, empty the checkout" %}
           </button>
         </div>
       </div>
