@@ -1,6 +1,7 @@
 import uuid
 from decimal import Decimal
 from io import BytesIO
+from typing import List
 from unittest.mock import MagicMock, Mock
 
 import pytest
@@ -20,11 +21,11 @@ from saleor.account.models import Address, User
 from saleor.checkout import utils
 from saleor.checkout.models import Checkout
 from saleor.checkout.utils import add_variant_to_checkout
-from saleor.dashboard.menu.utils import update_menu
 from saleor.discount import DiscountInfo, DiscountValueType, VoucherType
 from saleor.discount.models import Sale, Voucher, VoucherCustomer, VoucherTranslation
 from saleor.giftcard.models import GiftCard
 from saleor.menu.models import Menu, MenuItem
+from saleor.menu.utils import update_menu
 from saleor.order import OrderStatus
 from saleor.order.events import OrderEvents
 from saleor.order.models import FulfillmentStatus, Order, OrderEvent
@@ -32,13 +33,13 @@ from saleor.order.utils import fulfill_order_line, recalculate_order
 from saleor.page.models import Page
 from saleor.payment import ChargeStatus, TransactionKind
 from saleor.payment.models import Payment
+from saleor.product import AttributeInputType
 from saleor.product.models import (
     Attribute,
     AttributeTranslation,
     AttributeValue,
     Category,
     Collection,
-    CollectionProduct,
     DigitalContent,
     DigitalContentUrl,
     Product,
@@ -342,6 +343,19 @@ def size_attribute(db):  # pylint: disable=W0613
 
 
 @pytest.fixture
+def attribute_list() -> List[Attribute]:
+    return list(
+        Attribute.objects.bulk_create(
+            [
+                Attribute(slug="size", name="Size"),
+                Attribute(slug="weight", name="Weight"),
+                Attribute(slug="thickness", name="Thickness"),
+            ]
+        )
+    )
+
+
+@pytest.fixture
 def image():
     img_data = BytesIO()
     image = Image.new("RGB", size=(1, 1))
@@ -369,7 +383,7 @@ def categories_tree(db, product_type):  # pylint: disable=W0613
 
     product_attr = product_type.product_attributes.first()
     attr_value = product_attr.values.first()
-    attributes = {smart_text(product_attr.pk): smart_text(attr_value.pk)}
+    attributes = {smart_text(product_attr.pk): [smart_text(attr_value.pk)]}
 
     Product.objects.create(
         name="Test product",
@@ -424,7 +438,7 @@ def product_type_without_variant():
 def product(product_type, category):
     product_attr = product_type.product_attributes.first()
     attr_value = product_attr.values.first()
-    attributes = {smart_text(product_attr.pk): smart_text(attr_value.pk)}
+    attributes = {smart_text(product_attr.pk): [smart_text(attr_value.pk)]}
 
     product = Product.objects.create(
         name="Test product",
@@ -437,7 +451,7 @@ def product(product_type, category):
     variant_attr = product_type.variant_attributes.first()
     variant_attr_value = variant_attr.values.first()
     variant_attributes = {
-        smart_text(variant_attr.pk): smart_text(variant_attr_value.pk)
+        smart_text(variant_attr.pk): [smart_text(variant_attr_value.pk)]
     }
 
     ProductVariant.objects.create(
@@ -448,6 +462,30 @@ def product(product_type, category):
         quantity=10,
         quantity_allocated=1,
     )
+    return product
+
+
+@pytest.fixture
+def product_with_multiple_values_attributes(product, product_type, category) -> Product:
+
+    attribute = Attribute.objects.create(
+        slug="modes", name="Available Modes", input_type=AttributeInputType.MULTISELECT
+    )
+
+    attr_val_1 = AttributeValue.objects.create(
+        attribute=attribute, name="Eco Mode", slug="eco"
+    )
+    attr_val_2 = AttributeValue.objects.create(
+        attribute=attribute, name="Performance Mode", slug="power"
+    )
+
+    product_type.product_attributes.clear()
+    product_type.product_attributes.add(attribute)
+
+    product.attributes = {
+        smart_text(attribute.pk): [smart_text(attr_val_1.pk), smart_text(attr_val_2.pk)]
+    }
+    product.save(update_fields=["attributes"])
     return product
 
 
@@ -509,7 +547,7 @@ def product_without_shipping(category):
 def product_list(product_type, category):
     product_attr = product_type.product_attributes.first()
     attr_value = product_attr.values.first()
-    attributes = {smart_text(product_attr.pk): smart_text(attr_value.pk)}
+    attributes = {smart_text(product_attr.pk): [smart_text(attr_value.pk)]}
 
     products = Product.objects.bulk_create(
         [
@@ -627,7 +665,7 @@ def unavailable_product_with_variant(product_type, category):
     variant_attr = product_type.variant_attributes.first()
     variant_attr_value = variant_attr.values.first()
     variant_attributes = {
-        smart_text(variant_attr.pk): smart_text(variant_attr_value.pk)
+        smart_text(variant_attr.pk): [smart_text(variant_attr_value.pk)]
     }
 
     ProductVariant.objects.create(
@@ -1010,10 +1048,7 @@ def collection(db):
 
 @pytest.fixture
 def collection_with_products(db, collection, product_list_published):
-    for sort_order, product in enumerate(product_list_published):
-        CollectionProduct(
-            collection=collection, product=product, sort_order=sort_order
-        ).save()
+    collection.products.set(list(product_list_published))
     return product_list_published
 
 
@@ -1108,7 +1143,9 @@ def menu(db):
 
 @pytest.fixture
 def menu_item(menu):
-    return MenuItem.objects.create(menu=menu, name="Link 1", url="http://example.com/")
+    item = MenuItem.objects.create(menu=menu, name="Link 1", url="http://example.com/")
+    update_menu(menu)
+    return item
 
 
 @pytest.fixture
@@ -1116,6 +1153,7 @@ def menu_item_list(menu):
     menu_item_1 = MenuItem.objects.create(menu=menu, name="Link 1")
     menu_item_2 = MenuItem.objects.create(menu=menu, name="Link 2")
     menu_item_3 = MenuItem.objects.create(menu=menu, name="Link 3")
+    update_menu(menu)
     return menu_item_1, menu_item_2, menu_item_3
 
 
@@ -1189,7 +1227,7 @@ def payment_dummy(db, settings, order_with_lines):
 
 
 @pytest.fixture
-def digital_content(category, media_root):
+def digital_content(category, media_root) -> DigitalContent:
     product_type = ProductType.objects.create(
         name="Digital Type",
         has_variants=True,

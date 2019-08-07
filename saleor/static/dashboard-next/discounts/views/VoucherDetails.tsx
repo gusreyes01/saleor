@@ -38,6 +38,7 @@ import {
   TypedVoucherUpdate
 } from "../mutations";
 import { TypedVoucherDetails } from "../queries";
+import { RequirementsPicker } from "../types";
 import { VoucherCataloguesAdd } from "../types/VoucherCataloguesAdd";
 import { VoucherCataloguesRemove } from "../types/VoucherCataloguesRemove";
 import { VoucherDelete } from "../types/VoucherDelete";
@@ -315,6 +316,8 @@ export const VoucherDetails: React.StatelessComponent<VoucherDetailsProps> = ({
                                   variables: {
                                     id,
                                     input: {
+                                      applyOncePerCustomer:
+                                        formData.applyOncePerCustomer,
                                       applyOncePerOrder:
                                         formData.applyOncePerOrder,
                                       discountValue:
@@ -333,9 +336,18 @@ export const VoucherDetails: React.StatelessComponent<VoucherDetailsProps> = ({
                                             formData.endTime
                                           )
                                         : null,
-                                      minAmountSpent: parseFloat(
-                                        formData.minAmountSpent
-                                      ),
+                                      minAmountSpent:
+                                        formData.requirementsPicker !==
+                                        RequirementsPicker.ORDER
+                                          ? 0
+                                          : parseFloat(formData.minAmountSpent),
+                                      minCheckoutItemsQuantity:
+                                        formData.requirementsPicker !==
+                                        RequirementsPicker.ITEM
+                                          ? 0
+                                          : parseFloat(
+                                              formData.minCheckoutItemsQuantity
+                                            ),
                                       startDate: joinDateTime(
                                         formData.startDate,
                                         formData.startTime
