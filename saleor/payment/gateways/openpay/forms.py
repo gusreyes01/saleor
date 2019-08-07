@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 import openpay
->>>>>>> 10a599bd180121a97c79de030f04398fb6a02334
 from django import forms
 from django.utils.translation import pgettext_lazy, ugettext_lazy as _
 
@@ -9,17 +6,12 @@ from ... import ChargeStatus
 
 
 class OpenpayPaymentForm(forms.Form):
-<<<<<<< HEAD
-    first_name =
-    last_name =
-    card_number =
-    cvc =
-=======
+
     first_name = forms.CharField()
     last_name = forms.CharField()
     card_number = forms.CharField()
     cvc = forms.CharField()
->>>>>>> 10a599bd180121a97c79de030f04398fb6a02334
+
     charge_status = forms.ChoiceField(
         label=pgettext_lazy('Payment status form field', 'Payment status'),
         choices=ChargeStatus.CHOICES, initial=ChargeStatus.NOT_CHARGED,
@@ -67,7 +59,7 @@ def _create_customer(user, customer_name, customer_phone):
     if customer_name == '':
         customer_name = 'Undefined'
         customer = openpay.Customer.create(
-<<<<<<< HEAD
+
         name=customer_name,
         email=getattr(user, 'email', "somebody@example.com"),
         last_name=getattr(user, 'last_name', "Unknown"),
@@ -75,16 +67,7 @@ def _create_customer(user, customer_name, customer_phone):
         phone_number=customer_phone
     )
     return customer
-=======
-            name=customer_name,
-            email=getattr(user, 'email', "somebody@example.com"),
-            last_name=getattr(user, 'last_name', "Unknown"),
-            requires_account=False,
-            phone_number=customer_phone
-        )
 
-        return customer
->>>>>>> 10a599bd180121a97c79de030f04398fb6a02334
 
 
 def _create_card(customer, data):
