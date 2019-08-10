@@ -1,3 +1,4 @@
+import Avatar from "@material-ui/core/Avatar";
 import Chip from "@material-ui/core/Chip";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Grow from "@material-ui/core/Grow";
@@ -18,19 +19,14 @@ import React from "react";
 import SVG from "react-inlinesvg";
 import { RouteComponentProps, withRouter } from "react-router";
 
-import * as saleorDarkLogo from "../../../images/logo-dark.svg";
-import * as saleorLightLogo from "../../../images/bringall-logo.jpg";
-import {
-  appLoaderHeight,
-  drawerWidth
-} from "../../components/AppLayout/consts";
-import MenuList from "../../components/AppLayout/MenuList";
-import menuStructure from "../../components/AppLayout/menuStructure";
-import ResponsiveDrawer from "../../components/AppLayout/ResponsiveDrawer";
-import AppProgressProvider from "../../components/AppProgress";
-import useNavigator from "../../hooks/useNavigator";
-import useTheme from "../../hooks/useTheme";
-import useUser from "../../hooks/useUser";
+import AppProgressProvider from "@saleor/components/AppProgress";
+import useLocalStorage from "@saleor/hooks/useLocalStorage";
+import useNavigator from "@saleor/hooks/useNavigator";
+import useTheme from "@saleor/hooks/useTheme";
+import useUser from "@saleor/hooks/useUser";
+import saleorDarkLogoSmall from "../../../images/logo-dark-small.svg";
+import saleorDarkLogo from "../../../images/logo-dark.svg";
+import menuArrowIcon from "../../../images/menu-arrow-icon.svg";
 import i18n from "../../i18n";
 import ArrowDropdown from "../../icons/ArrowDropdown";
 import Container from "../Container";
@@ -59,7 +55,7 @@ const styles = (theme: Theme) =>
       transition: theme.transitions.duration.standard + "ms"
     },
     content: {
-      [theme.breakpoints.down("md")]: {
+      [theme.breakpoints.down("sm")]: {
         paddingLeft: 0
       },
       paddingLeft: drawerWidthExpanded,
@@ -67,7 +63,7 @@ const styles = (theme: Theme) =>
       width: "100%"
     },
     contentToggle: {
-      [theme.breakpoints.down("md")]: {
+      [theme.breakpoints.down("sm")]: {
         paddingLeft: 0
       },
       paddingLeft: drawerWidth
@@ -236,8 +232,8 @@ const styles = (theme: Theme) =>
       display: "flex"
     },
     userChip: {
-      backgroundColor: theme.palette.common.white,
-      border: `1px solid ${theme.palette.grey[200]}`
+      backgroundColor: theme.palette.background.paper,
+      color: theme.palette.text.primary
     },
     userMenuContainer: {
       position: "relative"
@@ -388,6 +384,11 @@ const AppLayout = withStyles(styles, {
                               ref={anchor}
                             >
                               <Chip
+                                avatar={
+                                  user.avatar && (
+                                    <Avatar alt="user" src={user.avatar.url} />
+                                  )
+                                }
                                 className={classes.userChip}
                                 label={
                                   <>

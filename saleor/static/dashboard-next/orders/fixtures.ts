@@ -1154,7 +1154,7 @@ export const orderLineSearch = (placeholderImage: string) => [
   {
     __typename: "Product" as "Product",
     id: "UHJvZHVjdDo3Mg==",
-    name: "Pollux Lock",
+    name: "Apple Juice",
     thumbnail: {
       __typename: "Image" as "Image",
       url: placeholderImage
@@ -1186,7 +1186,7 @@ export const orderLineSearch = (placeholderImage: string) => [
   {
     __typename: "Product" as "Product",
     id: "UHJvZHVjdDo3NQ==",
-    name: "Pollux Lock",
+    name: "Pineapple Juice",
     thumbnail: {
       __typename: "Image" as "Image",
       url: placeholderImage

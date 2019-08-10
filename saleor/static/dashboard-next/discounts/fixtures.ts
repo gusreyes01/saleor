@@ -73,6 +73,7 @@ export const voucherList: VoucherList_vouchers_edges_node[] = [
     endDate: null,
     id: "Vm91Y2hlcjox",
     minAmountSpent: null,
+    minCheckoutItemsQuantity: null,
     startDate: "2019-01-03",
     usageLimit: null
   },
@@ -89,6 +90,7 @@ export const voucherList: VoucherList_vouchers_edges_node[] = [
       amount: 200,
       currency: "USD"
     },
+    minCheckoutItemsQuantity: 0,
     startDate: "2019-01-03",
     usageLimit: 150
   }
@@ -104,7 +106,7 @@ export const sale: SaleDetails_sale = {
         node: {
           __typename: "Category",
           id: "U2FsZTo1=",
-          name: "Equipo",
+          name: "Apparel",
           products: {
             __typename: "ProductCountableConnection",
             totalCount: 18
@@ -176,7 +178,7 @@ export const sale: SaleDetails_sale = {
           __typename: "Product",
           id: "UHJvZHVjdDo3Mw==",
           isPublished: true,
-          name: "Viper 380",
+          name: "Carrot Juice",
           productType: {
             __typename: "ProductType",
             id: "UHJvZHVjdFR5cGU6OQ==",
@@ -241,6 +243,7 @@ export const sale: SaleDetails_sale = {
 
 export const voucherDetails: VoucherDetails_voucher = {
   __typename: "Voucher",
+  applyOncePerCustomer: false,
   applyOncePerOrder: false,
   categories: {
     __typename: "CategoryCountableConnection",
@@ -283,6 +286,7 @@ export const voucherDetails: VoucherDetails_voucher = {
     amount: 200,
     currency: "USD"
   },
+  minCheckoutItemsQuantity: 0,
   products: {
     __typename: "ProductCountableConnection",
     edges: [],

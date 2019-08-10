@@ -11,9 +11,21 @@ export enum AddressTypeEnum {
   SHIPPING = "SHIPPING",
 }
 
+export enum AttributeInputTypeEnum {
+  DROPDOWN = "DROPDOWN",
+  MULTISELECT = "MULTISELECT",
+}
+
 export enum AttributeTypeEnum {
   PRODUCT = "PRODUCT",
   VARIANT = "VARIANT",
+}
+
+export enum AttributeValueType {
+  COLOR = "COLOR",
+  GRADIENT = "GRADIENT",
+  STRING = "STRING",
+  URL = "URL",
 }
 
 export enum AuthorizationKeyType {
@@ -231,9 +243,23 @@ export interface AddressInput {
   phone?: string | null;
 }
 
+export interface AttributeAssignInput {
+  id: string;
+  type: AttributeTypeEnum;
+}
+
 export interface AttributeCreateInput {
+  inputType?: AttributeInputTypeEnum | null;
   name: string;
+  slug?: string | null;
   values?: (AttributeValueCreateInput | null)[] | null;
+  valueRequired?: boolean | null;
+  isVariantOnly?: boolean | null;
+  visibleInStorefront?: boolean | null;
+  filterableInStorefront?: boolean | null;
+  filterableInDashboard?: boolean | null;
+  storefrontSearchPosition?: number | null;
+  availableInGrid?: boolean | null;
 }
 
 export interface AttributeInput {
@@ -243,8 +269,16 @@ export interface AttributeInput {
 
 export interface AttributeUpdateInput {
   name?: string | null;
+  slug?: string | null;
   removeValues?: (string | null)[] | null;
   addValues?: (AttributeValueCreateInput | null)[] | null;
+  valueRequired?: boolean | null;
+  isVariantOnly?: boolean | null;
+  visibleInStorefront?: boolean | null;
+  filterableInStorefront?: boolean | null;
+  filterableInDashboard?: boolean | null;
+  storefrontSearchPosition?: number | null;
+  availableInGrid?: boolean | null;
 }
 
 export interface AttributeValueCreateInput {
@@ -253,8 +287,10 @@ export interface AttributeValueCreateInput {
 }
 
 export interface AttributeValueInput {
-  slug: string;
-  value: string;
+  id?: string | null;
+  name?: string | null;
+  slug?: string | null;
+  values: (string | null)[];
 }
 
 export interface AuthorizationKeyInput {
@@ -349,12 +385,12 @@ export interface FulfillmentUpdateTrackingInput {
 }
 
 export interface MenuCreateInput {
-  name?: string | null;
+  name: string;
   items?: (MenuItemInput | null)[] | null;
 }
 
 export interface MenuItemCreateInput {
-  name?: string | null;
+  name: string;
   url?: string | null;
   category?: string | null;
   collection?: string | null;
@@ -465,6 +501,11 @@ export interface ProductVariantInput {
   quantity?: number | null;
   trackInventory?: boolean | null;
   weight?: any | null;
+}
+
+export interface ReorderInput {
+  id: string;
+  sortOrder?: number | null;
 }
 
 export interface SaleInput {

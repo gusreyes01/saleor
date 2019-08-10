@@ -14,6 +14,7 @@ import {
   DiscountValueTypeEnum,
   VoucherTypeEnum
 } from "../../../types/globalTypes";
+import { RequirementsPicker } from "../../types";
 import VoucherDates from "../VoucherDates";
 import VoucherInfo from "../VoucherInfo";
 import VoucherLimits from "../VoucherLimits";
@@ -22,6 +23,7 @@ import VoucherTypes from "../VoucherTypes";
 
 import VoucherValue from "../VoucherValue";
 export interface FormData {
+  applyOncePerCustomer: boolean;
   applyOncePerOrder: boolean;
   code: string;
   discountType: DiscountValueTypeEnum;
@@ -30,6 +32,8 @@ export interface FormData {
   hasEndDate: boolean;
   hasUsageLimit: boolean;
   minAmountSpent: string;
+  minCheckoutItemsQuantity: string;
+  requirementsPicker: RequirementsPicker;
   startDate: string;
   startTime: string;
   type: VoucherTypeEnum;
@@ -55,6 +59,7 @@ const VoucherCreatePage: React.StatelessComponent<VoucherCreatePageProps> = ({
   onSubmit
 }) => {
   const initialForm: FormData = {
+    applyOncePerCustomer: false,
     applyOncePerOrder: false,
     code: "",
     discountType: DiscountValueTypeEnum.FIXED,
@@ -63,6 +68,8 @@ const VoucherCreatePage: React.StatelessComponent<VoucherCreatePageProps> = ({
     hasEndDate: false,
     hasUsageLimit: false,
     minAmountSpent: "0",
+    minCheckoutItemsQuantity: "0",
+    requirementsPicker: RequirementsPicker.NONE,
     startDate: "",
     startTime: "",
     type: VoucherTypeEnum.ENTIRE_ORDER,

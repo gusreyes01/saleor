@@ -12,6 +12,7 @@ import {
 } from "../../types/globalTypes";
 import VoucherCreatePage from "../components/VoucherCreatePage";
 import { TypedVoucherCreate } from "../mutations";
+import { RequirementsPicker } from "../types";
 import { VoucherCreate } from "../types/VoucherCreate";
 import { voucherListUrl, voucherUrl } from "../urls";
 
@@ -52,6 +53,7 @@ export const VoucherDetails: React.StatelessComponent = () => {
                 voucherCreate({
                   variables: {
                     input: {
+                      applyOncePerCustomer: formData.applyOncePerCustomer,
                       applyOncePerOrder: formData.applyOncePerOrder,
                       code: formData.code,
                       discountValue:
@@ -65,7 +67,14 @@ export const VoucherDetails: React.StatelessComponent = () => {
                       endDate: formData.hasEndDate
                         ? joinDateTime(formData.endDate, formData.endTime)
                         : null,
-                      minAmountSpent: parseFloat(formData.minAmountSpent),
+                      minAmountSpent:
+                        formData.requirementsPicker !== RequirementsPicker.ORDER
+                          ? 0
+                          : parseFloat(formData.minAmountSpent),
+                      minCheckoutItemsQuantity:
+                        formData.requirementsPicker !== RequirementsPicker.ITEM
+                          ? 0
+                          : parseFloat(formData.minCheckoutItemsQuantity),
                       startDate: joinDateTime(
                         formData.startDate,
                         formData.startTime

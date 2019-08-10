@@ -8,14 +8,18 @@ export interface UseStateFromPropsOpts<T> {
 
 function useStateFromProps<T>(
   data: T,
-  opts: UseStateFromPropsOpts<T>
+  opts?: UseStateFromPropsOpts<T>
 ): [T, Dispatch<SetStateAction<T>>] {
   const [state, setState] = useState(data);
   const [prevData, setPrevData] = useState(data);
+  if (!opts) {
+    opts = {};
+  }
 
   const { mergeFunc, onRefresh } = opts;
+  const shouldUpdate = !isEqual(prevData, data);
 
-  if (!isEqual(prevData, data)) {
+  if (shouldUpdate) {
     const newData =
       typeof mergeFunc === "function" ? mergeFunc(prevData, state, data) : data;
     setState(newData);

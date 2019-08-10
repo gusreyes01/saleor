@@ -19,10 +19,10 @@ import Percent from "@saleor/components/Percent";
 import Skeleton from "@saleor/components/Skeleton";
 import TableHead from "@saleor/components/TableHead";
 import TablePagination from "@saleor/components/TablePagination";
-import i18n from "../../../i18n";
-import { maybe, renderCollection } from "../../../misc";
-import { ListActions, ListProps } from "../../../types";
-import { DiscountValueTypeEnum } from "../../../types/globalTypes";
+import i18n from "@saleor/i18n";
+import { maybe, renderCollection } from "@saleor/misc";
+import { ListActions, ListProps } from "@saleor/types";
+import { DiscountValueTypeEnum } from "@saleor/types/globalTypes";
 import { VoucherList_vouchers_edges_node } from "../../types/VoucherList";
 
 export interface VoucherListProps extends ListProps, ListActions {
@@ -74,15 +74,19 @@ const styles = (theme: Theme) =>
     }
   });
 
+const numberOfColumns = 7;
+
 const VoucherList = withStyles(styles, {
   name: "VoucherList"
 })(
   ({
     classes,
+    settings,
     defaultCurrency,
     disabled,
     onNextPage,
     onPreviousPage,
+    onUpdateListSettings,
     onRowClick,
     pageInfo,
     vouchers,
@@ -95,6 +99,7 @@ const VoucherList = withStyles(styles, {
     <Card>
       <Table>
         <TableHead
+          colSpan={numberOfColumns}
           selected={selected}
           disabled={disabled}
           items={vouchers}
@@ -135,9 +140,11 @@ const VoucherList = withStyles(styles, {
         <TableFooter>
           <TableRow>
             <TablePagination
-              colSpan={7}
+              colSpan={numberOfColumns}
+              settings={settings}
               hasNextPage={pageInfo && !disabled ? pageInfo.hasNextPage : false}
               onNextPage={onNextPage}
+              onUpdateListSettings={onUpdateListSettings}
               hasPreviousPage={
                 pageInfo && !disabled ? pageInfo.hasPreviousPage : false
               }
@@ -163,6 +170,7 @@ const VoucherList = withStyles(styles, {
                     <Checkbox
                       checked={isSelected}
                       disabled={disabled}
+                      disableClickPropagation
                       onChange={() => toggle(voucher.id)}
                     />
                   </TableCell>
@@ -230,7 +238,9 @@ const VoucherList = withStyles(styles, {
             },
             () => (
               <TableRow>
-                <TableCell colSpan={7}>{i18n.t("No vouchers found")}</TableCell>
+                <TableCell colSpan={numberOfColumns}>
+                  {i18n.t("No vouchers found")}
+                </TableCell>
               </TableRow>
             )
           )}
