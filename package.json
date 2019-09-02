@@ -13,8 +13,8 @@
   },
   "homepage": "http://getsaleor.com/",
   "engines": {
-    "node": "10.6.0",
-    "npm": "6.1.0"
+    "node": ">=10.6.0",
+    "npm": ">=6.1.0"
   },
   "dependencies": {
     "@material-ui/core": "^3.9.3",
@@ -45,6 +45,7 @@
     "bootstrap": "4.3.1",
     "classnames": "^2.2.6",
     "crc-32": "^1.2.0",
+    "cross-env": "^5.2.0",
     "detect-passive-events": "^1.0.4",
     "downshift": "^1.31.16",
     "draft-js": "^0.10.5",
@@ -140,7 +141,7 @@
     "eslint-plugin-react": "^7.14.2",
     "eslint-plugin-standard": "^3.1.0",
     "file-loader": "^1.1.11",
-    "fork-ts-checker-webpack-plugin": "^0.5.2",
+    "fork-ts-checker-webpack-plugin": "^1.5.0",
     "jest": "^24.8.0",
     "jest-file": "^1.0.0",
     "mini-css-extract-plugin": "^0.4.5",
@@ -158,7 +159,7 @@
     "tsconfig-paths-webpack-plugin": "^3.2.0",
     "tslint": "^5.18.0",
     "tslint-config-prettier": "^1.18.0",
-    "webpack": "^4.35.3",
+    "webpack": "^4.39.1",
     "webpack-bundle-tracker": "^0.3.0",
     "webpack-cli": "^3.3.6"
   },
@@ -211,7 +212,7 @@
     }
   },
   "scripts": {
-    "build-assets": "webpack -p",
+    "build-assets": "webpack",
     "build-schema": "python manage.py get_graphql_schema > saleor/graphql/schema.graphql",
     "build-types": "apollo client:codegen --target=typescript types --globalTypesFile=saleor/static/dashboard-next/types/globalTypes.ts",
     "generate-component": "plop --plopfile .plop/plopfile.js",

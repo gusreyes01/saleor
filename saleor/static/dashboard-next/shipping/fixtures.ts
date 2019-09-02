@@ -971,7 +971,7 @@ export const shippingZones: ShippingZoneFragment[] = [
       }
     ],
     id: "U2hpcHBpbmdab25lOjQ=",
-    name: "Americas"
+    name: "America"
   },
   {
     __typename: "ShippingZone",

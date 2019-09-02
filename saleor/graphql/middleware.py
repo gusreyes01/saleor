@@ -6,7 +6,6 @@ from graphql_jwt.middleware import JSONWebTokenMiddleware
 
 def jwt_middleware(get_response):
     """Authenticate a user using JWT and ignore the session-based authentication.
-
     This middleware resets authentication made by any previous middlewares
     and authenticates the user
     with graphql_jwt.middleware.JSONWebTokenMiddleware.

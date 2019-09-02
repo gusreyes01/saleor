@@ -60,58 +60,58 @@ fake = Factory.create()
 PRODUCTS_LIST_DIR = "products-list/"
 
 IMAGES_MAPPING = {
-    61: ["saleordemoproduct_paints_01.png"],
-    62: ["saleordemoproduct_paints_02.png"],
-    63: ["saleordemoproduct_paints_03.png"],
-    64: ["saleordemoproduct_paints_04.png"],
-    65: ["saleordemoproduct_paints_05.png"],
-    71: ["saleordemoproduct_fd_juice_06.png"],
-    72: ["saleordemoproduct_fd_juice_06.png"],  # FIXME inproper image
-    73: ["saleordemoproduct_fd_juice_05.png"],
-    74: ["saleordemoproduct_fd_juice_01.png"],
-    75: ["saleordemoproduct_fd_juice_03.png"],  # FIXME inproper image
-    76: ["saleordemoproduct_fd_juice_02.png"],  # FIXME inproper image
-    77: ["saleordemoproduct_fd_juice_03.png"],
-    78: ["saleordemoproduct_fd_juice_04.png"],
-    79: ["saleordemoproduct_fd_juice_02.png"],
-    81: ["saleordemoproduct_wine-red.png"],
-    82: ["saleordemoproduct_wine-white.png"],
-    83: ["saleordemoproduct_beer-02_1.png", "saleordemoproduct_beer-02_2.png"],
-    84: ["saleordemoproduct_beer-01_1.png", "saleordemoproduct_beer-01_2.png"],
-    85: ["saleordemoproduct_cuschion01.png"],
-    86: ["saleordemoproduct_cuschion02.png"],
+    61: ["polux.jpg"],
+    62: ["polux.jpg"],
+    63: ["polux.jpg"],
+    64: ["polux.jpg"],
+    65: ["polux.jpg"],
+    71: ["polux.jpg"],
+    72: ["polux.jpg"],  # FIXME inproper image
+    73: ["polux.jpg"],
+    74: ["polux.jpg"],
+    75: ["polux.jpg"],  # FIXME inproper image
+    76: ["polux.jpg"],  # FIXME inproper image
+    77: ["polux.jpg"],
+    78: ["polux.jpg"],
+    79: ["polux.jpg"],
+    81: ["polux.jpg"],
+    82: ["polux.jpg"],
+    83: ["polux.jpg"],
+    84: ["polux.jpg"],
+    85: ["polux.jpg"],
+    86: ["polux.jpg"],
     87: [
-        "saleordemoproduct_sneakers_01_1.png",
-        "saleordemoproduct_sneakers_01_2.png",
-        "saleordemoproduct_sneakers_01_3.png",
-        "saleordemoproduct_sneakers_01_4.png",
+        "polux.jpg",
+        "polux.jpg",
+        "polux.jpg",
+        "polux.jpg",
     ],
     88: [
-        "saleordemoproduct_sneakers_02_1.png",
-        "saleordemoproduct_sneakers_02_2.png",
-        "saleordemoproduct_sneakers_02_3.png",
-        "saleordemoproduct_sneakers_02_4.png",
+        "polux.jpg",
+        "polux.jpg",
+        "polux.jpg",
+        "polux.jpg",
     ],
-    89: ["saleordemoproduct_cl_boot07_1.png", "saleordemoproduct_cl_boot07_2.png"],
-    107: ["saleordemoproduct_cl_polo01.png"],
-    108: ["saleordemoproduct_cl_polo02.png"],
-    109: ["saleordemoproduct_cl_polo03-woman.png"],
-    110: ["saleordemoproduct_cl_polo04-woman.png"],
+    89: ["polux.jpg"],
+    107: ["polux.jpg"],
+    108: ["polux.jpg"],
+    109: ["polux.jpg"],
+    110: ["polux.jpg"],
     111: [
-        "saleordemoproduct_cl_boot01_1.png",
-        "saleordemoproduct_cl_boot01_2.png",
-        "saleordemoproduct_cl_boot01_3.png",
+        "polux.jpg",
+        "polux.jpg",
+        "polux.jpg",
     ],
-    112: ["saleordemoproduct_cl_boot03_1.png", "saleordemoproduct_cl_boot03_2.png"],
-    113: ["saleordemoproduct_cl_boot06_1.png", "saleordemoproduct_cl_boot06_2.png"],
+    112: ["polux.jpg"],
+    113: ["polux.jpg"],
     114: [
-        "saleordemoproduct_cl_boot06_1.png",
-        "saleordemoproduct_cl_boot06_2.png",
+        "polux.jpg",
+        "polux.jpg",
     ],  # FIXME incorrect image
-    115: ["saleordemoproduct_cl_bogo01_1.png"],
-    116: ["saleordemoproduct_cl_bogo02_1.png"],
-    117: ["saleordemoproduct_cl_bogo03_1.png"],
-    118: ["saleordemoproduct_cl_bogo04_1.png", "saleordemoproduct_cl_bogo04_2.png"],
+    115: ["polux.jpg"],
+    116: ["polux.jpg"],
+    117: ["polux.jpg"],
+    118: ["polux.jpg"],
 }
 
 
@@ -567,8 +567,8 @@ def create_shipping_zones():
         "VI",
     ]
     yield create_shipping_zone(
-        shipping_zone_name='Americas', countries=american_countries,
-        shipping_methods_names=['DHL', 'UPS', 'FedEx', 'EMS'])
+        shipping_zone_name='America', countries=american_countries,
+        shipping_methods_names=['DHL', 'UPS', 'FedEx'])
 
 
 

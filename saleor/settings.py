@@ -566,8 +566,14 @@ CHECKOUT_PAYMENT_GATEWAYS = {
 
 PAYMENT_GATEWAYS = {
     DUMMY: {
-        'module': 'saleor.payment.gateways.dummy',
-        'connection_params': {}},
+        "module": "saleor.payment.gateways.dummy",
+        "config": {
+            "auto_capture": True,
+            "store_card": False,
+            "connection_params": {},
+            "template_path": "order/payment/dummy.html",
+        },
+    },
     OPENPAY: {
         'module': 'saleor.payment.gateways.openpay',
         'connection_params': {

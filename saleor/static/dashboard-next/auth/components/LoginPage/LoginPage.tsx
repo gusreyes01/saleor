@@ -10,13 +10,13 @@ import Typography from "@material-ui/core/Typography";
 import React from "react";
 import SVG from "react-inlinesvg";
 
-import * as backgroundArt from "../../../../images/login-background.svg";
-import * as saleorDarkLogo from "../../../../images/logo-dark.svg";
-import * as saleorLightLogo from "../../../../images/bringall-logo.jpg";
-import { ControlledCheckbox } from "../../../components/ControlledCheckbox";
-import Form from "../../../components/Form";
-import { FormSpacer } from "../../../components/FormSpacer";
-import useTheme from "../../../hooks/useTheme";
+import { ControlledCheckbox } from "@saleor/components/ControlledCheckbox";
+import Form from "@saleor/components/Form";
+import { FormSpacer } from "@saleor/components/FormSpacer";
+import useTheme from "@saleor/hooks/useTheme";
+import backgroundArt from "../../../../images/login-background.svg";
+import saleorDarkLogo from "../../../../images/logo-dark.svg";
+import saleorLightLogo from "../../../../images/logo-light.svg";
 import i18n from "../../../i18n";
 
 export interface FormData {

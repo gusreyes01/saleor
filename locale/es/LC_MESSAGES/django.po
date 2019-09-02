@@ -1763,12 +1763,7 @@ msgctxt "Signup form primary action"
 msgid "Create an account"
 msgstr "Crea una cuenta"
 
-#: templates/base.html:78 templates/base.html:148
-msgctxt "Main navigation item"
-msgid "Your Cart"
-msgstr "Carrito"
-
-#: templates/base.html:208
+#: templates/base.html:78 templates/base.html:148 templates/base.html:208
 msgctxt "Main navigation item"
 msgid "Your Cart"
 msgstr "Carrito"
@@ -1837,12 +1832,7 @@ msgctxt "Cart dropdown primary action"
 msgid "Checkout"
 msgstr "Checkout"
 
-#: templates/cart_dropdown.html:62
-msgctxt "Empty cart message"
-msgid "There are no products in your shopping cart."
-msgstr "No hay productos en tu carro de compras."
-
-#: templates/checkout/index.html:91
+#: templates/cart_dropdown.html:62 templates/checkout/index.html:91
 msgctxt "Empty cart message"
 msgid "There are no products in your shopping cart."
 msgstr "No hay productos en tu carro de compras."

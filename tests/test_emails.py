@@ -12,7 +12,7 @@ from saleor.order.utils import add_variant_to_order
 
 def test_get_email_base_context(site_settings):
     site = site_settings.site
-    logo_url = build_absolute_uri(static('images/bringall-logo.jpg'))
+    logo_url = build_absolute_uri(static('images/bringall-logo.png'))
     proper_context = {
         "domain": site.domain,
         "logo_url": logo_url,

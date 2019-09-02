@@ -19,19 +19,14 @@ import React from "react";
 import SVG from "react-inlinesvg";
 import { RouteComponentProps, withRouter } from "react-router";
 
-import * as saleorDarkLogo from "../../../images/logo-dark.svg";
-import * as saleorLightLogo from "../../../images/bringall-logo.jpg";
-import {
-  appLoaderHeight,
-  drawerWidth
-} from "../../components/AppLayout/consts";
-import MenuList from "../../components/AppLayout/MenuList";
-import menuStructure from "../../components/AppLayout/menuStructure";
-import ResponsiveDrawer from "../../components/AppLayout/ResponsiveDrawer";
-import AppProgressProvider from "../../components/AppProgress";
-import useNavigator from "../../hooks/useNavigator";
-import useTheme from "../../hooks/useTheme";
-import useUser from "../../hooks/useUser";
+import AppProgressProvider from "@saleor/components/AppProgress";
+import useLocalStorage from "@saleor/hooks/useLocalStorage";
+import useNavigator from "@saleor/hooks/useNavigator";
+import useTheme from "@saleor/hooks/useTheme";
+import useUser from "@saleor/hooks/useUser";
+import saleorDarkLogoSmall from "../../../images/logo-dark-small.svg";
+import saleorDarkLogo from "../../../images/logo-dark.svg";
+import menuArrowIcon from "../../../images/menu-arrow-icon.svg";
 import i18n from "../../i18n";
 import ArrowDropdown from "../../icons/ArrowDropdown";
 import Container from "../Container";

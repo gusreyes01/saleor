@@ -95,7 +95,7 @@ export const product: (
     currency: "NZD",
     localized: "339.39 NZD"
   },
-  category: { __typename: "Category", id: "Q2F0ZWdvcnk6MQ==", name: "Equipo" },
+  category: { __typename: "Category", id: "Q2F0ZWdvcnk6MQ==", name: "Apparel" },
   chargeTaxes: true,
   collections: [
     {
@@ -406,8 +406,8 @@ export const products = (placeholderImage: string) => [
         }
       }
     ],
-    availability: { available: true },
-    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Equipo" },
+    basePrice: { amount: 274.99389477595827, currency: "XAG" },
+    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Apparel" },
     collections: {
       edges: [{ node: { id: "Q29sbGVjdGlvbjoy", name: "Winter sale" } }]
     },
@@ -567,8 +567,8 @@ export const products = (placeholderImage: string) => [
         }
       }
     ],
-    availability: { available: true },
-    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Equipo" },
+    basePrice: { amount: 432.2991706153576, currency: "ZWL" },
+    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Apparel" },
     collections: {
       edges: [{ node: { id: "Q29sbGVjdGlvbjoy", name: "Winter sale" } }]
     },
@@ -764,8 +764,8 @@ export const products = (placeholderImage: string) => [
         }
       }
     ],
-    availability: { available: false },
-    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Equipo" },
+    basePrice: { amount: 688.3543328975433, currency: "XDR" },
+    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Apparel" },
     collections: {
       edges: [{ node: { id: "Q29sbGVjdGlvbjoy", name: "Winter sale" } }]
     },
@@ -972,8 +972,8 @@ export const products = (placeholderImage: string) => [
         value: { id: "ptav60428", name: "HDD", slug: "HDD", sortOrder: 3 }
       }
     ],
-    availability: { available: false },
-    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Equipo" },
+    basePrice: { amount: 540.3817687240911, currency: "SLL" },
+    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Apparel" },
     collections: {
       edges: [{ node: { id: "Q29sbGVjdGlvbjoy", name: "Winter sale" } }]
     },
@@ -1189,8 +1189,8 @@ export const products = (placeholderImage: string) => [
         value: { id: "ptav52878", name: "Burgs", slug: "Burgs", sortOrder: 0 }
       }
     ],
-    availability: { available: true },
-    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Equipo" },
+    basePrice: { amount: 4.359138839276078, currency: "AMD" },
+    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Apparel" },
     collections: {
       edges: [{ node: { id: "Q29sbGVjdGlvbjoy", name: "Winter sale" } }]
     },
@@ -1445,8 +1445,8 @@ export const products = (placeholderImage: string) => [
         }
       }
     ],
-    availability: { available: false },
-    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Equipo" },
+    basePrice: { amount: 538.0974149450597, currency: "GMD" },
+    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Apparel" },
     collections: {
       edges: [{ node: { id: "Q29sbGVjdGlvbjoy", name: "Winter sale" } }]
     },
@@ -1640,8 +1640,8 @@ export const products = (placeholderImage: string) => [
         value: { id: "ptav70505", name: "Avon", slug: "Avon", sortOrder: 0 }
       }
     ],
-    availability: { available: false },
-    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Equipo" },
+    basePrice: { amount: 56.90596710694962, currency: "CVE" },
+    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Apparel" },
     collections: {
       edges: [{ node: { id: "Q29sbGVjdGlvbjoy", name: "Winter sale" } }]
     },
@@ -1749,8 +1749,8 @@ export const products = (placeholderImage: string) => [
         value: { id: "ptav98940", name: "silver", slug: "silver", sortOrder: 0 }
       }
     ],
-    availability: { available: false },
-    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Equipo" },
+    basePrice: { amount: 981.0598640464501, currency: "XAG" },
+    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Apparel" },
     collections: {
       edges: [{ node: { id: "Q29sbGVjdGlvbjoy", name: "Winter sale" } }]
     },
@@ -1956,8 +1956,8 @@ export const products = (placeholderImage: string) => [
         value: { id: "ptav77181", name: "orchid", slug: "orchid", sortOrder: 1 }
       }
     ],
-    availability: { available: true },
-    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Equipo" },
+    basePrice: { amount: 449.93166054829857, currency: "WST" },
+    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Apparel" },
     collections: {
       edges: [{ node: { id: "Q29sbGVjdGlvbjoy", name: "Winter sale" } }]
     },
@@ -2088,8 +2088,8 @@ export const products = (placeholderImage: string) => [
         }
       }
     ],
-    availability: { available: false },
-    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Equipo" },
+    basePrice: { amount: 590.5928694420302, currency: "MGA" },
+    category: { id: "Q2F0ZWdvcnk6MQ==", name: "Apparel" },
     collections: {
       edges: [{ node: { id: "Q29sbGVjdGlvbjoy", name: "Winter sale" } }]
     },

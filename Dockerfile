@@ -1,4 +1,4 @@
-### Build and install packages
+
 FROM python:3.7 as build-python
 
 RUN apt-get -y update \
@@ -14,7 +14,7 @@ WORKDIR /app
 RUN pipenv install --system --deploy --dev
 
 ### Build static assets
-FROM node:11 as build-nodejs
+FROM node:12 as build-nodejs
 
 ARG STATIC_URL
 ENV NODE_OPTIONS --max_old_space_size=4096
