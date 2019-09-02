@@ -8,7 +8,7 @@ import django_cache_url
 import sentry_sdk
 from django.contrib.messages import constants as messages
 from django.utils.translation import gettext_lazy as _, pgettext_lazy
-from django_prices.templatetags.prices_i18n import get_currency_fraction
+from django_prices.utils.formatting import get_currency_fraction
 from sentry_sdk.integrations.django import DjangoIntegration
 
 
@@ -40,6 +40,10 @@ ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
 MANAGERS = ADMINS
+
+ALLOWED_STOREFRONT_HOSTS = get_list(
+    os.environ.get("ALLOWED_STOREFRONT_HOSTS", "localhost,127.0.0.1")
+)
 
 INTERNAL_IPS = get_list(os.environ.get("INTERNAL_IPS", "127.0.0.1"))
 
@@ -306,7 +310,11 @@ DEFAULT_COUNTRY = os.environ.get('DEFAULT_COUNTRY', 'MX')
 DEFAULT_CURRENCY = os.environ.get('DEFAULT_CURRENCY', 'MXN')
 DEFAULT_DECIMAL_PLACES = get_currency_fraction(DEFAULT_CURRENCY)
 DEFAULT_MAX_DIGITS = 12
+DEFAULT_CURRENCY_CODE_LENGTH = 3
+
+# note: having multiple currencies is not supported yet
 AVAILABLE_CURRENCIES = [DEFAULT_CURRENCY]
+
 COUNTRIES_OVERRIDE = {
     "EU": pgettext_lazy(
         "Name of political and economical union of european countries", "European Union"
@@ -324,9 +332,9 @@ VATLAYER_USE_HTTPS = get_bool_from_env("VATLAYER_USE_HTTPS", False)
 # Avatax supports two ways of log in - username:password or account:license
 AVATAX_USERNAME_OR_ACCOUNT = os.environ.get("AVATAX_USERNAME_OR_ACCOUNT")
 AVATAX_PASSWORD_OR_LICENSE = os.environ.get("AVATAX_PASSWORD_OR_LICENSE")
-AVATAX_USE_SANDBOX = os.environ.get("AVATAX_USE_SANDBOX", DEBUG)
+AVATAX_USE_SANDBOX = get_bool_from_env("AVATAX_USE_SANDBOX", DEBUG)
 AVATAX_COMPANY_NAME = os.environ.get("AVATAX_COMPANY_NAME", "DEFAULT")
-AVATAX_AUTOCOMMIT = os.environ.get("AVATAX_AUTOCOMMIT", False)
+AVATAX_AUTOCOMMIT = get_bool_from_env("AVATAX_AUTOCOMMIT", False)
 
 ACCOUNT_ACTIVATION_DAYS = 3
 
@@ -455,7 +463,7 @@ LOGOUT_ON_PASSWORD_CHANGE = False
 # SEARCH CONFIGURATION
 DB_SEARCH_ENABLED = True
 
-# support deployment-dependant elastic enviroment variable
+# support deployment-dependant elastic environment variable
 ES_URL = (
         os.environ.get('ELASTICSEARCH_URL')
         or os.environ.get('SEARCHBOX_URL')
@@ -551,14 +559,11 @@ SENTRY_DSN = os.environ.get("SENTRY_DSN")
 if SENTRY_DSN:
     sentry_sdk.init(dsn=SENTRY_DSN, integrations=[DjangoIntegration()])
 
-SERIALIZATION_MODULES = {
-    'json': 'saleor.core.utils.json_serializer'}
-
-DUMMY = 'dummy'
+DUMMY = "dummy"
+BRAINTREE = "braintree"
+RAZORPAY = "razorpay"
+STRIPE = "stripe"
 OPENPAY = 'openpay'
-BRAINTREE = 'braintree'
-RAZORPAY = 'razorpay'
-STRIPE = 'stripe'
 
 CHECKOUT_PAYMENT_GATEWAYS = {
     DUMMY: pgettext_lazy('Payment method name', 'Dummy gateway'),
@@ -620,17 +625,6 @@ PAYMENT_GATEWAYS = {
             "connection_params": {
                 "public_key": os.environ.get("STRIPE_PUBLIC_KEY"),
                 "secret_key": os.environ.get("STRIPE_SECRET_KEY"),
-                "store_name": os.environ.get("STRIPE_STORE_NAME", "Saleor"),
-                "store_image": os.environ.get("STRIPE_STORE_IMAGE", None),
-                "prefill": get_bool_from_env("STRIPE_PREFILL", True),
-                "remember_me": os.environ.get("STRIPE_REMEMBER_ME", True),
-                "locale": os.environ.get("STRIPE_LOCALE", "auto"),
-                "enable_billing_address": os.environ.get(
-                    "STRIPE_ENABLE_BILLING_ADDRESS", False
-                ),
-                "enable_shipping_address": os.environ.get(
-                    "STRIPE_ENABLE_SHIPPING_ADDRESS", False
-                ),
             },
         },
     },

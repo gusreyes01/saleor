@@ -1,5 +1,5 @@
 from decimal import Decimal
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 import pytest
 from django.urls import reverse
@@ -13,6 +13,7 @@ from saleor.core.weight import zero_weight
 from saleor.discount.utils import validate_voucher_in_order
 from saleor.order import FulfillmentStatus, OrderStatus, events as order_events, models
 from saleor.order.models import Fulfillment, Order
+from saleor.order.templatetags.order_lines import display_translated_order_line_name
 from saleor.order.utils import (
     add_variant_to_order,
     automatically_fulfill_digital_lines,
@@ -37,20 +38,20 @@ def test_total_setter():
     price = TaxedMoney(net=Money(10, "USD"), gross=Money(15, "USD"))
     order = models.Order()
     order.total = price
-    assert order.total_net == Money(10, "USD")
+    assert order.total_net_amount == Decimal(10)
     assert order.total.net == Money(10, "USD")
-    assert order.total_gross == Money(15, "USD")
+    assert order.total_gross_amount == Decimal(15)
     assert order.total.gross == Money(15, "USD")
     assert order.total.tax == Money(5, "USD")
 
 
 def test_order_get_subtotal(order_with_lines):
     order_with_lines.discount_name = "Test discount"
-    order_with_lines.discount_amount = order_with_lines.total.gross * Decimal("0.5")
+    order_with_lines.discount = order_with_lines.total.gross * Decimal("0.5")
     recalculate_order(order_with_lines)
 
     target_subtotal = order_with_lines.total - order_with_lines.shipping_price
-    target_subtotal += order_with_lines.discount_amount
+    target_subtotal += order_with_lines.discount
     assert order_with_lines.get_subtotal() == target_subtotal
 
 
@@ -67,10 +68,10 @@ def test_add_variant_to_order_adds_line_for_new_variant(
     assert order.lines.count() == lines_before + 1
     assert line.product_sku == variant.sku
     assert line.quantity == 1
-    assert line.unit_price == TaxedMoney(
-        net=Money("10.00", "USD"), gross=Money("10.00", "USD")
-    )
-    assert line.translated_product_name == variant.display_product(translated=True)
+    assert line.unit_price == TaxedMoney(net=Money(10, "USD"), gross=Money(10, "USD"))
+    assert line.translated_product_name == str(variant.product.translated)
+    assert line.variant_name == str(variant)
+    assert line.product_name == str(variant.product)
 
 
 @pytest.mark.parametrize("track_inventory", (True, False))
@@ -720,3 +721,32 @@ def test_get_voucher_discount_for_order_voucher_validation(
     mock_validate_voucher.assert_called_once_with(
         voucher, subtotal.gross, quantity, customer_email
     )
+
+
+@pytest.mark.parametrize(
+    "product_name, variant_name, translated_product_name, translated_variant_name,"
+    "expected_display_name",
+    [
+        ("product", "variant", "", "", "product (variant)"),
+        ("product", "", "", "", "product"),
+        ("product", "", "productPL", "", "productPL"),
+        ("product", "variant", "productPL", "", "productPL (variant)"),
+        ("product", "variant", "productPL", "variantPl", "productPL (variantPl)"),
+        ("product", "variant", "", "variantPl", "product (variantPl)"),
+    ],
+)
+def test_display_translated_order_line_name(
+    product_name,
+    variant_name,
+    translated_product_name,
+    translated_variant_name,
+    expected_display_name,
+):
+    order_line = MagicMock(
+        product_name=product_name,
+        variant_name=variant_name,
+        translated_product_name=translated_product_name,
+        translated_variant_name=translated_variant_name,
+    )
+    display_name = display_translated_order_line_name(order_line)
+    assert display_name == expected_display_name

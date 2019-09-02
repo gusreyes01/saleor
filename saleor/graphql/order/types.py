@@ -183,11 +183,6 @@ class Fulfillment(CountableDjangoObjectType):
 
 
 class OrderLine(CountableDjangoObjectType):
-    thumbnail_url = graphene.String(
-        description="The URL of a main thumbnail for the ordered product.",
-        size=graphene.Int(description="Size of the image"),
-        deprecation_reason="thumbnailUrl is deprecated, use thumbnail instead",
-    )
     thumbnail = graphene.Field(
         Image,
         description="The main thumbnail for the ordered product.",
@@ -203,6 +198,12 @@ class OrderLine(CountableDjangoObjectType):
             A purchased product variant. Note: this field may be null if the
             variant has been removed from stock at all.""",
     )
+    translated_product_name = graphene.String(
+        required=True, description="Product name in the customer's language"
+    )
+    translated_variant_name = graphene.String(
+        required=True, description="Variant name in the customer's language"
+    )
 
     class Meta:
         description = "Represents order line of particular order."
@@ -213,26 +214,12 @@ class OrderLine(CountableDjangoObjectType):
             "id",
             "is_shipping_required",
             "product_name",
+            "variant_name",
             "product_sku",
             "quantity",
             "quantity_fulfilled",
             "tax_rate",
-            "translated_product_name",
         ]
-
-    @staticmethod
-    @gql_optimizer.resolver_hints(
-        prefetch_related=["variant__images", "variant__product__images"]
-    )
-    def resolve_thumbnail_url(root: models.OrderLine, info, size=None):
-        if not root.variant_id:
-            return None
-        if not size:
-            size = 255
-        url = get_product_image_thumbnail(
-            root.variant.get_first_image(), size, method="thumbnail"
-        )
-        return info.context.build_absolute_uri(url)
 
     @staticmethod
     @gql_optimizer.resolver_hints(
@@ -251,6 +238,14 @@ class OrderLine(CountableDjangoObjectType):
     @staticmethod
     def resolve_unit_price(root: models.OrderLine, _info):
         return root.unit_price
+
+    @staticmethod
+    def resolve_translated_product_name(root: models.OrderLine, _info):
+        return root.translated_product_name
+
+    @staticmethod
+    def resolve_translated_variant_name(root: models.OrderLine, _info):
+        return root.translated_variant_name
 
 
 class Order(CountableDjangoObjectType):
@@ -326,6 +321,13 @@ class Order(CountableDjangoObjectType):
     is_shipping_required = graphene.Boolean(
         description="Returns True, if order requires shipping.", required=True
     )
+    discount_amount = graphene.Field(
+        Money,
+        deprecation_reason=(
+            "DEPRECATED: Will be removed in Saleor 2.10, use discount instead."
+        ),
+        required=True,
+    )
 
     class Meta:
         description = "Represents an order in the shop."
@@ -335,7 +337,7 @@ class Order(CountableDjangoObjectType):
             "billing_address",
             "created",
             "customer_note",
-            "discount_amount",
+            "discount",
             "discount_name",
             "display_gross_prices",
             "gift_cards",
@@ -468,3 +470,7 @@ class Order(CountableDjangoObjectType):
     @staticmethod
     def resolve_gift_cards(root: models.Order, _info):
         return root.gift_cards.all()
+
+    @staticmethod
+    def resolve_discount_amount(root: models.Order, _info):
+        return root.discount

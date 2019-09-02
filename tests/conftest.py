@@ -116,7 +116,7 @@ def checkout_with_voucher(checkout, product, voucher):
     variant = product.variants.get()
     add_variant_to_checkout(checkout, variant, 3)
     checkout.voucher_code = voucher.code
-    checkout.discount_amount = Money("20.00", "USD")
+    checkout.discount = Money("20.00", "USD")
     checkout.save()
     return checkout
 
@@ -126,7 +126,7 @@ def checkout_with_voucher_percentage(checkout, product, voucher_percentage):
     variant = product.variants.get()
     add_variant_to_checkout(checkout, variant, 3)
     checkout.voucher_code = voucher_percentage.code
-    checkout.discount_amount = Money("3.00", "USD")
+    checkout.discount = Money("3.00", "USD")
     checkout.save()
     return checkout
 
@@ -414,6 +414,11 @@ def permission_manage_gift_card():
 @pytest.fixture
 def permission_manage_orders():
     return Permission.objects.get(codename="manage_orders")
+
+
+@pytest.fixture
+def permission_manage_plugins():
+    return Permission.objects.get(codename="manage_plugins")
 
 
 @pytest.fixture
@@ -719,9 +724,9 @@ def voucher_specific_product_type(voucher_percentage):
 
 
 @pytest.fixture
-def voucher_with_high_min_amount_spent():
+def voucher_with_high_min_spent_amount():
     return Voucher.objects.create(
-        code="mirumee", discount_value=10, min_amount_spent=Money(1000000, "USD")
+        code="mirumee", discount_value=10, min_spent=Money(1000000, "USD")
     )
 
 
@@ -743,7 +748,8 @@ def order_line(order, variant):
     net = variant.get_price()
     gross = Money(amount=net.amount * Decimal(1.23), currency=net.currency)
     return order.lines.create(
-        product_name=variant.display_product(),
+        product_name=str(variant.product),
+        variant_name=str(variant),
         product_sku=variant.sku,
         is_shipping_required=variant.is_shipping_required(),
         quantity=3,
@@ -758,22 +764,26 @@ def gift_card(customer_user, staff_user):
     return GiftCard.objects.create(
         code="mirumee_giftcard",
         user=customer_user,
-        initial_balance=10,
-        current_balance=10,
+        initial_balance=Money(10, "USD"),
+        current_balance=Money(10, "USD"),
     )
 
 
 @pytest.fixture
 def gift_card_used(staff_user):
     return GiftCard.objects.create(
-        code="gift_card_used", initial_balance=150, current_balance=100
+        code="gift_card_used",
+        initial_balance=Money(150, "USD"),
+        current_balance=Money(100, "USD"),
     )
 
 
 @pytest.fixture
 def gift_card_created_by_staff(staff_user):
     return GiftCard.objects.create(
-        code="mirumee_staff", initial_balance=5, current_balance=5
+        code="mirumee_staff",
+        initial_balance=Money(5, "USD"),
+        current_balance=Money(5, "USD"),
     )
 
 
@@ -795,7 +805,8 @@ def order_with_lines(order, product_type, category, shipping_zone):
     net = variant.get_price()
     gross = Money(amount=net.amount * Decimal(1.23), currency=net.currency)
     order.lines.create(
-        product_name=variant.display_product(),
+        product_name=str(variant.product),
+        variant_name=str(variant),
         product_sku=variant.sku,
         is_shipping_required=variant.is_shipping_required(),
         quantity=3,
@@ -821,7 +832,8 @@ def order_with_lines(order, product_type, category, shipping_zone):
     net = variant.get_price()
     gross = Money(amount=net.amount * Decimal(1.23), currency=net.currency)
     order.lines.create(
-        product_name=variant.display_product(),
+        product_name=str(variant.product),
+        variant_name=str(variant),
         product_sku=variant.sku,
         is_shipping_required=variant.is_shipping_required(),
         quantity=2,
@@ -951,8 +963,9 @@ def payment_not_authorized(payment_dummy):
 
 
 @pytest.fixture
-def sale(category, collection):
+def sale(product, category, collection):
     sale = Sale.objects.create(name="Sale", value=5)
+    sale.products.add(product)
     sale.categories.add(category)
     sale.collections.add(collection)
     return sale

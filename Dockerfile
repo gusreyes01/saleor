@@ -21,7 +21,7 @@ ENV NODE_OPTIONS --max_old_space_size=4096
 ENV STATIC_URL ${STATIC_URL:-/static/}
 
 # Install node_modules
-COPY webpack.config.js app.json package.json package-lock.json tsconfig.json tslint.json webpack.d.ts /app/
+COPY webpack.config.js app.json package.json package-lock.json /app/
 WORKDIR /app
 RUN npm install
 
