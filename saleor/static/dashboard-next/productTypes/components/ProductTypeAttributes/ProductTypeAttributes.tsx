@@ -62,6 +62,8 @@ interface ProductTypeAttributesProps extends ListActions {
   onAttributeUnassign: (id: string) => void;
 }
 
+const numberOfColumns = 5;
+
 const ProductTypeAttributes = withStyles(styles, {
   name: "ProductTypeAttributes"
 })(
@@ -99,6 +101,7 @@ const ProductTypeAttributes = withStyles(styles, {
       />
       <Table>
         <TableHead
+          colSpan={numberOfColumns}
           disabled={disabled}
           dragRows
           selected={selected}
@@ -135,6 +138,7 @@ const ProductTypeAttributes = withStyles(styles, {
                     <Checkbox
                       checked={isSelected}
                       disabled={disabled}
+                      disableClickPropagation
                       onChange={() => toggle(attribute.id)}
                     />
                   </TableCell>
@@ -166,7 +170,7 @@ const ProductTypeAttributes = withStyles(styles, {
             },
             () => (
               <TableRow>
-                <TableCell colSpan={2}>
+                <TableCell colSpan={numberOfColumns}>
                   {i18n.t("No attributes found")}
                 </TableCell>
               </TableRow>

@@ -50,6 +50,9 @@ const styles = (theme: Theme) =>
       cursor: "pointer"
     }
   });
+
+const numberOfColumns = 4;
+
 const ShippingZonesList = withStyles(styles, { name: "ShippingZonesList" })(
   ({
     classes,
@@ -83,6 +86,7 @@ const ShippingZonesList = withStyles(styles, { name: "ShippingZonesList" })(
       />
       <Table>
         <TableHead
+          colSpan={numberOfColumns}
           selected={selected}
           disabled={disabled}
           items={shippingZones}
@@ -95,6 +99,7 @@ const ShippingZonesList = withStyles(styles, { name: "ShippingZonesList" })(
           <TableCell className={classes.colCountries}>
             {i18n.t("Countries", { context: "object" })}
           </TableCell>
+          <TableCell />
         </TableHead>
         <TableFooter>
           <TableRow>
@@ -131,6 +136,7 @@ const ShippingZonesList = withStyles(styles, { name: "ShippingZonesList" })(
                     <Checkbox
                       checked={isSelected}
                       disabled={disabled}
+                      disableClickPropagation
                       onChange={() => toggle(shippingZone.id)}
                     />
                   </TableCell>
@@ -163,7 +169,7 @@ const ShippingZonesList = withStyles(styles, { name: "ShippingZonesList" })(
             },
             () => (
               <TableRow>
-                <TableCell colSpan={4}>
+                <TableCell colSpan={numberOfColumns}>
                   {i18n.t("No shipping zones found")}
                 </TableCell>
               </TableRow>
