@@ -62,13 +62,16 @@ DATABASES = {
 TIME_ZONE = 'America/Monterrey'
 LANGUAGE_CODE = 'es'
 LANGUAGES = [
-    ('en', _('English')),
+    # ('en', _('English')),
     ('es', _('Spanish')),
+    ('el', _('Lati')),
 ]
 
 LOCALE_PATHS = [os.path.join(PROJECT_ROOT, 'locale')]
 USE_I18N = True
 USE_L10N = True
+THOUSAND_SEPARATOR = ','
+DECIMAL_SEPARATOR = '.'
 USE_TZ = True
 
 FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
@@ -231,7 +234,6 @@ INSTALLED_APPS = [
     "phonenumber_field",
     "captcha",
 ]
-
 
 ENABLE_DEBUG_TOOLBAR = get_bool_from_env("ENABLE_DEBUG_TOOLBAR", False)
 if ENABLE_DEBUG_TOOLBAR:
@@ -507,7 +509,7 @@ SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 
 # CELERY SETTINGS
 CELERY_BROKER_URL = (
-    os.environ.get("CELERY_BROKER_URL", os.environ.get("CLOUDAMQP_URL")) or ""
+        os.environ.get("CELERY_BROKER_URL", os.environ.get("CLOUDAMQP_URL")) or ""
 )
 CELERY_TASK_ALWAYS_EAGER = not CELERY_BROKER_URL
 CELERY_ACCEPT_CONTENT = ["json"]
@@ -582,6 +584,12 @@ PAYMENT_GATEWAYS = {
     },
     OPENPAY: {
         'module': 'saleor.payment.gateways.openpay',
+        "config": {
+            "auto_capture": True,
+            "store_card": False,
+            "connection_params": {},
+            "template_path": "order/payment/openpay.html",
+        },
         'connection_params': {
             'production_mode': get_bool_from_env('OPENPAY_SANDBOX_MODE', True),
             'merchant_id': os.environ.get('OPENPAY_MERCHANT_ID'),

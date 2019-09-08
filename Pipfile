@@ -66,6 +66,7 @@ html-to-draftjs = "*"
 draftjs-sanitizer = "*"
 sentry-sdk = "*"
 tqdm = "*"
+openpay = "*"
 
 [dev-packages]
 pytest = "*"
