@@ -1,4 +1,4 @@
-
+### Build and install packages
 FROM python:3.7 as build-python
 
 RUN apt-get -y update \
@@ -14,10 +14,9 @@ WORKDIR /app
 RUN pipenv install --system --deploy --dev
 
 ### Build static assets
-FROM node:12 as build-nodejs
+FROM node:10 as build-nodejs
 
 ARG STATIC_URL
-ENV NODE_OPTIONS --max_old_space_size=4096
 ENV STATIC_URL ${STATIC_URL:-/static/}
 
 # Install node_modules
@@ -28,8 +27,8 @@ RUN npm install
 # Build static
 COPY ./saleor/static /app/saleor/static/
 COPY ./templates /app/templates/
-RUN STATIC_URL=${STATIC_URL} npm run build-assets --production
-RUN STATIC_URL=${STATIC_URL} npm run build-emails --production
+RUN STATIC_URL=${STATIC_URL} npm run build-assets --production \
+  && npm run build-emails --production
 
 ### Final image
 FROM python:3.7-slim
@@ -42,7 +41,6 @@ RUN groupadd -r saleor && useradd -r -g saleor saleor
 RUN apt-get update \
   && apt-get install -y \
     libxml2 \
-    gettext \
     libssl1.1 \
     libcairo2 \
     libpango-1.0-0 \

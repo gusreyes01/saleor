@@ -59,19 +59,56 @@ DATABASES = {
     )
 }
 
-TIME_ZONE = 'America/Monterrey'
-LANGUAGE_CODE = 'es'
+TIME_ZONE = "America/Chicago"
+LANGUAGE_CODE = "en"
 LANGUAGES = [
-    # ('en', _('English')),
-    ('es', _('Spanish')),
-    ('el', _('Lati')),
+    ("ar", _("Arabic")),
+    ("az", _("Azerbaijani")),
+    ("bg", _("Bulgarian")),
+    ("bn", _("Bengali")),
+    ("ca", _("Catalan")),
+    ("cs", _("Czech")),
+    ("da", _("Danish")),
+    ("de", _("German")),
+    ("el", _("Greek")),
+    ("en", _("English")),
+    ("es", _("Spanish")),
+    ("es-co", _("Colombian Spanish")),
+    ("et", _("Estonian")),
+    ("fa", _("Persian")),
+    ("fr", _("French")),
+    ("hi", _("Hindi")),
+    ("hu", _("Hungarian")),
+    ("hy", _("Armenian")),
+    ("id", _("Indonesian")),
+    ("is", _("Icelandic")),
+    ("it", _("Italian")),
+    ("ja", _("Japanese")),
+    ("ko", _("Korean")),
+    ("lt", _("Lithuanian")),
+    ("mn", _("Mongolian")),
+    ("nb", _("Norwegian")),
+    ("nl", _("Dutch")),
+    ("pl", _("Polish")),
+    ("pt", _("Portuguese")),
+    ("pt-br", _("Brazilian Portuguese")),
+    ("ro", _("Romanian")),
+    ("ru", _("Russian")),
+    ("sk", _("Slovak")),
+    ("sq", _("Albanian")),
+    ("sr", _("Serbian")),
+    ("sw", _("Swahili")),
+    ("sv", _("Swedish")),
+    ("th", _("Thai")),
+    ("tr", _("Turkish")),
+    ("uk", _("Ukrainian")),
+    ("vi", _("Vietnamese")),
+    ("zh-hans", _("Simplified Chinese")),
+    ("zh-hant", _("Traditional Chinese")),
 ]
-
-LOCALE_PATHS = [os.path.join(PROJECT_ROOT, 'locale')]
+LOCALE_PATHS = [os.path.join(PROJECT_ROOT, "locale")]
 USE_I18N = True
 USE_L10N = True
-THOUSAND_SEPARATOR = ','
-DECIMAL_SEPARATOR = '.'
 USE_TZ = True
 
 FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
@@ -267,50 +304,47 @@ if ENABLE_SILK:
     INSTALLED_APPS.append("silk")
 
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'root': {
-        'level': 'INFO',
-        'handlers': ['console']},
-    'formatters': {
-        'verbose': {
-            'format': (
-                '%(levelname)s %(name)s %(message)s'
-                ' [PID:%(process)d:%(threadName)s]')},
-        'simple': {
-            'format': '%(levelname)s %(message)s'}},
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'}},
-    'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler'},
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-            'formatter': 'verbose'}},
-    'loggers': {
-        'django': {
-            'handlers': ['console', 'mail_admins'],
-            'level': 'INFO',
-            'propagate': True},
-        'django.server': {
-            'handlers': ['console'],
-            'level': 'INFO',
-            'propagate': True},
-        'saleor': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': True}}}
+    "version": 1,
+    "disable_existing_loggers": False,
+    "root": {"level": "INFO", "handlers": ["console"]},
+    "formatters": {
+        "verbose": {
+            "format": (
+                "%(levelname)s %(name)s %(message)s [PID:%(process)d:%(threadName)s]"
+            )
+        },
+        "simple": {"format": "%(levelname)s %(message)s"},
+    },
+    "filters": {"require_debug_false": {"()": "django.utils.log.RequireDebugFalse"}},
+    "handlers": {
+        "mail_admins": {
+            "level": "ERROR",
+            "filters": ["require_debug_false"],
+            "class": "django.utils.log.AdminEmailHandler",
+        },
+        "console": {
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+            "formatter": "verbose",
+        },
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console", "mail_admins"],
+            "level": "INFO",
+            "propagate": True,
+        },
+        "django.server": {"handlers": ["console"], "level": "INFO", "propagate": True},
+        "saleor": {"handlers": ["console"], "level": "DEBUG", "propagate": True},
+    },
+}
 
-AUTH_USER_MODEL = 'account.User'
+AUTH_USER_MODEL = "account.User"
 
-LOGIN_URL = '/account/login/'
+LOGIN_URL = "/account/login/"
 
-DEFAULT_COUNTRY = os.environ.get('DEFAULT_COUNTRY', 'MX')
-DEFAULT_CURRENCY = os.environ.get('DEFAULT_CURRENCY', 'MXN')
+DEFAULT_COUNTRY = os.environ.get("DEFAULT_COUNTRY", "US")
+DEFAULT_CURRENCY = os.environ.get("DEFAULT_CURRENCY", "USD")
 DEFAULT_DECIMAL_PLACES = get_currency_fraction(DEFAULT_CURRENCY)
 DEFAULT_MAX_DIGITS = 12
 DEFAULT_CURRENCY_CODE_LENGTH = 3
@@ -468,9 +502,10 @@ DB_SEARCH_ENABLED = True
 
 # support deployment-dependant elastic environment variable
 ES_URL = (
-        os.environ.get('ELASTICSEARCH_URL')
-        or os.environ.get('SEARCHBOX_URL')
-        or os.environ.get('BONSAI_URL'))
+        os.environ.get("ELASTICSEARCH_URL")
+        or os.environ.get("SEARCHBOX_URL")
+        or os.environ.get("BONSAI_URL")
+)
 
 ENABLE_SEARCH = bool(ES_URL) or DB_SEARCH_ENABLED  # global search disabling
 
@@ -566,11 +601,11 @@ DUMMY = "dummy"
 BRAINTREE = "braintree"
 RAZORPAY = "razorpay"
 STRIPE = "stripe"
-OPENPAY = 'openpay'
+OPENPAY = "openpay"
 
 CHECKOUT_PAYMENT_GATEWAYS = {
-    DUMMY: pgettext_lazy('Payment method name', 'Dummy gateway'),
-    OPENPAY: pgettext_lazy('Credit card', 'Tarjeta de Crédito o Débito')}
+    DUMMY: pgettext_lazy("Payment method name", "Dummy gateway")
+}
 
 PAYMENT_GATEWAYS = {
     DUMMY: {
