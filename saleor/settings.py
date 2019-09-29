@@ -59,52 +59,11 @@ DATABASES = {
     )
 }
 
-TIME_ZONE = "America/Chicago"
-LANGUAGE_CODE = "en"
+TIME_ZONE = "America/Monterrey"
+LANGUAGE_CODE = "es"
 LANGUAGES = [
-    ("ar", _("Arabic")),
-    ("az", _("Azerbaijani")),
-    ("bg", _("Bulgarian")),
-    ("bn", _("Bengali")),
-    ("ca", _("Catalan")),
-    ("cs", _("Czech")),
-    ("da", _("Danish")),
-    ("de", _("German")),
-    ("el", _("Greek")),
     ("en", _("English")),
-    ("es", _("Spanish")),
-    ("es-co", _("Colombian Spanish")),
-    ("et", _("Estonian")),
-    ("fa", _("Persian")),
-    ("fr", _("French")),
-    ("hi", _("Hindi")),
-    ("hu", _("Hungarian")),
-    ("hy", _("Armenian")),
-    ("id", _("Indonesian")),
-    ("is", _("Icelandic")),
-    ("it", _("Italian")),
-    ("ja", _("Japanese")),
-    ("ko", _("Korean")),
-    ("lt", _("Lithuanian")),
-    ("mn", _("Mongolian")),
-    ("nb", _("Norwegian")),
-    ("nl", _("Dutch")),
-    ("pl", _("Polish")),
-    ("pt", _("Portuguese")),
-    ("pt-br", _("Brazilian Portuguese")),
-    ("ro", _("Romanian")),
-    ("ru", _("Russian")),
-    ("sk", _("Slovak")),
-    ("sq", _("Albanian")),
-    ("sr", _("Serbian")),
-    ("sw", _("Swahili")),
-    ("sv", _("Swedish")),
-    ("th", _("Thai")),
-    ("tr", _("Turkish")),
-    ("uk", _("Ukrainian")),
-    ("vi", _("Vietnamese")),
-    ("zh-hans", _("Simplified Chinese")),
-    ("zh-hant", _("Traditional Chinese")),
+    ("es", _("Español")),
 ]
 LOCALE_PATHS = [os.path.join(PROJECT_ROOT, "locale")]
 USE_I18N = True
