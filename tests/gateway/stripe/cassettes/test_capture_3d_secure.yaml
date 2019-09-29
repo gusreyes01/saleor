@@ -143,7 +143,7 @@ interactions:
         : \"/v1/charges?payment_intent=pi_1F6YmgIUmJaD6Oqv77HUh6qq\"\n  },\n  \"client_secret\"\
         : \"pi_1F6YmgIUmJaD6Oqv77HUh6qq_secret_bMSADceQXpXF9OxcQSCg3VFWy\",\n  \"\
         confirmation_method\": \"manual\",\n  \"created\": 1565598102,\n  \"currency\"\
-        : \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\"\
+        : \"MXN\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\"\
         : null,\n  \"last_payment_error\": null,\n  \"livemode\": false,\n  \"metadata\"\
         : {\n  },\n  \"next_action\": {\n    \"type\": \"use_stripe_sdk\",\n    \"\
         use_stripe_sdk\": {\n      \"type\": \"stripe_3ds2_fingerprint\",\n      \"\
@@ -263,7 +263,7 @@ interactions:
         : false,\n        \"total_count\": 0,\n        \"url\": \"/v1/charges?payment_intent=pi_1F6YmgIUmJaD6Oqv77HUh6qq\"\
         \n      },\n      \"client_secret\": \"pi_1F6YmgIUmJaD6Oqv77HUh6qq_secret_bMSADceQXpXF9OxcQSCg3VFWy\"\
         ,\n      \"confirmation_method\": \"manual\",\n      \"created\": 1565598102,\n\
-        \      \"currency\": \"usd\",\n      \"customer\": null,\n      \"description\"\
+        \      \"currency\": \"MXN\",\n      \"customer\": null,\n      \"description\"\
         : null,\n      \"invoice\": null,\n      \"last_payment_error\": null,\n \
         \     \"livemode\": false,\n      \"metadata\": {\n      },\n      \"next_action\"\
         : {\n        \"type\": \"use_stripe_sdk\",\n        \"use_stripe_sdk\": {\n\
@@ -376,7 +376,7 @@ interactions:
         : \"/v1/charges?payment_intent=pi_1F6YmgIUmJaD6Oqv77HUh6qq\"\n  },\n  \"client_secret\"\
         : \"pi_1F6YmgIUmJaD6Oqv77HUh6qq_secret_bMSADceQXpXF9OxcQSCg3VFWy\",\n  \"\
         confirmation_method\": \"manual\",\n  \"created\": 1565598102,\n  \"currency\"\
-        : \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\"\
+        : \"MXN\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\"\
         : null,\n  \"last_payment_error\": null,\n  \"livemode\": false,\n  \"metadata\"\
         : {\n  },\n  \"next_action\": {\n    \"type\": \"use_stripe_sdk\",\n    \"\
         use_stripe_sdk\": {\n      \"type\": \"stripe_3ds2_fingerprint\",\n      \"\
@@ -496,7 +496,7 @@ interactions:
         : false,\n        \"total_count\": 0,\n        \"url\": \"/v1/charges?payment_intent=pi_1F6YmgIUmJaD6Oqv77HUh6qq\"\
         \n      },\n      \"client_secret\": \"pi_1F6YmgIUmJaD6Oqv77HUh6qq_secret_bMSADceQXpXF9OxcQSCg3VFWy\"\
         ,\n      \"confirmation_method\": \"manual\",\n      \"created\": 1565598102,\n\
-        \      \"currency\": \"usd\",\n      \"customer\": null,\n      \"description\"\
+        \      \"currency\": \"MXN\",\n      \"customer\": null,\n      \"description\"\
         : null,\n      \"invoice\": null,\n      \"last_payment_error\": null,\n \
         \     \"livemode\": false,\n      \"metadata\": {\n      },\n      \"next_action\"\
         : {\n        \"type\": \"use_stripe_sdk\",\n        \"use_stripe_sdk\": {\n\

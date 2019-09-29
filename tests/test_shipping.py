@@ -10,7 +10,7 @@ from .utils import money
 
 def test_shipping_get_total(monkeypatch, shipping_zone):
     method = shipping_zone.shipping_methods.get()
-    price = Money("10.0", "USD")
+    price = Money("10.0", "MXN")
 
     assert method.get_total() == price
 
@@ -42,12 +42,12 @@ def test_applicable_shipping_methods_price(
     method = shipping_zone.shipping_methods.create(
         minimum_order_price_amount=min_price,
         maximum_order_price_amount=max_price,
-        currency="USD",
+        currency="MXN",
         type=ShippingMethodType.PRICE_BASED,
     )
     assert "PL" in shipping_zone.countries
     result = ShippingMethod.objects.applicable_shipping_methods(
-        price=Money(price, "USD"), weight=Weight(kg=0), country_code="PL"
+        price=Money(price, "MXN"), weight=Weight(kg=0), country_code="PL"
     )
     assert (method in result) == shipping_included
 

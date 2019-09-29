@@ -1,6 +1,6 @@
 interactions:
 - request:
-    body: payment_method=pm_card_threeDSecure2Required&amount=4242&currency=usd&confirmation_method=manual&confirm=True&capture_method=automatic
+    body: payment_method=pm_card_threeDSecure2Required&amount=4242&currency=MXN&confirmation_method=manual&confirm=True&capture_method=automatic
     headers:
       Accept:
       - '*/*'
@@ -37,7 +37,7 @@ interactions:
         : \"/v1/charges?payment_intent=pi_1F5UpbIUmJaD6Oqv71dfNXKr\"\n  },\n  \"client_secret\"\
         : \"pi_1F5UpbIUmJaD6Oqv71dfNXKr_secret_YpKk3AC4bBa21fKw05Utm4dNZ\",\n  \"\
         confirmation_method\": \"manual\",\n  \"created\": 1565344579,\n  \"currency\"\
-        : \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\"\
+        : \"MXN\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\"\
         : null,\n  \"last_payment_error\": null,\n  \"livemode\": false,\n  \"metadata\"\
         : {\n  },\n  \"next_action\": {\n    \"type\": \"use_stripe_sdk\",\n    \"\
         use_stripe_sdk\": {\n      \"type\": \"stripe_3ds2_fingerprint\",\n      \"\
@@ -119,7 +119,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: payment_method=pm_card_threeDSecure2Required&amount=4242&currency=usd&confirmation_method=manual&confirm=True&capture_method=automatic
+    body: payment_method=pm_card_threeDSecure2Required&amount=4242&currency=MXN&confirmation_method=manual&confirm=True&capture_method=automatic
     headers:
       Accept:
       - '*/*'
@@ -153,7 +153,7 @@ interactions:
         : \"/v1/charges?payment_intent=pi_1F6YmgIUmJaD6Oqv77HUh6qq\"\n  },\n  \"client_secret\"\
         : \"pi_1F6YmgIUmJaD6Oqv77HUh6qq_secret_bMSADceQXpXF9OxcQSCg3VFWy\",\n  \"\
         confirmation_method\": \"manual\",\n  \"created\": 1565598102,\n  \"currency\"\
-        : \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\"\
+        : \"MXN\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\"\
         : null,\n  \"last_payment_error\": null,\n  \"livemode\": false,\n  \"metadata\"\
         : {\n  },\n  \"next_action\": {\n    \"type\": \"use_stripe_sdk\",\n    \"\
         use_stripe_sdk\": {\n      \"type\": \"stripe_3ds2_fingerprint\",\n      \"\

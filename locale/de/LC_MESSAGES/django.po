@@ -2,7 +2,7 @@
 # Copyright (C) 2017 Mirumee Software
 # This file is distributed under the same license as the Saleor package.
 # Mirumee Software <hello@mirumee.com>, 2017.
-# 
+#
 # Translators:
 # Rapahel Wierscher <rapwie@gmail.com>, 2018
 # Patryk Zawadzki <patrys@room-303.com>, 2018
@@ -19,7 +19,7 @@
 # Steffen Exler <exelstore@googlemail.com>, 2019
 # Jakob Kaya <jakob@mindnow.io>, 2019
 # Max Wessendorf <m.wessendorf@ukd.de>, 2019
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
@@ -774,7 +774,7 @@ msgstr "Heizöl"
 #: saleor/extensions/plugins/vatlayer/__init__.py:59
 msgctxt "VAT rate type"
 msgid "domestic services"
-msgstr "Hausdienstleistungen"
+msgstr "HaMXNienstleistungen"
 
 #: saleor/extensions/plugins/vatlayer/__init__.py:60
 msgctxt "VAT rate type"

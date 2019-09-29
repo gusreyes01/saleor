@@ -16,10 +16,10 @@ from saleor.product.utils.variant_prices import update_product_minimal_variant_p
 
 def test_update_product_minimal_variant_price(product):
     variant = product.variants.first()
-    variant.price_override = Money("4.99", "USD")
+    variant.price_override = Money("4.99", "MXN")
     variant.save()
 
-    assert product.minimal_variant_price == product.price == Money("10", "USD")
+    assert product.minimal_variant_price == product.price == Money("10", "MXN")
     update_product_minimal_variant_price(product)
     assert product.minimal_variant_price == variant.price_override
 
@@ -28,11 +28,11 @@ def test_update_products_minimal_variant_prices_of_catalogues_for_product(produc
     variant = ProductVariant(
         product=product,
         sku="SKU_MINIMAL_VARIANT_PRICE",
-        price_override=Money("0.99", "USD"),
+        price_override=Money("0.99", "MXN"),
     )
     variant.save()
     product.refresh_from_db()
-    assert product.minimal_variant_price == product.price == Money("10", "USD")
+    assert product.minimal_variant_price == product.price == Money("10", "MXN")
     update_products_minimal_variant_prices_of_catalogues(product_ids=[product.pk])
     product.refresh_from_db()
     assert product.minimal_variant_price == variant.price_override
@@ -44,11 +44,11 @@ def test_update_products_minimal_variant_prices_of_catalogues_for_category(
     variant = ProductVariant(
         product=product,
         sku="SKU_MINIMAL_VARIANT_PRICE",
-        price_override=Money("0.89", "USD"),
+        price_override=Money("0.89", "MXN"),
     )
     variant.save()
     product.refresh_from_db()
-    assert product.minimal_variant_price == product.price == Money("10", "USD")
+    assert product.minimal_variant_price == product.price == Money("10", "MXN")
     update_products_minimal_variant_prices_of_catalogues(
         category_ids=[product.category_id]
     )
@@ -62,19 +62,19 @@ def test_update_products_minimal_variant_prices_of_catalogues_for_collection(
     variant = ProductVariant(
         product=product,
         sku="SKU_MINIMAL_VARIANT_PRICE",
-        price_override=Money("0.79", "USD"),
+        price_override=Money("0.79", "MXN"),
     )
     variant.save()
     product.refresh_from_db()
     collection.products.add(product)
-    assert product.minimal_variant_price == product.price == Money("10", "USD")
+    assert product.minimal_variant_price == product.price == Money("10", "MXN")
     update_products_minimal_variant_prices_of_catalogues(collection_ids=[collection.pk])
     product.refresh_from_db()
     assert product.minimal_variant_price == variant.price_override
 
 
 def test_update_all_products_minimal_variant_prices_task(product_list):
-    price_override = Money("0.01", "USD")
+    price_override = Money("0.01", "MXN")
     for product in product_list:
         assert product.minimal_variant_price > price_override
         variant = product.variants.first()
@@ -94,25 +94,25 @@ def test_product_objects_create_sets_default_minimal_variant_price(
 ):
     product1 = Product.objects.create(
         name="Test product 1",
-        price=Money("10.00", "USD"),
+        price=Money("10.00", "MXN"),
         category=category,
         product_type=product_type,
         is_published=True,
     )
     assert product1.minimal_variant_price
-    assert product1.price == product1.minimal_variant_price == Money("10", "USD")
+    assert product1.price == product1.minimal_variant_price == Money("10", "MXN")
 
     product2 = Product.objects.create(
         name="Test product 2",
-        price=Money("10.00", "USD"),
-        minimal_variant_price=Money("20.00", "USD"),
+        price=Money("10.00", "MXN"),
+        minimal_variant_price=Money("20.00", "MXN"),
         category=category,
         product_type=product_type,
         is_published=True,
     )
     assert product2.minimal_variant_price
     assert product2.price != product2.minimal_variant_price
-    assert product2.minimal_variant_price == Money("20", "USD")
+    assert product2.minimal_variant_price == Money("20", "MXN")
 
 
 def test_product_objects_bulk_create_sets_default_minimal_variant_price(
@@ -122,15 +122,15 @@ def test_product_objects_bulk_create_sets_default_minimal_variant_price(
         [
             Product(
                 name="Test product 1",
-                price=Money("10.00", "USD"),
+                price=Money("10.00", "MXN"),
                 category=category,
                 product_type=product_type,
                 is_published=True,
             ),
             Product(
                 name="Test product 2",
-                price=Money("10.00", "USD"),
-                minimal_variant_price=Money("20.00", "USD"),
+                price=Money("10.00", "MXN"),
+                minimal_variant_price=Money("20.00", "MXN"),
                 category=category,
                 product_type=product_type,
                 is_published=True,
@@ -139,42 +139,42 @@ def test_product_objects_bulk_create_sets_default_minimal_variant_price(
     )
 
     assert product1.minimal_variant_price
-    assert product1.price == product1.minimal_variant_price == Money("10", "USD")
+    assert product1.price == product1.minimal_variant_price == Money("10", "MXN")
 
     assert product2.minimal_variant_price
     assert product2.price != product2.minimal_variant_price
-    assert product2.minimal_variant_price == Money("20", "USD")
+    assert product2.minimal_variant_price == Money("20", "MXN")
 
 
 def test_product_variant_objects_create_updates_minimal_variant_price(product):
-    assert product.minimal_variant_price == Money("10.00", "USD")
+    assert product.minimal_variant_price == Money("10.00", "MXN")
     ProductVariant.objects.create(
-        product=product, sku="1", price_override=Money("1.00", "USD"), quantity=1
+        product=product, sku="1", price_override=Money("1.00", "MXN"), quantity=1
     )
     product.refresh_from_db()
-    assert product.minimal_variant_price == Money("1.00", "USD")
+    assert product.minimal_variant_price == Money("1.00", "MXN")
 
 
 def test_product_variant_objects_bulk_create_updates_minimal_variant_price(product):
-    assert product.minimal_variant_price == Money("10.00", "USD")
+    assert product.minimal_variant_price == Money("10.00", "MXN")
     ProductVariant.objects.bulk_create(
         [
             ProductVariant(
                 product=product,
                 sku="1",
-                price_override=Money("1.00", "USD"),
+                price_override=Money("1.00", "MXN"),
                 quantity=1,
             ),
             ProductVariant(
                 product=product,
                 sku="2",
-                price_override=Money("5.00", "USD"),
+                price_override=Money("5.00", "MXN"),
                 quantity=1,
             ),
         ]
     )
     product.refresh_from_db()
-    assert product.minimal_variant_price == Money("1.00", "USD")
+    assert product.minimal_variant_price == Money("1.00", "MXN")
 
 
 def test_dashboard_product_create_view_sets_minimal_variant_price(
@@ -185,7 +185,7 @@ def test_dashboard_product_create_view_sets_minimal_variant_price(
         "name": "Product name",
         "description": "Description.",
         "price_0": "9.99",
-        "price_1": "USD",
+        "price_1": "MXN",
         "category": category.pk,
     }
 
@@ -193,7 +193,7 @@ def test_dashboard_product_create_view_sets_minimal_variant_price(
     assert response.status_code == 302
     assert Product.objects.count() == 1
     product = Product.objects.get()
-    assert product.minimal_variant_price == product.price == Money("9.99", "USD")
+    assert product.minimal_variant_price == product.price == Money("9.99", "MXN")
 
 
 def test_dashboard_product_variant_create_view_updates_minimal_variant_price(
@@ -214,16 +214,16 @@ def test_dashboard_product_variant_create_view_updates_minimal_variant_price(
 
     assert product.variants.count() == 2
     assert product.minimal_variant_price != product.price
-    assert product.minimal_variant_price == Money("4.99", "USD")
+    assert product.minimal_variant_price == Money("4.99", "MXN")
 
 
 def test_dashboard_product_variant_delete_view_updates_minimal_variant_price(
     admin_client, product
 ):
     # Set "price_override" on the variant to lower the "minimal_variant_price"
-    assert product.minimal_variant_price == product.price == Money("10", "USD")
+    assert product.minimal_variant_price == product.price == Money("10", "MXN")
     variant = product.variants.get()
-    variant.price_override = Money("4.99", "USD")
+    variant.price_override = Money("4.99", "MXN")
     variant.save()
     update_product_minimal_variant_price(product)
     product.refresh_from_db()

@@ -37,7 +37,7 @@ interactions:
         \        \"postal_code\": null,\n            \"state\": null\n          },\n\
         \          \"email\": null,\n          \"name\": null,\n          \"phone\"\
         : null\n        },\n        \"captured\": true,\n        \"created\": 1565271716,\n\
-        \        \"currency\": \"usd\",\n        \"customer\": null,\n        \"description\"\
+        \        \"currency\": \"MXN\",\n        \"customer\": null,\n        \"description\"\
         : null,\n        \"destination\": null,\n        \"dispute\": null,\n    \
         \    \"failure_code\": null,\n        \"failure_message\": null,\n       \
         \ \"fraud_details\": {\n        },\n        \"invoice\": null,\n        \"\
@@ -69,7 +69,7 @@ interactions:
         \    \"url\": \"/v1/charges?payment_intent=pi_1F5BsOIUmJaD6Oqvmh5vBJIA\"\n\
         \  },\n  \"client_secret\": \"pi_1F5BsOIUmJaD6Oqvmh5vBJIA_secret_bpJHb3g4rDKbYxIlWakCkartF\"\
         ,\n  \"confirmation_method\": \"manual\",\n  \"created\": 1565271716,\n  \"\
-        currency\": \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"\
+        currency\": \"MXN\",\n  \"customer\": null,\n  \"description\": null,\n  \"\
         invoice\": null,\n  \"last_payment_error\": null,\n  \"livemode\": false,\n\
         \  \"metadata\": {\n  },\n  \"next_action\": null,\n  \"on_behalf_of\": null,\n\
         \  \"payment_method\": \"pm_1F5BsOIUmJaD6OqvM6mSN7La\",\n  \"payment_method_options\"\
@@ -148,7 +148,7 @@ interactions:
         \      \"line2\": null,\n      \"postal_code\": null,\n      \"state\": null\n\
         \    },\n    \"email\": null,\n    \"name\": null,\n    \"phone\": null\n\
         \  },\n  \"captured\": true,\n  \"created\": 1565271716,\n  \"currency\":\
-        \ \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"destination\"\
+        \ \"MXN\",\n  \"customer\": null,\n  \"description\": null,\n  \"destination\"\
         : null,\n  \"dispute\": null,\n  \"failure_code\": null,\n  \"failure_message\"\
         : null,\n  \"fraud_details\": {\n  },\n  \"invoice\": null,\n  \"livemode\"\
         : false,\n  \"metadata\": {\n  },\n  \"on_behalf_of\": null,\n  \"order\"\
@@ -169,7 +169,7 @@ interactions:
         \  \"data\": [\n      {\n        \"id\": \"re_1F5TepIUmJaD6OqvC6ujUiMh\",\n\
         \        \"object\": \"refund\",\n        \"amount\": 4242,\n        \"balance_transaction\"\
         : \"txn_1F5TepIUmJaD6OqvqA291Jtj\",\n        \"charge\": \"ch_1F5BsOIUmJaD6OqvbM6tKDjc\"\
-        ,\n        \"created\": 1565340067,\n        \"currency\": \"usd\",\n    \
+        ,\n        \"created\": 1565340067,\n        \"currency\": \"MXN\",\n    \
         \    \"metadata\": {\n        },\n        \"reason\": null,\n        \"receipt_number\"\
         : null,\n        \"source_transfer_reversal\": null,\n        \"status\":\
         \ \"succeeded\",\n        \"transfer_reversal\": null\n      }\n    ],\n \

@@ -402,7 +402,7 @@ msgstr "Importe de descuento"
 
 #: saleor/dashboard/discount/filters.py:38
 msgctxt "Sale type filter choice"
-msgid "USD"
+msgid "MXN"
 msgstr "Dólares"
 
 #: saleor/dashboard/discount/filters.py:39

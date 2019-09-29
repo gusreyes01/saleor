@@ -71,7 +71,7 @@ def test_product_update_updates_minimal_variant_price(
     product,
     permission_manage_products,
 ):
-    assert product.minimal_variant_price == Money("10.00", "USD")
+    assert product.minimal_variant_price == Money("10.00", "MXN")
     query = """
         mutation ProductUpdate(
             $productId: ID!,

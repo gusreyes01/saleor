@@ -20,14 +20,14 @@ from saleor.product.models import Product, ProductVariant
 
 @pytest.mark.parametrize(
     "min_spent_amount, value",
-    [(Money(5, "USD"), Money(10, "USD")), (Money(10, "USD"), Money(10, "USD"))],
+    [(Money(5, "MXN"), Money(10, "MXN")), (Money(10, "MXN"), Money(10, "MXN"))],
 )
 def test_valid_voucher_min_spent_amount(min_spent_amount, value):
     voucher = Voucher(
         code="unique",
         type=VoucherType.SHIPPING,
         discount_value_type=DiscountValueType.FIXED,
-        discount=Money(10, "USD"),
+        discount=Money(10, "MXN"),
         min_spent=min_spent_amount,
     )
     voucher.validate_min_spent(value)
@@ -56,7 +56,7 @@ def test_variant_discounts(product):
         collection_ids=set(),
     )
     final_price = variant.get_price(discounts=[low_discount, discount, high_discount])
-    assert final_price == Money(0, "USD")
+    assert final_price == Money(0, "MXN")
 
 
 @pytest.mark.integration
@@ -68,7 +68,7 @@ def test_percentage_discounts(product):
         sale=sale, product_ids={product.id}, category_ids=set(), collection_ids={}
     )
     final_price = variant.get_price(discounts=[discount])
-    assert final_price == Money(5, "USD")
+    assert final_price == Money(5, "MXN")
 
 
 def test_voucher_queryset_active(voucher):
@@ -103,7 +103,7 @@ def test_specific_products_voucher_checkout_discount(
     monkeypatch.setattr(
         "saleor.checkout.utils.get_prices_of_discounted_specific_product",
         lambda lines, discounts, discounted_products: (
-            Money(price, "USD") for price in prices
+            Money(price, "MXN") for price in prices
         ),
     )
     voucher = Voucher(
@@ -116,13 +116,13 @@ def test_specific_products_voucher_checkout_discount(
     voucher.save()
     checkout = checkout_with_item
     discount = get_voucher_discount_for_checkout(voucher, checkout, discounts)
-    assert discount == Money(expected_value, "USD")
+    assert discount == Money(expected_value, "MXN")
 
 
 def test_sale_applies_to_correct_products(product_type, category):
     product = Product.objects.create(
         name="Test Product",
-        price=Money(10, "USD"),
+        price=Money(10, "MXN"),
         description="",
         pk=111,
         product_type=product_type,
@@ -131,7 +131,7 @@ def test_sale_applies_to_correct_products(product_type, category):
     variant = ProductVariant.objects.create(product=product, sku="firstvar")
     product2 = Product.objects.create(
         name="Second product",
-        price=Money(15, "USD"),
+        price=Money(15, "MXN"),
         description="",
         product_type=product_type,
         category=category,
@@ -143,7 +143,7 @@ def test_sale_applies_to_correct_products(product_type, category):
     )
     product_discount = get_product_discount_on_sale(variant.product, discount)
     discounted_price = product_discount(product.price)
-    assert discounted_price == Money(7, "USD")
+    assert discounted_price == Money(7, "MXN")
     with pytest.raises(NotApplicable):
         get_product_discount_on_sale(sec_variant.product, discount)
 
@@ -222,14 +222,14 @@ def test_validate_voucher(
 ):
     voucher = Voucher.objects.create(
         code="unique",
-        currency="USD",
+        currency="MXN",
         type=VoucherType.ENTIRE_ORDER,
         discount_value_type=discount_value_type,
         discount_value=50,
         min_spent_amount=min_spent_amount,
         min_checkout_items_quantity=min_checkout_items_quantity,
     )
-    total_price = Money(total, "USD")
+    total_price = Money(total, "MXN")
     validate_voucher(voucher, total_price, total_quantity, "test@example.com")
 
 
@@ -252,14 +252,14 @@ def test_validate_voucher_not_applicable(
 ):
     voucher = Voucher.objects.create(
         code="unique",
-        currency="USD",
+        currency="MXN",
         type=VoucherType.ENTIRE_ORDER,
         discount_value_type=discount_value_type,
         discount_value=discount_value,
         min_spent_amount=min_spent_amount,
         min_checkout_items_quantity=min_checkout_items_quantity,
     )
-    total_price = Money(total, "USD")
+    total_price = Money(total, "MXN")
     with pytest.raises(NotApplicable):
         validate_voucher(voucher, total_price, total_quantity, "test@example.com")
 

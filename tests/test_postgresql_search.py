@@ -28,7 +28,7 @@ def named_products(category, product_type):
         product = Product.objects.create(
             name=name,
             description=description,
-            price=Money(Decimal(6.6), "USD"),
+            price=Money(Decimal(6.6), "MXN"),
             product_type=product_type,
             category=category,
         )

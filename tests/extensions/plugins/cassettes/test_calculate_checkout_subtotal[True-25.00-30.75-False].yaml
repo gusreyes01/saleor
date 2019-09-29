@@ -10,7 +10,7 @@ interactions:
       "2000 Main Street", "line2": "", "city": "Irvine", "region": "CA", "country":
       "US", "postalCode": "92614"}, "shipTo": {"line1": "T\u0119czowa 7", "line2":
       "", "city": "WROC\u0141AW", "region": "", "country": "PL", "postalCode": "53-601"}},
-      "commit": false, "currencyCode": "USD", "email": ""}}'
+      "commit": false, "currencyCode": "MXN", "email": ""}}'
     headers:
       Accept:
       - '*/*'
@@ -30,7 +30,7 @@ interactions:
     body:
       string: "{\"id\":0,\"code\":\"9bb6f1df-bcd4-432b-ba4c-88af33040864\",\"companyId\"\
         :242975,\"date\":\"2019-06-26\",\"paymentDate\":\"2019-06-26\",\"status\"\
-        :\"Temporary\",\"type\":\"SalesOrder\",\"currencyCode\":\"USD\",\"customerVendorCode\"\
+        :\"Temporary\",\"type\":\"SalesOrder\",\"currencyCode\":\"MXN\",\"customerVendorCode\"\
         :\"0\",\"customerCode\":\"0\",\"reconciled\":false,\"totalAmount\":35.0,\"\
         totalExempt\":0.0,\"totalDiscount\":0.0,\"totalTax\":8.05,\"totalTaxable\"\
         :35.0,\"totalTaxCalculated\":8.05,\"adjustmentReason\":\"NotAdjusted\",\"\

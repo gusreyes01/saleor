@@ -35,14 +35,14 @@ from tests.utils import create_image, get_redirect_location
 
 
 def test_total_setter():
-    price = TaxedMoney(net=Money(10, "USD"), gross=Money(15, "USD"))
+    price = TaxedMoney(net=Money(10, "MXN"), gross=Money(15, "MXN"))
     order = models.Order()
     order.total = price
     assert order.total_net_amount == Decimal(10)
-    assert order.total.net == Money(10, "USD")
+    assert order.total.net == Money(10, "MXN")
     assert order.total_gross_amount == Decimal(15)
-    assert order.total.gross == Money(15, "USD")
-    assert order.total.tax == Money(5, "USD")
+    assert order.total.gross == Money(15, "MXN")
+    assert order.total.tax == Money(5, "MXN")
 
 
 def test_order_get_subtotal(order_with_lines):
@@ -68,7 +68,7 @@ def test_add_variant_to_order_adds_line_for_new_variant(
     assert order.lines.count() == lines_before + 1
     assert line.product_sku == variant.sku
     assert line.quantity == 1
-    assert line.unit_price == TaxedMoney(net=Money(10, "USD"), gross=Money(10, "USD"))
+    assert line.unit_price == TaxedMoney(net=Money(10, "MXN"), gross=Money(10, "MXN"))
     assert line.translated_product_name == str(variant.product.translated)
     assert line.variant_name == str(variant)
     assert line.product_name == str(variant.product)
@@ -353,7 +353,7 @@ def test_order_queryset_drafts(draft_order):
 
 
 def test_order_queryset_to_ship(settings):
-    total = TaxedMoney(net=Money(10, "USD"), gross=Money(15, "USD"))
+    total = TaxedMoney(net=Money(10, "MXN"), gross=Money(15, "MXN"))
     orders_to_ship = [
         Order.objects.create(status=OrderStatus.UNFULFILLED, total=total),
         Order.objects.create(status=OrderStatus.PARTIALLY_FULFILLED, total=total),
@@ -382,7 +382,7 @@ def test_order_queryset_to_ship(settings):
 
 
 def test_queryset_ready_to_capture():
-    total = TaxedMoney(net=Money(10, "USD"), gross=Money(15, "USD"))
+    total = TaxedMoney(net=Money(10, "MXN"), gross=Money(15, "MXN"))
 
     preauth_order = Order.objects.create(status=OrderStatus.UNFULFILLED, total=total)
     Payment.objects.create(

@@ -9,7 +9,7 @@ interactions:
       "", "city": "Irvine", "region": "CA", "country": "US", "postalCode": "92614"},
       "shipTo": {"line1": "T\u0119czowa 7", "line2": "", "city": "WROC\u0141AW", "region":
       "", "country": "PL", "postalCode": "53-601"}}, "commit": false, "currencyCode":
-      "USD", "email": ""}}'
+      "MXN", "email": ""}}'
     headers:
       Accept:
       - '*/*'
@@ -29,7 +29,7 @@ interactions:
     body:
       string: "{\"id\":0,\"code\":\"aaac0cac-a6f0-4091-9d29-d0f096a8cd4d\",\"companyId\"\
         :242975,\"date\":\"2019-07-23\",\"paymentDate\":\"2019-07-23\",\"status\"\
-        :\"Temporary\",\"type\":\"SalesOrder\",\"currencyCode\":\"USD\",\"customerVendorCode\"\
+        :\"Temporary\",\"type\":\"SalesOrder\",\"currencyCode\":\"MXN\",\"customerVendorCode\"\
         :\"0\",\"customerCode\":\"0\",\"reconciled\":false,\"totalAmount\":20.33,\"\
         totalExempt\":0.0,\"totalDiscount\":0.0,\"totalTax\":4.67,\"totalTaxable\"\
         :20.33,\"totalTaxCalculated\":4.67,\"adjustmentReason\":\"NotAdjusted\",\"\

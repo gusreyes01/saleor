@@ -27,9 +27,9 @@ from tests.api.utils import get_graphql_content
 def other_shipping_method(shipping_zone):
     return ShippingMethod.objects.create(
         name="DPD",
-        minimum_order_price=Money(0, "USD"),
+        minimum_order_price=Money(0, "MXN"),
         type=ShippingMethodType.PRICE_BASED,
-        price=Money(9, "USD"),
+        price=Money(9, "MXN"),
         shipping_zone=shipping_zone,
     )
 

@@ -1,6 +1,6 @@
 interactions:
 - request:
-    body: payment_method=abcdefghijklmnoprstquwz&amount=4242&currency=usd&confirmation_method=manual&confirm=True&capture_method=automatic
+    body: payment_method=abcdefghijklmnoprstquwz&amount=4242&currency=MXN&confirmation_method=manual&confirm=True&capture_method=automatic
     headers:
       Accept:
       - '*/*'

@@ -35,7 +35,7 @@ SORT_BY_FIELDS_LABELS_VOUCHER = {
 }
 
 DISCOUNT_TYPE_CHOICES = (
-    ("fixed", pgettext_lazy("Sale type filter choice", "USD")),
+    ("fixed", pgettext_lazy("Sale type filter choice", "MXN")),
     ("percentage", pgettext_lazy("Sale type filter choice", "%")),
 )
 

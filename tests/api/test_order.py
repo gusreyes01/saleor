@@ -126,9 +126,9 @@ def test_order_query(
                     number
                     canFinalize
                     status
-                    statusDisplay
+                    statMXNisplay
                     paymentStatus
-                    paymentStatusDisplay
+                    paymentStatMXNisplay
                     userEmail
                     isPaid
                     shippingPrice {
@@ -178,15 +178,15 @@ def test_order_query(
     assert order_data["number"] == str(order.pk)
     assert order_data["canFinalize"] is True
     assert order_data["status"] == order.status.upper()
-    assert order_data["statusDisplay"] == order.get_status_display()
+    assert order_data["statMXNisplay"] == order.get_status_display()
     payment_status = PaymentChargeStatusEnum.get(order.get_payment_status()).name
     assert order_data["paymentStatus"] == payment_status
     payment_status_display = order.get_payment_status_display()
-    assert order_data["paymentStatusDisplay"] == payment_status_display
+    assert order_data["paymentStatMXNisplay"] == payment_status_display
     assert order_data["isPaid"] == order.is_fully_paid()
     assert order_data["userEmail"] == order.user_email
     expected_price = Money(
-        amount=str(order_data["shippingPrice"]["gross"]["amount"]), currency="USD"
+        amount=str(order_data["shippingPrice"]["gross"]["amount"]), currency="MXN"
     )
     assert expected_price == order.shipping_price.gross
     assert len(order_data["lines"]) == order.lines.count()
@@ -423,7 +423,7 @@ def test_payment_information_order_events_query(
     data = content["data"]["orders"]["edges"][0]["node"]["events"][0]
 
     assert data["message"] is None
-    assert Money(str(data["amount"]), "USD") == order.total.gross
+    assert Money(str(data["amount"]), "MXN") == order.total.gross
     assert data["emailType"] is None
     assert data["quantity"] is None
     assert data["composedId"] is None
@@ -1373,7 +1373,7 @@ def test_order_capture(
             orderCapture(id: $id, amount: $amount) {
                 order {
                     paymentStatus
-                    paymentStatusDisplay
+                    paymentStatMXNisplay
                     isPaid
                     totalCaptured {
                         amount
@@ -1393,7 +1393,7 @@ def test_order_capture(
     order.refresh_from_db()
     assert data["paymentStatus"] == PaymentChargeStatusEnum.FULLY_CHARGED.name
     payment_status_display = dict(ChargeStatus.CHOICES).get(ChargeStatus.FULLY_CHARGED)
-    assert data["paymentStatusDisplay"] == payment_status_display
+    assert data["paymentStatMXNisplay"] == payment_status_display
     assert data["isPaid"]
     assert data["totalCaptured"]["amount"] == float(amount)
 
@@ -1483,7 +1483,7 @@ ORDER_VOID = """
         orderVoid(id: $id) {
             order {
                 paymentStatus
-                paymentStatusDisplay
+                paymentStatMXNisplay
             }
             errors {
                 field
@@ -1507,7 +1507,7 @@ def test_order_void(
     data = content["data"]["orderVoid"]["order"]
     assert data["paymentStatus"] == PaymentChargeStatusEnum.NOT_CHARGED.name
     payment_status_display = dict(ChargeStatus.CHOICES).get(ChargeStatus.NOT_CHARGED)
-    assert data["paymentStatusDisplay"] == payment_status_display
+    assert data["paymentStatMXNisplay"] == payment_status_display
     event_payment_voided = order.events.last()
     assert event_payment_voided.type == order_events.OrderEvents.PAYMENT_VOIDED
     assert event_payment_voided.user == staff_user
@@ -1540,7 +1540,7 @@ def test_order_refund(staff_api_client, permission_manage_orders, payment_txn_ca
             orderRefund(id: $id, amount: $amount) {
                 order {
                     paymentStatus
-                    paymentStatusDisplay
+                    paymentStatMXNisplay
                     isPaid
                     status
                 }
@@ -1559,7 +1559,7 @@ def test_order_refund(staff_api_client, permission_manage_orders, payment_txn_ca
     assert data["status"] == order.status.upper()
     assert data["paymentStatus"] == PaymentChargeStatusEnum.FULLY_REFUNDED.name
     payment_status_display = dict(ChargeStatus.CHOICES).get(ChargeStatus.FULLY_REFUNDED)
-    assert data["paymentStatusDisplay"] == payment_status_display
+    assert data["paymentStatMXNisplay"] == payment_status_display
     assert data["isPaid"] is False
 
     order_event = order.events.last()
@@ -1840,7 +1840,7 @@ def test_orders_total(staff_api_client, permission_manage_orders, order_with_lin
     )
     content = get_graphql_content(response)
     amount = str(content["data"]["ordersTotal"]["gross"]["amount"])
-    assert Money(amount, "USD") == order_with_lines.total.gross
+    assert Money(amount, "MXN") == order_with_lines.total.gross
 
 
 def test_order_by_token_query(api_client, order):

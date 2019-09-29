@@ -21,7 +21,7 @@ from saleor.payment.utils import create_payment_information
 
 TRANSACTION_AMOUNT = Decimal(42.42)
 TRANSACTION_REFUND_AMOUNT = Decimal(24.24)
-TRANSACTION_CURRENCY = "USD"
+TRANSACTION_CURRENCY = "MXN"
 PAYMENT_METHOD_CARD_SIMPLE = "pm_card_pl"
 CARD_SIMPLE_DETAILS = CreditCardInfo(
     last_4="0005", exp_year=2020, exp_month=8, brand="visa"

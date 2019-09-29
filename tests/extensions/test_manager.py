@@ -233,7 +233,7 @@ def test_manager_apply_taxes_to_product(product, plugins, price):
 def test_manager_apply_taxes_to_shipping(
     shipping_method, address, plugins, price_amount
 ):
-    expected_price = Money(price_amount, "USD")
+    expected_price = Money(price_amount, "MXN")
     taxed_price = ExtensionsManager(plugins=plugins).apply_taxes_to_shipping(
         shipping_method.price, address
     )

@@ -344,16 +344,16 @@ def test_products_query_with_filter(
     product,
     permission_manage_products,
 ):
-    assert product.price == Money("10.00", "USD")
-    assert product.minimal_variant_price == Money("10.00", "USD")
+    assert product.price == Money("10.00", "MXN")
+    assert product.minimal_variant_price == Money("10.00", "MXN")
     assert product.is_published is True
     assert "Juice1" not in product.name
 
     second_product = product
     second_product.id = None
     second_product.name = "Apple Juice1"
-    second_product.price = Money("6.00", "USD")
-    second_product.minimal_variant_price = Money("1.99", "USD")
+    second_product.price = Money("6.00", "MXN")
+    second_product.minimal_variant_price = Money("1.99", "MXN")
     second_product.is_published = products_filter.get("isPublished", True)
     second_product.save()
 
@@ -372,13 +372,13 @@ def test_products_query_with_filter(
 def test_product_query_search(user_api_client, product_type, category):
     blue_product = Product.objects.create(
         name="Blue Paint",
-        price=Money("10.00", "USD"),
+        price=Money("10.00", "MXN"),
         product_type=product_type,
         category=category,
     )
     Product.objects.create(
         name="Red Paint",
-        price=Money("10.00", "USD"),
+        price=Money("10.00", "MXN"),
         product_type=product_type,
         category=category,
     )
@@ -593,15 +593,15 @@ def test_filter_products_by_collections(user_api_client, collection, product):
 
 def test_sort_products(user_api_client, product):
     # set price and update date of the first product
-    product.price = Money("10.00", "USD")
-    product.minimal_variant_price = Money("10.00", "USD")
+    product.price = Money("10.00", "MXN")
+    product.minimal_variant_price = Money("10.00", "MXN")
     product.updated_at = datetime.utcnow()
     product.save()
 
     # Create the second product with higher price and date
     product.pk = None
-    product.price = Money("20.00", "USD")
-    product.minimal_variant_price = Money("20.00", "USD")
+    product.price = Money("20.00", "MXN")
+    product.minimal_variant_price = Money("20.00", "MXN")
     product.updated_at = datetime.utcnow()
     product.save()
 
@@ -1989,10 +1989,10 @@ def test_product_variant_price(
 ):
     # Set price override on variant that is different than product price
     product = variant.product
-    product.price = Money(amount=product_price, currency="USD")
+    product.price = Money(amount=product_price, currency="MXN")
     product.save()
     if variant_override is not None:
-        product.variants.update(price_override_amount=variant_override, currency="USD")
+        product.variants.update(price_override_amount=variant_override, currency="MXN")
     else:
         product.variants.update(price_override_amount=None)
     # Drop other variants

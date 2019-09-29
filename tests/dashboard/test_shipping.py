@@ -90,9 +90,9 @@ def test_price_shipping_method_form(shipping_method, min_price, max_price, resul
         "name": "Name",
         "price": 10,
         "minimum_order_price_0": min_price,
-        "minimum_order_price_1": "USD",
+        "minimum_order_price_1": "MXN",
         "maximum_order_price_0": max_price,
-        "maximum_order_price_1": "USD",
+        "maximum_order_price_1": "MXN",
     }
     form = PriceShippingMethodForm(data=data, instance=shipping_method)
     assert form.is_valid() == result
@@ -112,7 +112,7 @@ def test_weight_shipping_method_form(min_weight, max_weight, result):
     data = {
         "name": "Name",
         "price_0": 10,
-        "price_1": "USD",
+        "price_1": "MXN",
         "minimum_order_weight": min_weight,
         "maximum_order_weight": max_weight,
     }
@@ -187,7 +187,7 @@ def test_shipping_method_add(admin_client, shipping_zone):
     data = {
         "name": "DHL",
         "price_0": "50",
-        "price_1": "USD",
+        "price_1": "MXN",
         "shipping_zone": shipping_zone.pk,
         "type": ShippingMethodType.PRICE_BASED,
     }
@@ -211,7 +211,7 @@ def test_shipping_method_add_not_valid(admin_client, shipping_zone):
 def test_shipping_method_edit(admin_client, shipping_zone):
     assert ShippingMethod.objects.count() == 1
     country = shipping_zone.shipping_methods.all()[0]
-    assert country.price == Money(10, "USD")
+    assert country.price == Money(10, "MXN")
     url = reverse(
         "dashboard:shipping-method-edit",
         kwargs={"shipping_zone_pk": shipping_zone.pk, "shipping_method_pk": country.pk},
@@ -219,7 +219,7 @@ def test_shipping_method_edit(admin_client, shipping_zone):
     data = {
         "name": "DHL",
         "price_0": "50",
-        "price_1": "USD",
+        "price_1": "MXN",
         "shipping_zone": shipping_zone.pk,
         "type": ShippingMethodType.PRICE_BASED,
     }
@@ -228,7 +228,7 @@ def test_shipping_method_edit(admin_client, shipping_zone):
     assert ShippingMethod.objects.count() == 1
 
     shipping_price = shipping_zone.shipping_methods.only("price").first().price
-    assert shipping_price == Money(50, "USD")
+    assert shipping_price == Money(50, "MXN")
 
 
 def test_shipping_method_delete(admin_client, shipping_zone):

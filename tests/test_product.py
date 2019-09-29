@@ -734,7 +734,7 @@ def test_get_price(
     product = models.Product.objects.create(
         product_type=product_type,
         category=category,
-        price=Money(Decimal("15.00"), "USD"),
+        price=Money(Decimal("15.00"), "MXN"),
     )
     variant = product.variants.create()
 
@@ -747,49 +747,49 @@ def test_product_get_price_variant_has_no_price(product_type, category, site_set
     site_settings.include_taxes_in_prices = False
     site_settings.save()
     product = models.Product.objects.create(
-        product_type=product_type, category=category, price=Money("10.00", "USD")
+        product_type=product_type, category=category, price=Money("10.00", "MXN")
     )
     variant = product.variants.create()
 
     price = variant.get_price()
 
-    assert price == Money("10.00", "USD")
+    assert price == Money("10.00", "MXN")
 
 
 def test_product_get_price_variant_with_price(product_type, category):
     product = models.Product.objects.create(
-        product_type=product_type, category=category, price=Money("10.00", "USD")
+        product_type=product_type, category=category, price=Money("10.00", "MXN")
     )
-    variant = product.variants.create(price_override=Money("20.00", "USD"))
+    variant = product.variants.create(price_override=Money("20.00", "MXN"))
 
     price = variant.get_price()
 
-    assert price == Money("20.00", "USD")
+    assert price == Money("20.00", "MXN")
 
 
 def test_product_get_price_range_with_variants(product_type, category):
     product = models.Product.objects.create(
-        product_type=product_type, category=category, price=Money("15.00", "USD")
+        product_type=product_type, category=category, price=Money("15.00", "MXN")
     )
     product.variants.create(sku="1")
-    product.variants.create(sku="2", price_override=Money("20.00", "USD"))
-    product.variants.create(sku="3", price_override=Money("11.00", "USD"))
+    product.variants.create(sku="2", price_override=Money("20.00", "MXN"))
+    product.variants.create(sku="3", price_override=Money("11.00", "MXN"))
 
     price = product.get_price_range()
 
-    start = Money("11.00", "USD")
-    stop = Money("20.00", "USD")
+    start = Money("11.00", "MXN")
+    stop = Money("20.00", "MXN")
     assert price == MoneyRange(start=start, stop=stop)
 
 
 def test_product_get_price_range_no_variants(product_type, category):
     product = models.Product.objects.create(
-        product_type=product_type, category=category, price=Money("10.00", "USD")
+        product_type=product_type, category=category, price=Money("10.00", "MXN")
     )
 
     price = product.get_price_range()
 
-    expected_price = Money("10.00", "USD")
+    expected_price = Money("10.00", "MXN")
     assert price == MoneyRange(start=expected_price, stop=expected_price)
 
 
@@ -797,14 +797,14 @@ def test_product_get_price_do_not_charge_taxes(product_type, category, discount_
     product = models.Product.objects.create(
         product_type=product_type,
         category=category,
-        price=Money("10.00", "USD"),
+        price=Money("10.00", "MXN"),
         charge_taxes=False,
     )
     variant = product.variants.create()
 
     price = variant.get_price(discounts=[discount_info])
 
-    assert price == Money("5.00", "USD")
+    assert price == Money("5.00", "MXN")
 
 
 def test_product_get_price_range_do_not_charge_taxes(
@@ -813,13 +813,13 @@ def test_product_get_price_range_do_not_charge_taxes(
     product = models.Product.objects.create(
         product_type=product_type,
         category=category,
-        price=Money("10.00", "USD"),
+        price=Money("10.00", "MXN"),
         charge_taxes=False,
     )
 
     price = product.get_price_range(discounts=[discount_info])
 
-    expected_price = MoneyRange(start=Money("5.00", "USD"), stop=Money("5.00", "USD"))
+    expected_price = MoneyRange(start=Money("5.00", "MXN"), stop=Money("5.00", "MXN"))
     assert price == expected_price
 
 
@@ -828,7 +828,7 @@ def test_variant_base_price(product, price_override):
     variant = product.variants.get()
     assert variant.base_price == product.price
 
-    variant.price_override = Money(price_override, "USD")
+    variant.price_override = Money(price_override, "MXN")
     variant.save()
 
     assert variant.base_price == variant.price_override
@@ -985,14 +985,14 @@ def test_digital_product_view_url_expired(client, digital_content):
 
 def test_variant_picker_data_price_range(product_type, category):
     product = models.Product.objects.create(
-        product_type=product_type, category=category, price=Money("15.00", "USD")
+        product_type=product_type, category=category, price=Money("15.00", "MXN")
     )
     product.variants.create(sku="1")
-    product.variants.create(sku="2", price_override=Money("20.00", "USD"))
-    product.variants.create(sku="3", price_override=Money("11.00", "USD"))
+    product.variants.create(sku="2", price_override=Money("20.00", "MXN"))
+    product.variants.create(sku="3", price_override=Money("11.00", "MXN"))
 
-    start = TaxedMoney(net=Money("11.00", "USD"), gross=Money("11.00", "USD"))
-    stop = TaxedMoney(net=Money("20.00", "USD"), gross=Money("20.00", "USD"))
+    start = TaxedMoney(net=Money("11.00", "MXN"), gross=Money("11.00", "MXN"))
+    stop = TaxedMoney(net=Money("20.00", "MXN"), gross=Money("20.00", "MXN"))
 
     picker_data = get_variant_picker_data(product, discounts=None, local_currency=None)
 
@@ -1013,7 +1013,7 @@ def test_variant_picker_data_price_range(product_type, category):
 
 
 @pytest.mark.parametrize(
-    "price, cost", [(Money("0", "USD"), Money("1", "USD")), (Money("2", "USD"), None)]
+    "price, cost", [(Money("0", "MXN"), Money("1", "MXN")), (Money("2", "MXN"), None)]
 )
 def test_costs_get_margin_for_variant(variant, price, cost):
     variant.cost_price = cost

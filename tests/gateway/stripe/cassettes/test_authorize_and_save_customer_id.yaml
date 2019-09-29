@@ -1,6 +1,6 @@
 interactions:
 - request:
-    body: payment_method=pm_card_pl&amount=9840&currency=usd&confirmation_method=manual&confirm=True&capture_method=automatic&setup_future_usage=off_session
+    body: payment_method=pm_card_pl&amount=9840&currency=MXN&confirmation_method=manual&confirm=True&capture_method=automatic&setup_future_usage=off_session
     headers:
       Accept:
       - '*/*'
@@ -40,7 +40,7 @@ interactions:
         \        \"postal_code\": null,\n            \"state\": null\n          },\n\
         \          \"email\": null,\n          \"name\": null,\n          \"phone\"\
         : null\n        },\n        \"captured\": true,\n        \"created\": 1565615081,\n\
-        \        \"currency\": \"usd\",\n        \"customer\": null,\n        \"description\"\
+        \        \"currency\": \"MXN\",\n        \"customer\": null,\n        \"description\"\
         : null,\n        \"destination\": null,\n        \"dispute\": null,\n    \
         \    \"failure_code\": null,\n        \"failure_message\": null,\n       \
         \ \"fraud_details\": {\n        },\n        \"invoice\": null,\n        \"\
@@ -72,7 +72,7 @@ interactions:
         \    \"url\": \"/v1/charges?payment_intent=pi_1F6dCXIUmJaD6OqvYV4sLW9U\"\n\
         \  },\n  \"client_secret\": \"pi_1F6dCXIUmJaD6OqvYV4sLW9U_secret_8Y3cK3xVMLMDoEPrdc27csqzz\"\
         ,\n  \"confirmation_method\": \"manual\",\n  \"created\": 1565615081,\n  \"\
-        currency\": \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"\
+        currency\": \"MXN\",\n  \"customer\": null,\n  \"description\": null,\n  \"\
         invoice\": null,\n  \"last_payment_error\": null,\n  \"livemode\": false,\n\
         \  \"metadata\": {\n  },\n  \"next_action\": null,\n  \"on_behalf_of\": null,\n\
         \  \"payment_method\": \"pm_1F6dCWIUmJaD6OqvCtcAnPSq\",\n  \"payment_method_options\"\

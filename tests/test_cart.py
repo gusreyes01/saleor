@@ -253,7 +253,7 @@ def test_adding_same_variant(checkout, product):
     add_variant_to_checkout(checkout, variant, 2)
     assert len(checkout) == 1
     assert checkout.quantity == 3
-    subtotal = Money("30.00", "USD")
+    subtotal = Money("30.00", "MXN")
     assert checkout.get_subtotal() == subtotal
 
 
@@ -705,13 +705,13 @@ def test_get_checkout_context(checkout_with_single_item, shipping_zone, address)
         checkout, discounts=None, country_code="PL"
     )
     checkout_data = utils.get_checkout_context(
-        checkout, None, currency="USD", shipping_range=shipment_option
+        checkout, None, currency="MXN", shipping_range=shipment_option
     )
     assert checkout_data["checkout_total"] == TaxedMoney(
-        net=Money("10.00", "USD"), gross=Money("10.00", "USD")
+        net=Money("10.00", "MXN"), gross=Money("10.00", "MXN")
     )
     assert checkout_data["total_with_shipping"].start == TaxedMoney(
-        net=Money("20.00", "USD"), gross=Money("20.00", "USD")
+        net=Money("20.00", "MXN"), gross=Money("20.00", "MXN")
     )
 
 
@@ -724,11 +724,11 @@ def test_get_checkout_context_no_shipping(checkout_with_single_item, address):
         checkout, discounts=None, country_code="PL"
     )
     checkout_data = utils.get_checkout_context(
-        checkout, None, currency="USD", shipping_range=shipment_option
+        checkout, None, currency="MXN", shipping_range=shipment_option
     )
     checkout_total = checkout_data["checkout_total"]
     assert checkout_total == TaxedMoney(
-        net=Money("10.00", "USD"), gross=Money("10.00", "USD")
+        net=Money("10.00", "MXN"), gross=Money("10.00", "MXN")
     )
     assert checkout_data["total_with_shipping"].start == checkout_total
 

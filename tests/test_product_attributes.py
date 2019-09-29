@@ -16,7 +16,7 @@ from saleor.product.utils.attributes import (
 def product_with_no_attributes(product_type, category):
     product = Product.objects.create(
         name="Test product",
-        price=Money(10, "USD"),
+        price=Money(10, "MXN"),
         product_type=product_type,
         category=category,
     )

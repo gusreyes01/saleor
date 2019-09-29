@@ -52,7 +52,7 @@ def indexed_products(product_type, category):
         product = Product.objects.create(
             pk=object_id,
             name="Test product " + str(object_id),
-            price=Money(10, "USD"),
+            price=Money(10, "MXN"),
             product_type=product_type,
             category=category,
         )

@@ -36,7 +36,7 @@ def test_voucher_shipping_add(admin_client):
         "discount_value": "15.99",
         "discount_value_type": DiscountValueType.FIXED,
         "shipping-min_spent_0": "59.99",
-        "shipping-min_spent_1": "USD",
+        "shipping-min_spent_1": "MXN",
     }
     response = admin_client.post(url, data, follow=True)
     assert response.status_code == 200
@@ -50,7 +50,7 @@ def test_voucher_shipping_add(admin_client):
     assert voucher.end_date.isoformat() == "2018-06-01T05:00:00+00:00"
     assert voucher.discount_value_type == DiscountValueType.FIXED
     assert voucher.discount_value == Decimal("15.99")
-    assert voucher.min_spent == Money("59.99", "USD")
+    assert voucher.min_spent == Money("59.99", "MXN")
 
 
 def test_view_sale_add(admin_client, category, collection):
@@ -117,15 +117,15 @@ def test_value_voucher_order_discount(
         type=VoucherType.ENTIRE_ORDER,
         discount_value_type=discount_type,
         discount_value=discount_value,
-        min_spent=Money(min_spent_amount, "USD")
+        min_spent=Money(min_spent_amount, "MXN")
         if min_spent_amount is not None
         else None,
     )
-    subtotal = Money(subtotal, "USD")
+    subtotal = Money(subtotal, "MXN")
     subtotal = TaxedMoney(net=subtotal, gross=subtotal)
     order = Mock(get_subtotal=Mock(return_value=subtotal), voucher=voucher)
     discount = get_voucher_discount_for_order(order)
-    assert discount == Money(expected_value, "USD")
+    assert discount == Money(expected_value, "MXN")
 
 
 @pytest.mark.parametrize(
@@ -142,16 +142,16 @@ def test_shipping_voucher_order_discount(
         discount_value=discount_value,
         min_spent_amount=None,
     )
-    subtotal = Money(100, "USD")
+    subtotal = Money(100, "MXN")
     subtotal = TaxedMoney(net=subtotal, gross=subtotal)
-    shipping_total = Money(shipping_cost, "USD")
+    shipping_total = Money(shipping_cost, "MXN")
     order = Mock(
         get_subtotal=Mock(return_value=subtotal),
         shipping_price=shipping_total,
         voucher=voucher,
     )
     discount = get_voucher_discount_for_order(order)
-    assert discount == Money(expected_value, "USD")
+    assert discount == Money(expected_value, "MXN")
 
 
 @pytest.mark.parametrize(
@@ -178,11 +178,11 @@ def test_shipping_voucher_checkout_discount_not_applicable_returns_zero(
         discount_value_type=DiscountValueType.FIXED,
         discount_value=10,
         min_spent=(
-            Money(min_spent_amount, "USD") if min_spent_amount is not None else None
+            Money(min_spent_amount, "MXN") if min_spent_amount is not None else None
         ),
         min_checkout_items_quantity=min_checkout_items_quantity,
     )
-    price = Money(total, "USD")
+    price = Money(total, "MXN")
     price = TaxedMoney(net=price, gross=price)
     order = Mock(
         get_subtotal=Mock(return_value=price),
@@ -265,7 +265,7 @@ def test_voucher_form_min_spent_amount_is_changed_on_edit(
     }
 
     data["{}-min_spent_0".format(voucher_type)] = "800"
-    data["{}-min_spent_1".format(voucher_type)] = "USD"
+    data["{}-min_spent_1".format(voucher_type)] = "MXN"
 
     response = admin_client.post(url, data, follow=True)
 
@@ -280,4 +280,4 @@ def test_voucher_form_min_spent_amount_is_changed_on_edit(
     assert voucher.end_date.isoformat() == "2019-06-01T05:00:00+00:00"
     assert voucher.discount_value_type == DiscountValueType.FIXED
     assert voucher.discount_value == Decimal("15.99")
-    assert voucher.min_spent == Money(800, "USD")
+    assert voucher.min_spent == Money(800, "MXN")

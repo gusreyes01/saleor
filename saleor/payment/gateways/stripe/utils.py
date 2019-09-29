@@ -32,7 +32,7 @@ ZERO_DECIMAL_CURRENCIES = [
 def get_amount_for_stripe(amount, currency):
     """Get appropriate amount for stripe.
 
-    Stripe is using currency's smallest unit such as cents for USD and
+    Stripe is using currency's smallest unit such as cents for MXN and
     stripe requires integer instead of decimal, so multiplying by 100
     and converting to integer is required. But for zero-decimal currencies,
     multiplying by 100 is not needed.

@@ -73,7 +73,7 @@ def test_variant_availability_status(unavailable_product):
 
 
 def test_availability(product, monkeypatch, settings):
-    taxed_price = TaxedMoney(Money("10.0", "USD"), Money("12.30", "USD"))
+    taxed_price = TaxedMoney(Money("10.0", "MXN"), Money("12.30", "MXN"))
     monkeypatch.setattr(
         ExtensionsManager, "apply_taxes_to_product", Mock(return_value=taxed_price)
     )

@@ -382,7 +382,7 @@ msgstr ""
 
 #: saleor/dashboard/discount/filters.py:38
 msgctxt "Sale type filter choice"
-msgid "USD"
+msgid "MXN"
 msgstr ""
 
 #: saleor/dashboard/discount/filters.py:39

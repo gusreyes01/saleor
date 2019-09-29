@@ -46,7 +46,7 @@ def checkout_with_charged_payment(checkout_with_billing_address):
         gateway=settings.DUMMY,
         is_active=True,
         total=taxed_total.gross.amount,
-        currency="USD",
+        currency="MXN",
     )
 
     payment.charge_status = ChargeStatus.FULLY_CHARGED
@@ -491,7 +491,7 @@ def test_checkout_payment_charge(
         "checkoutId": Node.to_global_id("Checkout", checkout_with_billing_address.pk),
         "input": {
             "billingAddress": graphql_address_data,
-            "amount": 1000,  # 10.00 USD * 100
+            "amount": 1000,  # 10.00 MXN * 100
             "gateway": settings.DUMMY.upper(),
             "token": "charged",
         },

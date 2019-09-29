@@ -101,7 +101,7 @@ def test_get_variant_pricing_not_on_sale(api_client, product):
 
 
 def test_variant_pricing(variant: ProductVariant, monkeypatch, settings):
-    taxed_price = TaxedMoney(Money("10.0", "USD"), Money("12.30", "USD"))
+    taxed_price = TaxedMoney(Money("10.0", "MXN"), Money("12.30", "MXN"))
     monkeypatch.setattr(
         ExtensionsManager, "apply_taxes_to_product", Mock(return_value=taxed_price)
     )

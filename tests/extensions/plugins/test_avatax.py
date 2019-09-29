@@ -79,7 +79,7 @@ def test_calculate_checkout_line_total(
     total = manager.calculate_checkout_line_total(line, discounts)
     total = quantize_price(total, total.currency)
     assert total == TaxedMoney(
-        net=Money(expected_net, "USD"), gross=Money(expected_gross, "USD")
+        net=Money(expected_net, "MXN"), gross=Money(expected_gross, "MXN")
     )
 
 
@@ -121,7 +121,7 @@ def test_calculate_checkout_total(
     site_settings.company_address = address_usa
     site_settings.include_taxes_in_prices = taxes_in_prices
 
-    voucher_amount = Money(voucher_amount, "USD")
+    voucher_amount = Money(voucher_amount, "MXN")
     checkout_with_item.shipping_method = shipping_zone.shipping_methods.get()
     checkout_with_item.discount = voucher_amount
     checkout_with_item.save()
@@ -134,7 +134,7 @@ def test_calculate_checkout_total(
     total = manager.calculate_checkout_total(checkout_with_item, discounts)
     total = quantize_price(total, total.currency)
     assert total == TaxedMoney(
-        net=Money(expected_net, "USD"), gross=Money(expected_gross, "USD")
+        net=Money(expected_net, "MXN"), gross=Money(expected_gross, "MXN")
     )
 
 
@@ -168,7 +168,7 @@ def test_calculate_checkout_shipping(
     )
     shipping_price = quantize_price(shipping_price, shipping_price.currency)
     assert shipping_price == TaxedMoney(
-        net=Money("8.13", "USD"), gross=Money("10.00", "USD")
+        net=Money("8.13", "MXN"), gross=Money("10.00", "MXN")
     )
 
 
@@ -218,7 +218,7 @@ def test_calculate_checkout_subtotal(
     total = manager.calculate_checkout_subtotal(checkout_with_item, discounts)
     total = quantize_price(total, total.currency)
     assert total == TaxedMoney(
-        net=Money(expected_net, "USD"), gross=Money(expected_gross, "USD")
+        net=Money(expected_net, "MXN"), gross=Money(expected_gross, "MXN")
     )
 
 
@@ -242,7 +242,7 @@ def test_calculate_order_shipping(
 
     price = manager.calculate_order_shipping(order)
     price = quantize_price(price, price.currency)
-    assert price == TaxedMoney(net=Money("8.13", "USD"), gross=Money("10.00", "USD"))
+    assert price == TaxedMoney(net=Money("8.13", "MXN"), gross=Money("10.00", "MXN"))
 
 
 @pytest.mark.vcr
@@ -255,7 +255,7 @@ def test_calculate_order_line_unit(
 
     manager = get_extensions_manager(plugins=settings.PLUGINS)
     order_line.unit_price = TaxedMoney(
-        net=Money("10.00", "USD"), gross=Money("10.00", "USD")
+        net=Money("10.00", "MXN"), gross=Money("10.00", "MXN")
     )
     order_line.save()
 
@@ -272,7 +272,7 @@ def test_calculate_order_line_unit(
     line_price = manager.calculate_order_line_unit(order_line)
     line_price = quantize_price(line_price, line_price.currency)
     assert line_price == TaxedMoney(
-        net=Money("8.13", "USD"), gross=Money("10.00", "USD")
+        net=Money("8.13", "MXN"), gross=Money("10.00", "MXN")
     )
 
 

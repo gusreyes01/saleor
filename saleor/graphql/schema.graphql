@@ -1387,7 +1387,7 @@ type Fulfillment implements Node {
   trackingNumber: String!
   shippingDate: DateTime!
   lines: [FulfillmentLine]
-  statusDisplay: String
+  statMXNisplay: String
 }
 
 type FulfillmentCancel {
@@ -2034,11 +2034,11 @@ type Order implements Node {
   number: String
   isPaid: Boolean
   paymentStatus: PaymentChargeStatusEnum
-  paymentStatusDisplay: String
+  paymentStatMXNisplay: String
   payments: [Payment]
   total: TaxedMoney
   subtotal: TaxedMoney
-  statusDisplay: String
+  statMXNisplay: String
   canFinalize: Boolean!
   totalAuthorized: Money
   totalCaptured: Money

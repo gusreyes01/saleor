@@ -50,7 +50,7 @@ type_schema = {
 
 
 def test_format_money():
-    money = Money("123.99", "USD")
+    money = Money("123.99", "MXN")
     assert format_money(money) == "$123.99"
 
 
@@ -93,7 +93,7 @@ def test_get_client_ip(ip_address, expected_ip):
 
 @pytest.mark.parametrize(
     "country, expected_currency",
-    [(Country("PL"), "PLN"), (Country("US"), "USD"), (Country("GB"), "GBP")],
+    [(Country("PL"), "PLN"), (Country("US"), "MXN"), (Country("GB"), "GBP")],
 )
 def test_get_currency_for_country(country, expected_currency, monkeypatch):
     currency = get_currency_for_country(country)

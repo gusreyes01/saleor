@@ -150,9 +150,9 @@ def test_view_product_list_pagination_with_filters(
 
 
 def test_view_product_details(admin_client, product):
-    price = TaxedMoney(net=Money(10, "USD"), gross=Money(10, "USD"))
+    price = TaxedMoney(net=Money(10, "MXN"), gross=Money(10, "MXN"))
     sale_price = TaxedMoneyRange(start=price, stop=price)
-    purchase_cost = MoneyRange(start=Money(1, "USD"), stop=Money(1, "USD"))
+    purchase_cost = MoneyRange(start=Money(1, "MXN"), stop=Money(1, "MXN"))
     url = reverse("dashboard:product-details", kwargs={"pk": product.pk})
 
     response = admin_client.get(url)
@@ -219,7 +219,7 @@ def test_view_product_create(admin_client, product_type, category):
         "name": "Product",
         "description": "This is product description.",
         "price_0": 10,
-        "price_1": "USD",
+        "price_1": "MXN",
         "category": category.pk,
         "variant-sku": "123",
         "variant-quantity": 2,
@@ -1151,7 +1151,7 @@ def test_product_form_sanitize_product_description(product_type, category, setti
         "<p>an <script>evil()</script>example</p>"
     )
     data["price_0"] = 20
-    data["price_1"] = "USD"
+    data["price_1"] = "MXN"
 
     form = ProductForm(data, instance=product)
     assert form.is_valid()
@@ -1175,7 +1175,7 @@ def test_product_form_seo_description(unavailable_product):
     )
     data = model_to_dict(unavailable_product)
     data["price_0"] = 20
-    data["price_1"] = "USD"
+    data["price_1"] = "MXN"
     data["description"] = "a description"
     data["seo_description"] = seo_description
 
@@ -1203,7 +1203,7 @@ def test_product_form_seo_description_too_long(unavailable_product):
 
     data = model_to_dict(unavailable_product)
     data["price_0"] = 20
-    data["price_1"] = "USD"
+    data["price_1"] = "MXN"
     data["description"] = description
 
     form = ProductForm(data, instance=unavailable_product)

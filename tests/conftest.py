@@ -116,7 +116,7 @@ def checkout_with_voucher(checkout, product, voucher):
     variant = product.variants.get()
     add_variant_to_checkout(checkout, variant, 3)
     checkout.voucher_code = voucher.code
-    checkout.discount = Money("20.00", "USD")
+    checkout.discount = Money("20.00", "MXN")
     checkout.save()
     return checkout
 
@@ -126,7 +126,7 @@ def checkout_with_voucher_percentage(checkout, product, voucher_percentage):
     variant = product.variants.get()
     add_variant_to_checkout(checkout, variant, 3)
     checkout.voucher_code = voucher_percentage.code
-    checkout.discount = Money("3.00", "USD")
+    checkout.discount = Money("3.00", "MXN")
     checkout.save()
     return checkout
 
@@ -281,9 +281,9 @@ def shipping_zone(db):  # pylint: disable=W0613
     )
     shipping_zone.shipping_methods.create(
         name="DHL",
-        minimum_order_price=Money(0, "USD"),
+        minimum_order_price=Money(0, "MXN"),
         type=ShippingMethodType.PRICE_BASED,
-        price=Money(10, "USD"),
+        price=Money(10, "MXN"),
         shipping_zone=shipping_zone,
     )
     return shipping_zone
@@ -294,9 +294,9 @@ def shipping_zone_without_countries(db):  # pylint: disable=W0613
     shipping_zone = ShippingZone.objects.create(name="Europe", countries=[])
     shipping_zone.shipping_methods.create(
         name="DHL",
-        minimum_order_price=Money(0, "USD"),
+        minimum_order_price=Money(0, "MXN"),
         type=ShippingMethodType.PRICE_BASED,
-        price=Money(10, "USD"),
+        price=Money(10, "MXN"),
         shipping_zone=shipping_zone,
     )
     return shipping_zone
@@ -306,9 +306,9 @@ def shipping_zone_without_countries(db):  # pylint: disable=W0613
 def shipping_method(shipping_zone):
     return ShippingMethod.objects.create(
         name="DHL",
-        minimum_order_price=Money(0, "USD"),
+        minimum_order_price=Money(0, "MXN"),
         type=ShippingMethodType.PRICE_BASED,
-        price=Money(10, "USD"),
+        price=Money(10, "MXN"),
         shipping_zone=shipping_zone,
     )
 
@@ -387,7 +387,7 @@ def categories_tree(db, product_type):  # pylint: disable=W0613
 
     Product.objects.create(
         name="Test product",
-        price=Money("10.00", "USD"),
+        price=Money("10.00", "MXN"),
         product_type=product_type,
         attributes=attributes,
         category=child,
@@ -452,7 +452,7 @@ def product(product_type, category):
 
     product = Product.objects.create(
         name="Test product",
-        price=Money("10.00", "USD"),
+        price=Money("10.00", "MXN"),
         product_type=product_type,
         attributes=attributes,
         category=category,
@@ -468,7 +468,7 @@ def product(product_type, category):
         product=product,
         sku="123",
         attributes=variant_attributes,
-        cost_price=Money("1.00", "USD"),
+        cost_price=Money("1.00", "MXN"),
         quantity=10,
         quantity_allocated=1,
     )
@@ -503,7 +503,7 @@ def product_with_multiple_values_attributes(product, product_type, category) -> 
 def product_with_default_variant(product_type_without_variant, category):
     product = Product.objects.create(
         name="Test product",
-        price=Money("10.00", "USD"),
+        price=Money("10.00", "MXN"),
         product_type=product_type_without_variant,
         category=category,
     )
@@ -518,7 +518,7 @@ def variant(product):
     product_variant = ProductVariant.objects.create(
         product=product,
         sku="SKU_A",
-        cost_price=Money(1, "USD"),
+        cost_price=Money(1, "MXN"),
         quantity=5,
         quantity_allocated=3,
     )
@@ -545,7 +545,7 @@ def product_without_shipping(category):
     )
     product = Product.objects.create(
         name="Test product",
-        price=Money("10.00", "USD"),
+        price=Money("10.00", "MXN"),
         product_type=product_type,
         category=category,
     )
@@ -564,7 +564,7 @@ def product_list(product_type, category):
             Product(
                 pk=1486,
                 name="Test product 1",
-                price=Money("10.00", "USD"),
+                price=Money("10.00", "MXN"),
                 category=category,
                 product_type=product_type,
                 attributes=attributes,
@@ -573,7 +573,7 @@ def product_list(product_type, category):
             Product(
                 pk=1487,
                 name="Test product 2",
-                price=Money("20.00", "USD"),
+                price=Money("20.00", "MXN"),
                 category=category,
                 product_type=product_type,
                 attributes=attributes,
@@ -582,7 +582,7 @@ def product_list(product_type, category):
             Product(
                 pk=1489,
                 name="Test product 3",
-                price=Money("20.00", "USD"),
+                price=Money("20.00", "MXN"),
                 category=category,
                 product_type=product_type,
                 attributes=attributes,
@@ -654,7 +654,7 @@ def product_with_image(product, image, media_root):
 def unavailable_product(product_type, category):
     product = Product.objects.create(
         name="Test product",
-        price=Money("10.00", "USD"),
+        price=Money("10.00", "MXN"),
         product_type=product_type,
         is_published=False,
         category=category,
@@ -666,7 +666,7 @@ def unavailable_product(product_type, category):
 def unavailable_product_with_variant(product_type, category):
     product = Product.objects.create(
         name="Test product",
-        price=Money("10.00", "USD"),
+        price=Money("10.00", "MXN"),
         product_type=product_type,
         is_published=False,
         category=category,
@@ -682,7 +682,7 @@ def unavailable_product_with_variant(product_type, category):
         product=product,
         sku="123",
         attributes=variant_attributes,
-        cost_price=Money("1.00", "USD"),
+        cost_price=Money("1.00", "MXN"),
         quantity=10,
         quantity_allocated=1,
     )
@@ -694,7 +694,7 @@ def unavailable_product_with_variant(product_type, category):
 def product_with_images(product_type, category, media_root):
     product = Product.objects.create(
         name="Test product",
-        price=Money("10.00", "USD"),
+        price=Money("10.00", "MXN"),
         product_type=product_type,
         category=category,
     )
@@ -731,7 +731,7 @@ def voucher_specific_product_type(voucher_percentage):
 @pytest.fixture
 def voucher_with_high_min_spent_amount():
     return Voucher.objects.create(
-        code="mirumee", discount_value=10, min_spent=Money(1000000, "USD")
+        code="mirumee", discount_value=10, min_spent=Money(1000000, "MXN")
     )
 
 
@@ -769,8 +769,8 @@ def gift_card(customer_user, staff_user):
     return GiftCard.objects.create(
         code="mirumee_giftcard",
         user=customer_user,
-        initial_balance=Money(10, "USD"),
-        current_balance=Money(10, "USD"),
+        initial_balance=Money(10, "MXN"),
+        current_balance=Money(10, "MXN"),
     )
 
 
@@ -778,8 +778,8 @@ def gift_card(customer_user, staff_user):
 def gift_card_used(staff_user):
     return GiftCard.objects.create(
         code="gift_card_used",
-        initial_balance=Money(150, "USD"),
-        current_balance=Money(100, "USD"),
+        initial_balance=Money(150, "MXN"),
+        current_balance=Money(100, "MXN"),
     )
 
 
@@ -787,8 +787,8 @@ def gift_card_used(staff_user):
 def gift_card_created_by_staff(staff_user):
     return GiftCard.objects.create(
         code="mirumee_staff",
-        initial_balance=Money(5, "USD"),
-        current_balance=Money(5, "USD"),
+        initial_balance=Money(5, "MXN"),
+        current_balance=Money(5, "MXN"),
     )
 
 
@@ -796,14 +796,14 @@ def gift_card_created_by_staff(staff_user):
 def order_with_lines(order, product_type, category, shipping_zone):
     product = Product.objects.create(
         name="Test product",
-        price=Money("10.00", "USD"),
+        price=Money("10.00", "MXN"),
         product_type=product_type,
         category=category,
     )
     variant = ProductVariant.objects.create(
         product=product,
         sku="SKU_A",
-        cost_price=Money(1, "USD"),
+        cost_price=Money(1, "MXN"),
         quantity=5,
         quantity_allocated=3,
     )
@@ -822,14 +822,14 @@ def order_with_lines(order, product_type, category, shipping_zone):
 
     product = Product.objects.create(
         name="Test product 2",
-        price=Money("20.00", "USD"),
+        price=Money("20.00", "MXN"),
         product_type=product_type,
         category=category,
     )
     variant = ProductVariant.objects.create(
         product=product,
         sku="SKU_B",
-        cost_price=Money(2, "USD"),
+        cost_price=Money(2, "MXN"),
         quantity=2,
         quantity_allocated=2,
     )
@@ -1254,14 +1254,14 @@ def digital_content(category, media_root) -> DigitalContent:
     )
     product = Product.objects.create(
         name="Test digital product",
-        price=Money("10.00", "USD"),
+        price=Money("10.00", "MXN"),
         product_type=product_type,
         category=category,
     )
     product_variant = ProductVariant.objects.create(
         product=product,
         sku="SKU_554",
-        cost_price=Money(1, "USD"),
+        cost_price=Money(1, "MXN"),
         quantity=5,
         quantity_allocated=3,
     )
